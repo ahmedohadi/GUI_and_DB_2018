@@ -35,7 +35,12 @@
           <input #zipcode class="form-control" type="zipcode" id="zipcode" name="zipcode" placeholder="Change Zipcode">
         </span>
       </div>
-      <button type="submit" class="btn mt-3" [disabled]="!registrationForm.form.valid">update Account</button>
+      <div class="form-row mt-3">
+        <span class="col">
+          <input #phone class="form-control" type="phone" id="phone" name="phone" placeholder="Change Phone">
+        </span>
+      </div>
+      <button type="submit" class="btn mt-3" [disabled]="!registrationForm.form.valid">Update Account</button>
 
       <app-password-change></app-password-change>
 
