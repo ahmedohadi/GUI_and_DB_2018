@@ -6,7 +6,7 @@ export class Profile {
   lastname?: string;
   email?: string;
   password?: string;
-  isVerfied?: boolean;
+  isVerified?: boolean;
   zipcode?: number;
   candidates?: string;
   party?: string;
