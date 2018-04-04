@@ -6,6 +6,7 @@ import { LoginComponent } from './login/login.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { FormsModule } from '@angular/forms';
 import { PasswordChangeComponent } from './updateprofile/password-change/password-change.component';
+import { ProfilepageComponent } from './profilepage/profilepage.component';
 
 @NgModule({
   declarations: [
@@ -13,7 +14,8 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
     SignupComponent,
     LoginComponent,
     UpdateprofileComponent,
-    PasswordChangeComponent
+    PasswordChangeComponent,
+    ProfilepageComponent
   ],
   imports: [
     BrowserModule,
