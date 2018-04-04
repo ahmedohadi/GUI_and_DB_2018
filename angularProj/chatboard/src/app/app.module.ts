@@ -7,6 +7,7 @@ import { UpdateprofileComponent } from './updateprofile/updateprofile.component'
 import { FormsModule } from '@angular/forms';
 import { PasswordChangeComponent } from './updateprofile/password-change/password-change.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { SearchComponent } from './search/search.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
     LoginComponent,
     UpdateprofileComponent,
     PasswordChangeComponent,
-    ProfilepageComponent
+    ProfilepageComponent,
+    SearchComponent
   ],
   imports: [
     BrowserModule,
@@ -24,4 +26,4 @@ import { ProfilepageComponent } from './profilepage/profilepage.component';
   providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {}
+export class AppModule { }
