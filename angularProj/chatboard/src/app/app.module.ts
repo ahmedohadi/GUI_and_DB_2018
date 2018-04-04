@@ -11,12 +11,12 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
   declarations: [
     AppComponent,
     SignupComponent,
-    LoginComponent
+    LoginComponent,
     UpdateprofileComponent,
     PasswordChangeComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
     FormsModule
   ],
   providers: [],
