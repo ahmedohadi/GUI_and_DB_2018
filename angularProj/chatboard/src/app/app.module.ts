@@ -8,6 +8,7 @@ import { FormsModule } from '@angular/forms';
 import { PasswordChangeComponent } from './updateprofile/password-change/password-change.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
+import { UpdateIssuesComponent } from './update-issues/update-issues.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { SearchComponent } from './search/search.component';
     UpdateprofileComponent,
     PasswordChangeComponent,
     ProfilepageComponent,
-    SearchComponent
+    SearchComponent,
+    UpdateIssuesComponent
   ],
   imports: [
     BrowserModule,
