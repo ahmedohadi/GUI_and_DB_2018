@@ -12,6 +12,6 @@ export class SearchComponent implements OnInit {
   ngOnInit() {
   }
 
-  submit(){
+  submit() {
   }
 }

@@ -8,11 +8,15 @@ import { FormsModule } from '@angular/forms';
 import { PasswordChangeComponent } from './updateprofile/password-change/password-change.component';
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
+<<<<<<< HEAD
 import { Routes, RouterModule } from '@angular/router';
 // import { AuthService } from './auth/auth.service';
 import { ServerService } from './auth/server.service';
 import { HttpModule } from '@angular/http';
 // import { HttpClient } from 'selenium-webdriver/http';
+=======
+import { UpdateIssuesComponent } from './update-issues/update-issues.component';
+>>>>>>> e107b33dab93c5b7efb390e86a7e35433deac7e0
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
@@ -27,7 +31,8 @@ const appRoutes: Routes = [
     UpdateprofileComponent,
     PasswordChangeComponent,
     ProfilepageComponent,
-    SearchComponent
+    SearchComponent,
+    UpdateIssuesComponent
   ],
   imports: [
     BrowserModule,

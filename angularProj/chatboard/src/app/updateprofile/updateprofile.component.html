@@ -1,57 +1,104 @@
 <div class="profile-update">
-    <div class="container jumbotron text-center">
-      <h1 class="display-3">Chatboard</h1>
-    </div>
+  <div class="container jumbotron text-center">
+    <h1 class="display-3">Chatboard</h1>
+  </div>
 
-    <div class="container registration text-center mt-5">
-      <form #registrationForm="ngForm" class="text-center mb-3">
-        <div class="form-row">
-          <span class="col">
-            <input #firstName class="form-control" id="first-name" name="firstName" placeholder="Change First Name">
-          </span>
-          <span class="col">
-            <input #lastName class="form-control" id="last-name" name="lastName" placeholder="Change Last Name">
-          </span>
-          <span class="col">
-            <select #candidate class="form-control" id="candidacy" name="candidate">
-              <option value="" [disabled]="true" [selected]="true">Change Candidacy</option>
-              <option *ngFor="let cand of ['President','Santor','Congressman']">{{cand}}</option>
-            </select>
-          </span>
-          <span class="col">
-            <select #party class="form-control" id="party" name="party">
-              <option value="" [disabled]="true" [selected]="true">Change Party</option>
-              <option *ngFor="let party of ['Democrat','Republican','independent']">{{party}}</option>
-            </select>
-          </span>
-        </div>
-        <div class="form-row mt-3">
-          <span class="col">
-            <input #email class="form-control" id="email" name="email" placeholder="Change Email" required>
-          </span>
-        </div>
-        <div class="form-row mt-3">
-          <span class="col">
-            <input #zipcode class="form-control" type="zipcode" id="zipcode" name="zipcode" placeholder="Change Zipcode">
-          </span>
-        </div>
-        <div class="form-row mt-3">
-          <span class="col">
-            <input #phone class="form-control" type="phone" id="phone" name="phone" placeholder="Change Phone">
-          </span>
-        </div>
-        <div class="form-row mt-3">
-          <span class="col">
+  <div class="container registration text-center mt-5">
+    <form #updateform="ngForm" class="text-center mb-3">
+
+      <div class="row">
+        <div class="col-8">
+
+          <div class="form-row mt-3">
+            <span class="col">
+              <input #firstName class="form-control" id="first-name" name="firstName" placeholder="Change First Name">
+            </span>
+          </div>
+          <div class="form-row mt-3">
+            <span class="col">
+              <input #lastName class="form-control" id="last-name" name="lastName" placeholder="Change Last Name">
+            </span>
+
+          </div>
+          <div class="form-row mt-3">
+            <span class="col">
+              <input #email class="form-control" id="email" name="email" placeholder="Change Email" email required>
+            </span>
+          </div>
+          <div class="form-row mt-3">
+            <span class="col">
+              <input #zipcode class="form-control" type="zipcode" id="zipcode" name="zipcode" placeholder="Change Zipcode">
+            </span>
+          </div>
+          <div class="form-row mt-3">
+            <span class="col">
+              <input #phone class="form-control" type="phone" id="phone" name="phone" placeholder="Change Phone">
+            </span>
+          </div>
+          <div class="form-row mt-3">
+            <span class="col">
               <div #description class="form-group ">
-                  <textarea class="form-control" name="description" rows="3"  placeholder="Add New Description" required></textarea>
+                <textarea class="form-control" name="description" rows="3" placeholder="Add New Description" required></textarea>
               </div>
 
-          </span>
+            </span>
+          </div>
         </div>
-        <button type="submit" class="btn mt-3" [disabled]="!registrationForm.form.valid">Update Account</button>
 
-        <app-password-change></app-password-change>
-
+        <div class="col mt-3">
+          <div class="card h-80" style="width: 18rem;">
+            <img class="card-img-top" src="./assets/team-placeholder.jpg" alt="Card image cap">
+            <div class="card-body">
+              <h5 class="card-title">Upload Profile Picture</h5>
+            </div>
+            <div class="fileinput fileinput-new" data-provides="fileinput">
+              <span class="btn btn-default btn-file">
+                <span></span>
+                <input type="file" />
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <button type="submit" class="btn mt-3 btn-success" (click)="updateform.reset()">Update Account</button>
       </form>
-    </div>
+
+      <div>
+      
+        <div>
+        <app-password-change></app-password-change>
+       </div>
+
+        <div class="container">
+          <form #candidate="ngForm">
+          <span class="row pt-4">
+            <span class="col">
+              <select class="form-control" id="candidacy" name="candidate">
+                <option value="" [disabled]="true" [selected]="true">Change Candidacy</option>
+                <option *ngFor="let cand of ['President','Senator','Congressman']">{{cand}}</option>
+              </select>
+            </span>
+            <div class="col">
+              <select #party class="form-control" id="party" name="party">
+                <option value="" [disabled]="true" [selected]="true">Change Party</option>
+                <option *ngFor="let party of ['Democrat','Republican','independent']">{{party}}</option>
+              </select>
+            </div>
+          </span>
+          <div class="row">
+            <div class="col">
+              <div class="text-center">
+                <button type="submit" class="btn mt-3 btn-success" [disabled]="!registrationForm.form.valid">Update Political Stance</button>
+              </div>
+            </div>
+          </div>
+          </form>
+        </div>
+      </div>
+    
   </div>
+</div>
+
+<div>
+  <app-update-issues></app-update-issues>
+</div>
