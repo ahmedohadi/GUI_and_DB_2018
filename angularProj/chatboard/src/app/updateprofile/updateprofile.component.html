@@ -4,8 +4,7 @@
   </div>
 
   <div class="container registration text-center mt-5">
-    <form #registrationForm="ngForm" class="text-center mb-3">
-
+    <form #updateform="ngForm" class="text-center mb-3">
 
       <div class="row">
         <div class="col-8">
@@ -23,7 +22,7 @@
           </div>
           <div class="form-row mt-3">
             <span class="col">
-              <input #email class="form-control" id="email" name="email" placeholder="Change Email" required>
+              <input #email class="form-control" id="email" name="email" placeholder="Change Email" email required>
             </span>
           </div>
           <div class="form-row mt-3">
@@ -46,7 +45,7 @@
           </div>
         </div>
 
-        <div class="col">
+        <div class="col mt-3">
           <div class="card h-80" style="width: 18rem;">
             <img class="card-img-top" src="./assets/team-placeholder.jpg" alt="Card image cap">
             <div class="card-body">
@@ -61,17 +60,20 @@
           </div>
         </div>
       </div>
-      <button type="submit" class="btn mt-3 btn-success" [disabled]="!registrationForm.form.valid">Update Account</button>
-      <div>
+      <button type="submit" class="btn mt-3 btn-success" (click)="updateform.reset()">Update Account</button>
+      </form>
 
       <div>
+      
+        <div>
         <app-password-change></app-password-change>
-      </div>
+       </div>
 
         <div class="container">
+          <form #candidate="ngForm">
           <span class="row pt-4">
             <span class="col">
-              <select #candidate class="form-control" id="candidacy" name="candidate">
+              <select class="form-control" id="candidacy" name="candidate">
                 <option value="" [disabled]="true" [selected]="true">Change Candidacy</option>
                 <option *ngFor="let cand of ['President','Senator','Congressman']">{{cand}}</option>
               </select>
@@ -90,9 +92,10 @@
               </div>
             </div>
           </div>
+          </form>
         </div>
       </div>
-    </form>
+    
   </div>
 </div>
 
