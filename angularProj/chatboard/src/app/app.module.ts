@@ -9,6 +9,7 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
 import { UpdateIssuesComponent } from './update-issues/update-issues.component';
+import { NavbarComponent } from './navbar/navbar.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { UpdateIssuesComponent } from './update-issues/update-issues.component';
     PasswordChangeComponent,
     ProfilepageComponent,
     SearchComponent,
-    UpdateIssuesComponent
+    UpdateIssuesComponent,
+    NavbarComponent
   ],
   imports: [
     BrowserModule,
