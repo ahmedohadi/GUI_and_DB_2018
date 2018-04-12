@@ -1,0 +1,110 @@
+<body>
+  <div class="container rounded w-50" id="bodybg"> <!-- pageContainer -->
+    <div class="row mt-2"> <!-- signUp_header -->
+      <div class="col text-center">
+        <h4>Sign Up</h4>
+      </div>
+    </div> <!-- signUp_header -->
+    <!-- sign up body -->
+    <div class="container">
+      <div class="row">
+        <div class="col">
+        <form (ngSubmit)="addUser(f)" #f="ngForm"> <!--#f="ngForm // let me access the form object in js to see the submitted data"-->
+          <div class="form-group" ngModelGroup="personalData"> <!-- if wanted to add #userData="ngModelGroup" no need since i'm using red borders for missing data-->
+            <input class="form-control mb-2" type="text" name="firstname" id="firstname" placeholder="First Name" required ngModel>
+            <input class="form-control mb-2" type="text" name="lastname" id="lastname" placeholder="Last Name" required ngModel>
+            <input class="form-control mb-2" type="email" name="email" id="email" placeholder="Email" email required ngModel #emailAddress="ngModel">
+            <span class="help-block" *ngIf="!emailAddress.valid && emailAddress.touched">Please enter a valid email adderss!</span>
+            <input class="form-control mb-2" type="text" name="username" id="username" placeholder="User Name" required ngModel>
+            <input class="form-control mb-2" type="password" name="password" id="password" placeholder="Password" required ngModel>
+            <input class="form-control mb-2" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" required ngModel>
+          </div>
+
+          <!-- <p *ngIf="!userData.valid && userData.touched" ></p> -->
+
+          <div class="col"> <!-- for nesting-->
+            <div class="row">
+              <div class="col d-flex">
+
+                <div class="mr-5"> <!-- candidates -->
+                  <label for="candidates">
+                    <input
+                    class="form-check-input mb-2"
+                    type="checkbox"
+                    name="candidatesCheckBox"
+                    id="candidates"
+                    (change)="candidateShowHideList()"
+                    ngModel
+
+                    >Candidates?
+                  </label>
+
+                  <div class="border border-dark p-2" [hidden]="!showCandidateList"> <!-- radio container 1 -->
+                    <div class="radio" *ngFor="let candidate of candidates" ngModelGroup="candidatesRadioList">
+                      <label>
+                        <input type="radio" name="candidate" [value]="candidate" ngModel> {{candidate}}
+                      </label>
+                    </div>
+                  </div> <!-- radio container 1 -->
+                </div> <!-- candidates -->
+
+                <div class="mr-5"> <!-- party -->
+                  <label for="party">
+                    <input
+                      class="form-check-input mb-2"
+                      type="checkbox"
+                      id="party"
+                      name="partyCheckBox"
+                      (change)="partyShowHideList()"
+                      ngModel
+
+                      >Party?
+                </label>
+
+                <div class="border border-dark p-2" [hidden]="!showPartyList"> <!-- radio container 2 -->
+                    <div class="radio" *ngFor="let party of parties" ngModelGroup="partyRadioList">
+                      <label>
+                        <input type="radio" name="party" [value]="party" ngModel> {{party}}
+                      </label>
+                    </div>
+                  </div> <!-- radio container 2 -->
+                </div>  <!-- party -->
+
+
+                <div class="row justify-content-center">
+                  <div class="col">
+
+                    <button
+                    class="btn btn-primary mb-2"
+                    type="submit"
+                    id="submit"
+                    [disabled]="!f.valid"
+                    (click)="onSave()"
+                    >Sign Up</button>
+
+                  </div>
+                </div>
+
+
+              </div> <!--closing nested col-->
+
+              <div class="row ">
+                <div class="col text-center">
+                  <h6>Already signed up?</h6>
+                  <a routerLink="/login">login</a>
+
+                </div>
+              </div>
+            </div> <!--row nesting WRAPER -->
+          </div> <!-- col nesting WRAPER  -->
+
+        </form>
+
+      </div>
+
+    </div>
+  </div>
+</div> <!-- pageContainer -->
+
+
+</body>
