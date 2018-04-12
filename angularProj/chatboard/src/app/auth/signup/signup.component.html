@@ -10,7 +10,7 @@
       <div class="row">
         <div class="col">
         <form (ngSubmit)="addUser(f)" #f="ngForm"> <!--#f="ngForm // let me access the form object in js to see the submitted data"-->
-          <div class="form-group" ngModelGroup="personalData"   > <!-- if wanted to add #userData="ngModelGroup" no need since i'm using red borders for missing data-->
+          <div class="form-group" ngModelGroup="personalData"> <!-- if wanted to add #userData="ngModelGroup" no need since i'm using red borders for missing data-->
             <input class="form-control mb-2" type="text" name="firstname" id="firstname" placeholder="First Name" required ngModel>
             <input class="form-control mb-2" type="text" name="lastname" id="lastname" placeholder="Last Name" required ngModel>
             <input class="form-control mb-2" type="email" name="email" id="email" placeholder="Email" email required ngModel #emailAddress="ngModel">
@@ -32,7 +32,7 @@
                     class="form-check-input mb-2"
                     type="checkbox"
                     name="candidatesCheckBox"
-                    id="office"
+                    id="candidates"
                     (change)="candidateShowHideList()"
                     ngModel
 

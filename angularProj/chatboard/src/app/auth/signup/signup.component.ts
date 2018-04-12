@@ -20,9 +20,13 @@ users = [
     email: '',
     username: '',
     password: '',
-    zipcode: ''
-  },
+    zipcode: '',
+    candidates: [],
+    parties: []
+  }
 ];
+
+
 
 
   showCandidateList: Boolean;
@@ -40,6 +44,8 @@ users = [
       username: this.signupForm.value.personalData.username,
       password: this.signupForm.value.personalData.password,
       zipcode: this.signupForm.value.personalData.firstname,
+      candidates: this.signupForm.value.candidatesRadioList.candidate,
+      parties: this.signupForm.value.partyRadioList.party
     });
     console.log(form);
   }
