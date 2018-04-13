@@ -20,10 +20,11 @@ import { DisscussionComponent } from './disscussion/disscussion.component';
 
 
 const appRoutes: Routes = [
+  { path: '', redirectTo: '/home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
+  { path: 'home', component: DisscussionComponent}, 
   { path: 'update', component: UpdateprofileComponent },
-  { path: 'home', component: DisscussionComponent },
   { path: 'profile', component: ProfilepageComponent },
   { path: 'search', component: SearchComponent }
 ];
