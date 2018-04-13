@@ -2,26 +2,33 @@
 
   <nav class="my-navbar navbar navbar-dark" style="background-color: #96d177 ;">
 
-      <a class="navbar-brand" href="#">
+      <a class="navbar-brand"  routerLink="/home" routerLinkActive="active">
+      
         <img src="assets/4.png" width="350" height="90" alt="">
       </a>
 
       <ul class="nav justify-content-end ">
           <li class="nav-item">
-              <a class="nav-link active text-dark" href="#">Home</a>
+              <a class="nav-link text-dark" routerLink="/home" >Home</a>
           </li>
           <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Search</a>
+              <a class="nav-link text-dark" routerLink="/search">Search</a>
           </li>
+
           <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Profile</a>
+              <a class="nav-link text-dark" href="/">Voting locations</a>
           </li>
-          <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Update profile</a>
-          </li>
-          <li class="nav-item">
-              <a class="nav-link text-dark" href="#">Sign out</a>
-          </li>
+          <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle text-dark" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                  My Account
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" routerLink="/profile">View Profile</a>
+                    <a class="dropdown-item" routerLink="/update">Update Profile</a>
+                    <a class="dropdown-item" href="#">Logout</a>
+                </div>
+            </li>
 
       </ul>
   </nav>

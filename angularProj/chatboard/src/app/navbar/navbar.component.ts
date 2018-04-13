@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
 
 @Component({
   selector: 'app-navbar',

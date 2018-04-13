@@ -16,12 +16,16 @@ import { HttpModule } from '@angular/http';
 
 import { UpdateIssuesComponent } from './update-issues/update-issues.component';
 import { NavbarComponent } from './navbar/navbar.component';
+import { DisscussionComponent } from './disscussion/disscussion.component';
 
 
 const appRoutes: Routes = [
   { path: 'signup', component: SignupComponent },
-  { path: 'login', component: LoginComponent }
-
+  { path: 'login', component: LoginComponent },
+  { path: 'update', component: UpdateprofileComponent },
+  { path: 'home', component: DisscussionComponent },
+  { path: 'profile', component: ProfilepageComponent },
+  { path: 'search', component: SearchComponent }
 ];
 @NgModule({
   declarations: [
@@ -33,7 +37,8 @@ const appRoutes: Routes = [
     ProfilepageComponent,
     SearchComponent,
     UpdateIssuesComponent,
-    NavbarComponent
+    NavbarComponent,
+    DisscussionComponent
   ],
   imports: [
     BrowserModule,
