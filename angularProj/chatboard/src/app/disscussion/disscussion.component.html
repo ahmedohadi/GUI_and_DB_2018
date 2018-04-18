@@ -1,3 +1,49 @@
-<p>
-  in chat board
-  </p>
+<div class="container">
+  <div class="row">
+    <div class="col">
+
+      <form (onSubmit)="storePosts(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
+        <div class="from-group">
+
+          <button
+          class="btn btn-primary mt-2 mb-2"
+          type="submit"
+          id="submit"
+          (click)="storePosts(); postsArr.userPosts = '' "
+          [disabled]="!f.valid"
+
+          >Add Post</button>
+
+          <textarea
+          class="form-control mb-2"
+          name="newPost"
+          placeholder="Write your post here"
+          required
+          ngModel
+
+
+
+          ></textarea>
+
+
+          <div class="from-group " *ngFor="let post of postsArr">
+              <ul class="list-group">
+                <li class="list-group-item">{{ post.userPosts }}</li>
+              </ul>
+
+              <div class="from-group">
+                <a href="#" class="">Add Comment</a>
+              </div>
+          </div>
+
+
+        </div>
+      </form>
+
+
+
+
+
+    </div><!--col-->
+  </div> <!--row-->
+</div> <!--container-->
