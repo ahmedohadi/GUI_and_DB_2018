@@ -19,6 +19,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { DisscussionComponent } from './disscussion/disscussion.component';
 import { HomeComponent } from './home/home.component';
 import { VotingLocationsComponent } from './voting-locations/voting-locations.component';
+import { SearchLocationPipe } from './domain/search-location.pipe';
+import { LocationListComponent } from './voting-locations/location-list/location-list.component';
+import { LocationDetailsComponent } from './voting-locations/location-details/location-details.component';
+import { HttpClientModule } from '@angular/common/http';
 
 
 const appRoutes: Routes = [
@@ -33,7 +37,6 @@ const appRoutes: Routes = [
       { path: 'profile', component: ProfilepageComponent },
       { path: 'chat', component: DisscussionComponent },
       { path: 'locations', component: VotingLocationsComponent },
-
     ]
 },
   { path: '**', component: HomeComponent }
@@ -52,13 +55,17 @@ const appRoutes: Routes = [
     NavbarComponent,
     DisscussionComponent,
     HomeComponent,
-    VotingLocationsComponent
+    VotingLocationsComponent,
+    SearchLocationPipe,
+    LocationListComponent,
+    LocationDetailsComponent
   ],
   imports: [
     BrowserModule,
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
+    HttpClientModule
   ],
   exports: [
     RouterModule

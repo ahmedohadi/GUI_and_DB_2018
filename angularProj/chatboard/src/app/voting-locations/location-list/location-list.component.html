@@ -1,0 +1,11 @@
+
+  <div class="media">
+    <img class="mr-3 rounded align-self-center img-fluid"
+      style="width:70px;" [src]="'assets/location.png'" alt="{{ 'Photo of ' + location.locationName }}">
+    <div class="media-body align-self-center">
+        <h5 class="mr-0">{{ location.locationName }}</h5>
+        <p>{{location.info}}</p>
+        <p>{{location.hours}}</p>
+        <p> {{ location.address }}</p>
+        <p> {{ location.zipcode }}</p>
+  </div>
