@@ -9,52 +9,37 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
 import { Routes, RouterModule } from '@angular/router';
-// import { AuthService } from './auth/auth.service';
+//import { AuthService } from './auth/auth.service';
 import { ServerService } from './auth/server.service';
 import { HttpModule } from '@angular/http';
-// import { HttpClient } from 'selenium-webdriver/http';
+import { HttpClient } from 'selenium-webdriver/http';
 import { PostService } from './disscussion/post.service';
-// import { UpdateIssuesComponent } from './update-issues/update-issues.component';
-// import { NavbarComponent } from './navbar/navbar.component';
+import { UpdateIssuesComponent } from './update-issues/update-issues.component';
+import { NavbarComponent } from './navbar/navbar.component';
 import { DisscussionComponent } from './disscussion/disscussion.component';
-<<<<<<< HEAD
-// import { HomeComponent } from './home/home.component';
-// import { VotingLocationsComponent } from './voting-locations/voting-locations.component';
-=======
 import { HomeComponent } from './home/home.component';
 import { VotingLocationsComponent } from './voting-locations/voting-locations.component';
 import { SearchLocationPipe } from './domain/search-location.pipe';
 import { LocationListComponent } from './voting-locations/location-list/location-list.component';
 import { LocationDetailsComponent } from './voting-locations/location-details/location-details.component';
 import { HttpClientModule } from '@angular/common/http';
->>>>>>> 129dd837b7359d732aad5075f263958f0fb8e790
-
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  // { path: 'home', component: HomeComponent,
-    // children:
+  { path: 'home', component: HomeComponent,
+      children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'update', component: UpdateprofileComponent },
       { path: 'search', component: SearchComponent },
       { path: 'profile', component: ProfilepageComponent },
       { path: 'chat', component: DisscussionComponent },
-<<<<<<< HEAD
-      // { path: 'locations', component: VotingLocationsComponent },
-
-  ];
-// },
-//   { path: '**', component: HomeComponent }
-// ];
-=======
       { path: 'locations', component: VotingLocationsComponent },
     ]
 },
   { path: '**', component: HomeComponent }
 ];
->>>>>>> 129dd837b7359d732aad5075f263958f0fb8e790
 
 @NgModule({
   declarations: [
@@ -65,19 +50,14 @@ const appRoutes: Routes = [
     PasswordChangeComponent,
     ProfilepageComponent,
     SearchComponent,
-    // UpdateIssuesComponent,
-    // NavbarComponent,
+    UpdateIssuesComponent,
+    NavbarComponent,
     DisscussionComponent,
-<<<<<<< HEAD
-    // HomeComponent,
-    // VotingLocationsComponent
-=======
     HomeComponent,
     VotingLocationsComponent,
     SearchLocationPipe,
     LocationListComponent,
     LocationDetailsComponent
->>>>>>> 129dd837b7359d732aad5075f263958f0fb8e790
   ],
   imports: [
     BrowserModule,
