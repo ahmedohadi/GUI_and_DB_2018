@@ -1,0 +1,23 @@
+version: '3'
+# restarts: always
+services:
+    mysql:
+        build:
+            context: ./mysql
+        ports:
+            - "3306:3306"
+        # volumes:
+        #     - database_data:/var/lib/mysql
+            # -type: volume
+            # source: mydatavolume
+            # target: /var/lib/mysql
+            # volume:
+            #     nocopy: true
+    node:
+        build:
+            context: ./node
+        ports:
+            - "3000:3000"
+# volumes:
+#     database_data:
+    
