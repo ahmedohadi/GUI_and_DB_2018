@@ -1,3 +1,23 @@
-<p>
-  voting-locations works!
-</p>
+<!-- implimentation based on learnangualr5 custome pipe search -->
+<div class="location">
+    <span class="col">
+        <input class="form-control" type="text" [(ngModel)]="filter" placeholder="Enter a Zipcode or a Keyword">
+    </span>
+  <div class="position-absolute container" style="left: 0; z-index:10">
+      <div class="row justify-content-center">
+        <div class="col-sm-10 col-md-8 col-lg-6 col-xl-5">
+          <div class="list-group">
+            <a class="list-group-item list-group-item-action flex-column align-items-start"
+              *ngFor="let location of (locations | searchLocation: filter)"
+              (click)="showLocation(location); filter=''"
+              [style.backgroundColor]="location.highlight ? '#EEE' : '#FFF'">
+              <app-location-list [location]="location" ></app-location-list>
+            </a><!-- link -->
+          </div><!-- list-group -->
+        </div><!-- col -->
+      </div><!-- row -->
+    </div><!-- container -->
+
+    <app-location-details [location]="currentLocation"></app-location-details>
+
+  </div><!-- position -->
