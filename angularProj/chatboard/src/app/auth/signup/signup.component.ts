@@ -13,31 +13,17 @@ export class SignupComponent implements OnInit {
   parties = ['Democrat', 'Republican', 'Independent'];
 @ViewChild('f') signupForm: NgForm;
 
-users = [
-  {
-    firstname: '',
-    lastname: '',
-    email: '',
-    username: '',
-    password: '',
-    zipcode: '',
-    candidates: [],
-    parties: []
-  }
-];
+users;
 
-
-
-
-  showCandidateList: Boolean;
-  showPartyList: Boolean;
+ showCandidateList: Boolean;
+ showPartyList: Boolean;
 
   constructor(private serverService: ServerService) { // private authService: AuthService  - passed to the construct
     this.showCandidateList = false;
     this.showPartyList = false;
   }
   addUser(form: NgForm) {
-    this.users.push({
+    this.users = {
       firstname: this.signupForm.value.personalData.firstname,
       lastname: this.signupForm.value.personalData.lastname,
       email: this.signupForm.value.personalData.email,
@@ -46,7 +32,7 @@ users = [
       zipcode: this.signupForm.value.personalData.firstname,
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
-    });
+    };
     console.log(form);
   }
   onSave() {

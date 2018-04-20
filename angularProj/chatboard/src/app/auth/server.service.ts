@@ -2,13 +2,21 @@
 import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
+import { HttpClient, HttpHeaders } from "@angular/common/http";
 
 @Injectable()
 export class ServerService {
-  constructor(private http: Http) {}
+  constructor(private http: HttpClient) {}
 
-  storeUser(users: any[]) {
-    return this.http.post('https://backend-6ace2.firebaseio.com/usersData.json', users);
+  protected httpOptions  = {
+    headers: new HttpHeaders({
+      'Content-Type' : 'application/json',
+    })
+  };
+
+  //URL of docker address
+  storeUser(users: any) {
+    return this.http.post('http://127.0.0.1:3000/signup', users, this.httpOptions);
   }
 
   loginUsers(user: any[]) {
