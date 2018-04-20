@@ -10,7 +10,7 @@ export class ServerService {
 
   protected httpOptions  = {
     headers: new HttpHeaders({
-      'Content-Type' : 'application/json',
+      'Content-Type' : 'application/json'
     })
   };
 
@@ -19,8 +19,8 @@ export class ServerService {
     return this.http.post('http://127.0.0.1:3000/signup', users, this.httpOptions);
   }
 
-  loginUsers(user: any[]) {
-    return this.http.post('https://logindata-6f113.firebaseio.com/usersData.json', user);
+  loginUsers(user: any) {
+    return this.http.post('http://127.0.0.1:3000/login', user, this.httpOptions);
   }
 }
 

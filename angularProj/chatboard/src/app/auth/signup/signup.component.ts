@@ -33,21 +33,14 @@ users;
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
     };
-    console.log(form);
-  }
-  onSave() {
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    console.log(form);
   }
-
-
-
-
-
-
+  
 
   candidateShowHideList() {
     if (this.showCandidateList === false) {

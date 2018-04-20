@@ -10,29 +10,29 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 export class LoginComponent implements OnInit {
   @ViewChild('f') loginForm: NgForm;
 
-  user = [
-    {
-    username: '',
-    password: ''
-  }
-];
+  user;
 
   constructor(private serverService: ServerService) {}
 
   userLogin(form: NgForm) {
-    this.user.push({
+    this.user = {
       username: this.loginForm.value.loginData.loginName,
       password: this.loginForm.value.loginData.loginPass
-    });
-    console.log(form);
-  }
-  onLogIn() {
+    };
     this.serverService.loginUsers(this.user)
     .subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    //console.log(form);
   }
+  // onLogIn() {
+  //   this.serverService.loginUsers(this.user)
+  //   .subscribe(
+  //     (response) => console.log(response),
+  //     (error) => console.log(error)
+  //   );
+  // }
 
   ngOnInit() {
   }
