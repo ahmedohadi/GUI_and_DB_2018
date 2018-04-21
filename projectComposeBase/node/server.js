@@ -393,6 +393,95 @@ server.route({
 });
 
 
+//KYLE STUFF
+
+//add a comment to a post
+server.route({
+    method: 'POST',
+    path: '/comment/addcomment',
+    handler: function (request, reply) {
+    var id = request.payload.id;
+    var userName = request.payload.userName;
+    var body = request.payload.body;
+    var sql = "INSERT INTO Comments (id, userName, body) VALUES (" + "'" + id + "'" +", "+ "'" + userName + "'" + ", " + "'" + body + "'" +")";
+    console.log(sql);
+    connection.query(sql, function (error, results, fields){
+    if (error)
+    throw error;
+    reply('Comment added');
+    });
+    }
+    });
+    
+//get comments from a post
+server.route({
+    method: 'GET',
+    path: '/comment/getcomment/{id}',
+    handler: function (request, reply) {
+    var sql = 'SELECT * FROM Comments WHERE id = ' + request.params.id; //select all comments where comment id = incoming id
+    console.log(sql);
+    connection.query(sql, function (error, results, fields){
+    if (error) 
+    throw error;
+    reply(results);
+    });
+    }
+    });
+    
+    //get posts from the chatboard
+    server.route({
+    method: 'GET',
+    path: '/post/getpost',
+    handler: function (request, reply) {
+    connection.query('SELECT * FROM Posts', function (error, results, fields){
+    if (error) {
+    throw error;
+    }
+    reply(results);
+    });
+    }
+    });
+    
+    //add a post to the chatboard
+    server.route({
+    method: 'POST',
+    path: '/post/addpost',
+    handler: function (request, reply) {
+    var userName = request.payload.userName;
+    var body = request.payload.body;
+    var tag1 = request.payload.tag1;
+    var tag2 = request.payload.tag2;
+    var tag3 = request.payload.tag3;
+    var tag4 = request.payload.tag4;
+    var id = request.payload.id; 
+    var likes = request.payload.likes;
+    var sql = "INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) VALUES (" + "'" + userName + "'" + ", " + "'" + body + "'" + ", " + "'" + tag1 + "'" +", "+ "'" + tag2 + "'" + ", " +"'" + tag3 + "'" + ", "+ "'" + tag4 + "'" + ", " + "'" + id + "'" + ", "+"'" + likes + "'" +")";
+    console.log(sql);
+    connection.query(sql, function (error, results, fields){
+    if (error)
+    throw error;
+    reply("Post added to table");
+    });
+    }
+    });
+
+
+    server.route({
+        method: 'PUT',
+        path: '/post/addlikes/{id}',
+        handler: function (request, reply) {
+        var sql = "UPDATE Posts SET likes=likes+1 WHERE id = " + request.params.id; //WHERE POSTS ID = INCOMING ID
+        console.log(sql);
+        connection.query(sql, function (error, results, fields){
+        if (error)
+        throw error;
+        reply('Like incremented');
+        });
+        }
+        });
+
+
+
 
 
 server.start((err) => {
