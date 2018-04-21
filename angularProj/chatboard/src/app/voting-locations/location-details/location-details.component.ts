@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VotingLocation } from '../../domain/models/votingLocation';
-import { VotingLocationRepostitory } from '../../domain/votingLocation-repository';
+import { VotingLocationRepostitory } from '../../domain/votingLocation-repository.service';
 import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({

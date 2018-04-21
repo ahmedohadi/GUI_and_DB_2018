@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { VotingLocation } from './../domain/models/votingLocation';
+import { ActivatedRoute, Router } from '@angular/router';
+import {VotingLocationRepostitory } from './../domain/votingLocation-repository.service';
+
 
 @Component({
   selector: 'app-voting-locations',
@@ -20,14 +23,25 @@ export class VotingLocationsComponent implements OnInit {
     this.currentLocation = item;
   }
 
-  constructor(private http: HttpClient) {
+  constructor(
+    private http: HttpClient,
+    public votingLocationRepostitory: VotingLocationRepostitory,
+    public router: Router,
+    ) {
     this.filter = '';
+    
    }
 
-  ngOnInit(): void {
-    this.http.get<Object>('../assets/data.json').subscribe( data => {
-      this.locations = data;
-    });
-  }
+  // ngOnInit(): void {
+  //   this.http.get<Object>('../assets/data.json').subscribe( data => {
+  //     this.locations = data;
+  //   });
+  // }
 
+    ngOnInit() {
+
+    this.votingLocationRepostitory.get().subscribe(locations => {
+    this.locations = locations;
+   });
+ }
 }

@@ -14,4 +14,7 @@ export class UpdateprofileComponent implements OnInit {
   ngOnInit() {
   }
 
+  update() {
+  }
+
 }
