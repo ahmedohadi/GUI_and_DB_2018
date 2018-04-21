@@ -20,7 +20,7 @@ export class ServerService {
   }
 
   loginUsers(user: any) {
-    return this.http.post('http://127.0.0.1:3000/login', user, this.httpOptions);
+    return this.http.post('http://127.0.0.1:3000/authentication', user, this.httpOptions);
   }
 }
 

@@ -12,13 +12,20 @@
   <div class="container">
     <div class="row">
       <div class="col">
-      <form class="mt-2" (ngSubmit)="userLogin(f)" #f="ngForm">
-        <div class="form-group" ngModelGroup="loginData">
-          <input class="form-control mb-2" type="text" name="loginName" id="loginName" placeholder="User Name" ngModel>
-          <input class="form-control mb-2" type="text" name="loginPass" id="loginPass" placeholder="Password" ngModel>
-        </div>
-        <button class="btn btn-primary mb-3" type="submit" id="submit" (click)="userLogin()">Login</button>
-      </form>
+        <form name="form" class="mt-2" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+              <input type="text" class="form-control mb-2" name="username" placeholder="Username" [(ngModel)]="model.username" #username="ngModel" required />
+              <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+              <input type="password" class="form-control mb-2" name="password" placeholder="Password" [(ngModel)]="model.password" #password="ngModel" required />
+              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+          </div>
+          <div class="form-group">
+              <button class="btn btn-primary mb-3" type="submit" id="submit" [disabled]="loading" class="btn btn-primary">Login</button>
+            <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+          </div>
+        </form>
      </div>
     </div>
   </div>
@@ -27,7 +34,3 @@
     <!-- <button class="btn btn-primary mb-3" type="button" id="submit" (click)="onLogIn()">Login</button> -->
   <!-- </div> -->
 </div> <!-- Login_Window -->
-
-<!-- <footer>
-  <h6 class="text-center mt-2">Chatboard App | 2018</h6>
-</footer> -->

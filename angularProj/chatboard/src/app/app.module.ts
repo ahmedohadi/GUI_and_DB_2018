@@ -10,7 +10,10 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
 import { Routes, RouterModule } from '@angular/router';
-// import { AuthService } from './auth/auth.service';
+//import { AuthService } from './domain/services';
+import { AuthenticationService } from './domain/services/authentication.service';
+import { AlertService } from './domain/services/alert.service';
+import { UserService } from './domain/services/user.service';
 import { ServerService } from './auth/server.service';
 import { HttpModule } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
@@ -23,13 +26,17 @@ import { VotingLocationsComponent } from './voting-locations/voting-locations.co
 import { SearchLocationPipe } from './domain/search-location.pipe';
 import { LocationListComponent } from './voting-locations/location-list/location-list.component';
 import { LocationDetailsComponent } from './voting-locations/location-details/location-details.component';
-import { HttpClientModule } from '@angular/common/http';
+import { AuthGuard } from './domain/guards/auth.guard';
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { JwtInterceptor } from './domain/helpers/jwt.interceptor';
+
+
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent,
+  { path: 'home', component: HomeComponent, canActivate: [AuthGuard],
       children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'update', component: UpdateprofileComponent },
@@ -38,9 +45,9 @@ const appRoutes: Routes = [
       { path: 'chat', component: DisscussionComponent },
       { path: 'locations', component: VotingLocationsComponent },
     ]
-},
-  { path: '**', component: HomeComponent }
-];
+  },
+  { path: '**', redirectTo: '' }
+  ];
 
 @NgModule({
   declarations: [
@@ -58,6 +65,7 @@ const appRoutes: Routes = [
     VotingLocationsComponent,
     SearchLocationPipe,
     LocationListComponent,
+    //AlertComponent,
     LocationDetailsComponent
   ],
   imports: [
@@ -70,7 +78,20 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [ServerService, PostService, VotingLocationRepostitory], // AuthService passed as an array
+  providers: [
+    ServerService, 
+    PostService, 
+    VotingLocationRepostitory,
+    AuthGuard,
+    AlertService,
+    AuthenticationService,
+    UserService,
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: JwtInterceptor,
+      multi: true
+    }
+  ], // AuthService passed as an array
   bootstrap: [AppComponent]
 })
 export class AppModule { }
