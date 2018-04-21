@@ -1,5 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VotingLocation } from '../../domain/models/votingLocation';
+import { VotingLocationRepostitory } from '../../domain/votingLocation-repository';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-location-details',
@@ -9,12 +11,21 @@ import { VotingLocation } from '../../domain/models/votingLocation';
 })
 export class LocationDetailsComponent implements OnInit {
 
+
+
 @Input()
 public location: VotingLocation;
 
-  constructor() { }
+  constructor(
+    private activedRoute: ActivatedRoute,
+    private router: Router,
+    private votingLocationRepostitory: VotingLocationRepostitory
+  ) { }
 
   ngOnInit() {
+    this.activedRoute.params.subscribe((params: any) => {
+        this.location = params;
+  });
   }
 
 }

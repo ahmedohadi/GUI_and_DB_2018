@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VotingLocation } from '../../domain/models/votingLocation';
+import { ActivatedRoute } from '@angular/router';
 
 
 @Component({
@@ -9,6 +10,8 @@ import { VotingLocation } from '../../domain/models/votingLocation';
   // inputs: ['location']
 })
 export class LocationListComponent implements OnInit {
+
+  activedRoute: ActivatedRoute;
   @Input()
   public location: VotingLocation;
 
@@ -16,6 +19,7 @@ export class LocationListComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+
   }
 
 }

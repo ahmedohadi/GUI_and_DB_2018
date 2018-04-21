@@ -1,3 +1,4 @@
+import { VotingLocationRepostitory } from './domain/votingLocation-repository';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
@@ -9,7 +10,7 @@ import { PasswordChangeComponent } from './updateprofile/password-change/passwor
 import { ProfilepageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
 import { Routes, RouterModule } from '@angular/router';
-//import { AuthService } from './auth/auth.service';
+// import { AuthService } from './auth/auth.service';
 import { ServerService } from './auth/server.service';
 import { HttpModule } from '@angular/http';
 import { HttpClient } from 'selenium-webdriver/http';
@@ -69,7 +70,7 @@ const appRoutes: Routes = [
   exports: [
     RouterModule
   ],
-  providers: [ServerService, PostService], // AuthService passed as an array
+  providers: [ServerService, PostService, VotingLocationRepostitory], // AuthService passed as an array
   bootstrap: [AppComponent]
 })
 export class AppModule { }
