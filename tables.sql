@@ -1,0 +1,147 @@
+use cse3330;
+-- DROP TABLE Users;
+CREATE TABLE Users(
+ firstName VARCHAR(25),
+ lastName VARCHAR(25), 
+ email VARCHAR(45),
+ username VARCHAR(25),
+ thepassword VARCHAR(25),
+ phone VARCHAR(12),
+ zipCode VARCHAR(10),
+ party VARCHAR(25),
+ office VARCHAR(25),
+ description VARCHAR(255)
+ );
+ 
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Darla', 'Silvermann', 'dsilvermann0@tmall.com', 'dsilvermann0', 'paradigm', '408-621-7884', '84534', democrat, President, 'Polarised');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mitzi', 'Coviello', 'mcoviello1@myspace.com', 'mcoviello1', 'middleware', '303-420-4637', '98418', republican, Congressman, 'Expanded');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kandace', 'Sayle', 'ksayle2@biblegateway.com', 'ksayle2', 'bottom-line', '906-139-3750', '62816', independent, Senator, 'Virtual');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Annissa', 'Bain', 'abain3@newsvine.com', 'abain3', 'Balanced', '252-926-3365', '36076', democrat, Senator, 'full-range');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gregorio', 'Rudham', 'grudham4@loc.gov', 'grudham4', 'info-mediaries', '995-496-1886', '28002', independent, Senator, 'encoding');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Billie', 'Bromfield', 'bbromfield5@hatena.ne.jp', 'bbromfield5', 'Graphic Interface', '124-277-8755', '12007', independent, Senator, 'support');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Morty', 'Maliffe', 'mmaliffe6@oakley.com', 'mmaliffe6', 'productivity', '407-946-4871', '03496', democrat, Senator, 'budgetary management');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Verla', 'Daddow', 'vdaddow7@google.es', 'vdaddow7', 'parallelism', '721-132-4621', '11129', democrat, President, 'mission-critical');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kimbra', 'Hrynczyk', 'khrynczyk8@java.com', 'khrynczyk8', 'Team-oriented', '355-933-5984', '00568', democrat, Congressman, 'encompassing');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Bartolomeo', 'Gibby', 'bgibby9@yahoo.co.jp', 'bgibby9', 'projection', '968-171-0877', '13568', democrat, Congressman, 'model');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Barby', 'Lynes', 'blynesa@mit.edu', 'blynesa', '6th generation', '823-826-6954', '80764', republican, Congressman, 'capacity');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Happy', 'Le Barre', 'hlebarreb@github.com', 'hlebarreb', 'Ameliorated', '875-153-3737', '66995', republican, President, 'moratorium');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Nicky', 'Goldsby', 'ngoldsbyc@theguardian.com', 'ngoldsbyc', 'executive', '547-908-2142', '02363', republican, Congressman, 'firmware');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mahmud', 'Clabburn', 'mclabburnd@xing.com', 'mclabburnd', 'high-level', '143-446-2293', '85681', republican, Congressman, 'Devolved');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gianna', 'Lyptrade', 'glyptradee@ocn.ne.jp', 'glyptradee', 'Multi-tiered', '795-250-1713', '38347', republican, Congressman, 'array');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Urban', 'Mattacks', 'umattacksf@sourceforge.net', 'umattacksf', 'strategy','977-546-0820', '71179', democrat, Congressman, 'Up-sized');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Torrence', 'Skahill', 'tskahillg@statcounter.com', 'tskahillg', '5th generation', '749-391-0224', '78802', democrat, Congressman, 'customer loyalty');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Sianna', 'Owers', 'sowersh@ucoz.ru', 'sowersh', 'Persevering', '712-356-2681', '47407', democrat, Congressman, 'needs-based');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Courtnay', 'Maffione', 'cmaffionei@alexa.com', 'cmaffionei', 'strategy', '411-760-6934', '79775', democrat, Congressman, 'Persevering');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Luelle', 'Readwin', 'lreadwinj@sbwire.com', 'lreadwinj', '6th generation', '182-405-7127', '52076', independent, Congressman, 'attitude-oriented');
+
+ 
+ CREATE TABLE Issues(
+ userName VARCHAR(25),
+ econJobs TINYINT, 
+ immigration TINYINT,
+ healthCare TINYINT,
+ globalWarming TINYINT, 
+ budget TINYINT, 
+ abortion TINYINT
+);
+
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('dsilvermann0', '0', '0', '0', '1', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mcoviello1', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('ksayle2', '0', '0', '0', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('abain3', '1', '1', '1', '0', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('grudham4', '0', '0', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bbromfield5', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mmaliffe6', '1', '1', '0', '0', '0', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('vdaddow7', '1', '1', '1', '1', '0', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('khrynczyk8', '0', '1', '0', '0', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bgibby9', '0', '1', '1', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('blynesa', '0', '0', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('hlebarreb', '0', '0', '0', '1', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('ngoldsbyc', '1', '0', '0', '0', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mclabburnd', '0', '1', '0', '0', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('umattacksf', '0', '0', '0', '1', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('tskahillg', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('sowersh', '1', '1', '1', '0', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('cmaffionei', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('glyptradee', '1', '0', '0', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('lreadwinj', '1', '0', '1', '1', '1', '1');
+
+ 
+
+CREATE TABLE Posts(
+ userName VARCHAR(31),
+ body VARCHAR(1000),
+ tag1 VARCHAR(31),
+ tag2 VARCHAR(31), 
+ tag3 VARCHAR(31),
+ tag4 VARCHAR(31),
+ id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+ likes INT
+);
+
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('dsilvermann0', 'Comment entry here', 'guns','drugs','budget','abortion', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mcoviello1', 'Comment', 'politics','political','farming','economics', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ksayle2', 'Today was great', 'trade','foreign relations','public policy','job growth', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('abain3', 'Wow!', 'political awareness','civil liberties','violence','domestic', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('grudham4', 'lol', 'defense','budget','spending','military', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('bbromfield5', 'dank', 'president','trump','donald','the', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mmaliffe6', 'meme', 'guns','violence','rights','control', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('vdaddow7', 'lul', 'abortion','women','rights','babies', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('khrynczyk8', 'lel', 'choice','life','pro','abortion', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('blynesa', 'lal', 'China','Russia','trade','unfair', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('hlebarreb', 'body', 'North Korea','South Korea','war','peace', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ngoldsbyc', 'memes1', 'tanks','planes','military','nukes', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mclabburnd', 'memes 10', 'nukes','North Korea','peace','talks', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('glyptradee', 'memes2', 'Russia','sanctions','Crimea','Putin', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('umattacksf', 'comment here', 'Vladimir','Putin','Russia','Vladimir Putin', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('tskahillg', 'my name is tskahill', 'Xi','Xi Jinping','China','Xi Jinping', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('sowersh', 'my name is sowersh', 'The','Donald','Trump','USA', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('cmaffionei', 'alpha', 'energy','Rick Perry','oil','gas', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('lreadwinj', 'bravo', 'Education','Betsy DeVos','cancer','aids', 000, 0);
+ 
+ CREATE TABLE Comments(
+ id INT,
+ userName VARCHAR(31),
+ body VARCHAR(31)
+ );
+ 
+INSERT INTO Comments (id, userName, body) VALUES (1, 'dsilvermann0', 'DPRK BEST KOREA');
+INSERT INTO Comments (id, userName, body) VALUES (1, 'blynesa', 'RUSSIA #1 NO USA');
+INSERT INTO Comments (id, userName, body) VALUES (4, 'ngoldsbyc', 'AMERICAN!!!');
+INSERT INTO Comments (id, userName, body) VALUES (7, 'hlebarreb', 'KEEP AMERICA GREAT');
+INSERT INTO Comments (id, userName, body) VALUES (12, 'ksayle2', 'CHINA #1');
+
+INSERT INTO Comments (id, userName, body) VALUES (2, 'tskahillg', 'Japan is awesome');
+INSERT INTO Comments (id, userName, body) VALUES (18, 'hlebarreb', 'Germany will rise again');
+INSERT INTO Comments (id, userName, body) VALUES (13, 'umattacksf', 'The South will RISE AGAIN!');
+INSERT INTO Comments (id, userName, body) VALUES (18, 'abain3', 'wow yalls comment game is strong');
+INSERT INTO Comments (id, userName, body) VALUES (6, 'bbromfield5', 'Russia > USA');
+INSERT INTO Comments (id, userName, body) VALUES (7, 'blynesa', 'Restore the CCCP and USSR');
+
+INSERT INTO Comments (id, userName, body) VALUES (8, 'mcoviello1', 'Seize the means of production!');
+INSERT INTO Comments (id, userName, body) VALUES (12, 'ngoldsbyc', 'The gentle laborer will no longer suffer');
+INSERT INTO Comments (id, userName, body) VALUES (15, 'bbromfield5', 'Communism will take over the world');
+INSERT INTO Comments (id, userName, body) VALUES (10, 'mcoviello1', 'Capitalists are greedy');
+INSERT INTO Comments (id, userName, body) VALUES (11, 'sowersh', 'communism Never again');
+
+INSERT INTO Comments (id, userName, body) VALUES (19, 'khrynczyk8', 'Make money');
+INSERT INTO Comments (id, userName, body) VALUES (14, 'abain3', 'Soviet economy is bad');
+INSERT INTO Comments (id, userName, body) VALUES (5, 'lreadwinj', 'I love Kim Jung-Un');
+INSERT INTO Comments (id, userName, body) VALUES (9, 'khrynczyk8', 'I love my country');
+
+
+
+-- DROP TABLE Locations;
+CREATE TABLE Locations(
+id INT,
+locationName VARCHAR(40),
+hours VARCHAR(15),
+address VARCHAR(30),
+zipcode VARCHAR(5),
+info VARCHAR(200)
+);
+
+
+
+
+

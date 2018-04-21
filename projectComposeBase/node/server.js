@@ -2,11 +2,13 @@
 const Hapi = require('hapi');
 
 const server = new Hapi.Server();
-server.connection({ port: 3000, host: '0.0.0.0',
+server.connection({ port: 3000, host: '0.0.0.0', 
 routes: {
     cors: true
 }
 });
+
+
 
 //Initialize the mysql variable and create the connection object with necessary values
 //Uses the https://www.npmjs.com/package/mysql package.
@@ -44,7 +46,7 @@ server.route({
         var username = request.payload.username;
         var password = request.payload.password;
         var zipCode = request.payload.zipcode;
-        var party = request.payload.party;
+        var party = request.payload.parties;
         var office = request.payload.candidates;
         var sql1 = "SELECT username FROM Users WHERE username = '" + username + "'";
         connection.query(sql1, function (err, result) {
@@ -76,17 +78,20 @@ server.route({
 
 //LOGIN
 server.route({
-    method: 'GET',
-    path: '/login/{username}/{password}',
+    method: 'POST',
+    path: '/login',
     handler: function (request, reply) {
-        var sql = "SELECT username, thePassword FROM Users"
+        //reply(request.payload);
+        var username = request.payload.username;
+        var password = request.payload.password;
+        var sql = "SELECT username, thePassword FROM Users WHERE username = '" + username+ "'";
         connection.query(sql, function (err, result) {
             if (err) {
                 throw err;
             }
-            if (encodeURIComponent(request.params.username) == result[0].username) {
-                if (encodeURIComponent(request.params.password) == result[0].thePassword) {
-                    reply("Authenicated");
+            if (username== result[0].username) {
+                if (password == result[0].thePassword) {
+                    reply(200);
                 }
                 else {
                     reply("Not correct password");
@@ -105,14 +110,15 @@ server.route({
     method: 'POST',
     path: '/updateCandidacy/{username}',
     handler: function (request, reply) {
-        var office = request.payload.candidates;
+        var office = request.payload.position;
         var party = request.payload.party;
         var sql1 = "UPDATE Users SET office = '" + office + "', party = '" + party + "' WHERE username = '" + encodeURIComponent(request.params.username + "'");
         connection.query(sql1, function (err, result) {
             if (err) {
                 throw err;
             }
-            reply("Updated candidacy");
+            //reply("Updated candidacy");
+            reply(encodeURIComponent(request.params.username));
         });
     }
 });
@@ -338,7 +344,7 @@ server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
-        connection.query('SELECT * FROM Users WHERE username= ' + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+        connection.query('SELECT * FROM Users WHERE username= ' + encodeURIComponent(request.params.firstname) + "'", function (error, results, fields) {
             if (error)
                 throw error;
             reply(results);
@@ -346,99 +352,6 @@ server.route({
     }
 });
 
-
-
-
-
-
-
-
-//KYLE STUFF
-
-//add a comment to a post
-server.route({
-    method: 'POST',
-    path: '/comment/addcomment',
-    handler: function (request, reply) {
-    var id = request.payload.id;
-    var userName = request.payload.userName;
-    var body = request.payload.body;
-    var sql = "INSERT INTO Comments (id, userName, body) VALUES (" + "'" + id + "'" +", "+ "'" + userName + "'" + ", " + "'" + body + "'" +")";
-    console.log(sql);
-    connection.query(sql, function (error, results, fields){
-    if (error)
-    throw error;
-    reply('Comment added');
-    });
-    }
-    });
-    
-//get comments from a post
-server.route({
-    method: 'GET',
-    path: '/comment/getcomment/{id}',
-    handler: function (request, reply) {
-    var sql = 'SELECT * FROM Comments WHERE id = ' + request.params.id; //select all comments where comment id = incoming id
-    console.log(sql);
-    connection.query(sql, function (error, results, fields){
-    if (error) 
-    throw error;
-    reply(results);
-    });
-    }
-    });
-    
-    //get posts from the chatboard
-    server.route({
-    method: 'GET',
-    path: '/post/getpost',
-    handler: function (request, reply) {
-    connection.query('SELECT * FROM Posts', function (error, results, fields){
-    if (error) {
-    throw error;
-    }
-    reply(results);
-    });
-    }
-    });
-    
-    //add a post to the chatboard
-    server.route({
-    method: 'POST',
-    path: '/post/addpost',
-    handler: function (request, reply) {
-    var userName = request.payload.userName;
-    var body = request.payload.body;
-    var tag1 = request.payload.tag1;
-    var tag2 = request.payload.tag2;
-    var tag3 = request.payload.tag3;
-    var tag4 = request.payload.tag4;
-    var id = request.payload.id; 
-    var likes = request.payload.likes;
-    var sql = "INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) VALUES (" + "'" + userName + "'" + ", " + "'" + body + "'" + ", " + "'" + tag1 + "'" +", "+ "'" + tag2 + "'" + ", " +"'" + tag3 + "'" + ", "+ "'" + tag4 + "'" + ", " + "'" + id + "'" + ", "+"'" + likes + "'" +")";
-    console.log(sql);
-    connection.query(sql, function (error, results, fields){
-    if (error)
-    throw error;
-    reply("Post added to table");
-    });
-    }
-    });
-
-
-    server.route({
-        method: 'PUT',
-        path: '/post/addlikes/{id}',
-        handler: function (request, reply) {
-        var sql = "UPDATE Posts SET likes=likes+1 WHERE id = " + request.params.id; //WHERE POSTS ID = INCOMING ID
-        console.log(sql);
-        connection.query(sql, function (error, results, fields){
-        if (error)
-        throw error;
-        reply('Like incremented');
-        });
-        }
-        });
 
 
 
@@ -478,9 +391,6 @@ server.route({
         });
     }
 });
-
-
-
 
 
 
