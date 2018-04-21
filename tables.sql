@@ -80,25 +80,25 @@ CREATE TABLE Posts(
  likes INT
 );
 
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('dsilvermann0', 'Comment entry here', 'guns','drugs','budget','abortion', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mcoviello1', 'Comment', 'politics','political','farming','economics', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('dsilvermann0', 'Theyre trying to take our rights away!!!', 'guns','drugs','budget','abortion', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mcoviello1', 'I just want to farm and drink my beer', 'politics','political','farming','economics', 000, 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ksayle2', 'Today was great', 'trade','foreign relations','public policy','job growth', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('abain3', 'Wow!', 'political awareness','civil liberties','violence','domestic', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('grudham4', 'lol', 'defense','budget','spending','military', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('bbromfield5', 'dank', 'president','trump','donald','the', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mmaliffe6', 'meme', 'guns','violence','rights','control', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('vdaddow7', 'lul', 'abortion','women','rights','babies', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('khrynczyk8', 'lel', 'choice','life','pro','abortion', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('blynesa', 'lal', 'China','Russia','trade','unfair', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('hlebarreb', 'body', 'North Korea','South Korea','war','peace', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ngoldsbyc', 'memes1', 'tanks','planes','military','nukes', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mclabburnd', 'memes 10', 'nukes','North Korea','peace','talks', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('glyptradee', 'memes2', 'Russia','sanctions','Crimea','Putin', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('umattacksf', 'comment here', 'Vladimir','Putin','Russia','Vladimir Putin', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('abain3', 'TEACHERS DESERVE MORE PAY', 'political awareness','civil liberties','teachers','domestic', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('grudham4', 'LOL we are rich and want your oil', 'defense','budget','spending','military', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('bbromfield5', 'Wow I cant believe he won that election', 'president','trump','donald','the', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mmaliffe6', 'Who all is going to the march on sunday?', 'guns','violence','rights','control', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('vdaddow7', 'Sign my petition to legalize marijuana', 'abortion','women','rights','babies', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('khrynczyk8', 'My body my choice', 'choice','life','pro','abortion', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('blynesa', '@Russia stop screwing with our elections', 'hacking','Russia','election','unfair', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('hlebarreb', 'Free the NK people', 'North Korea','South Korea','war','peace', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ngoldsbyc', 'Well america has the strongest military, what about education system?', 'tanks','planes','military','nukes', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mclabburnd', 'haha crazy rocket man', 'nukes','North Korea','peace','talks', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('glyptradee', 'Putin has overstepped this time. I hope the UN intervenes', 'Russia','sanctions','Crimea','Putin', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('umattacksf', 'Why cant Putin stay in his lane', 'Vladimir','Putin','Russia','Vladimir Putin', 000, 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('tskahillg', 'my name is tskahill', 'Xi','Xi Jinping','China','Xi Jinping', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('sowersh', 'my name is sowersh', 'The','Donald','Trump','USA', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('cmaffionei', 'alpha', 'energy','Rick Perry','oil','gas', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('lreadwinj', 'bravo', 'Education','Betsy DeVos','cancer','aids', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('sowersh', 'Make America Great Again', 'The','Donald','Trump','USA', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('cmaffionei', 'I just want to steal oil from other countries ', 'energy','Rick Perry','oil','gas', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('lreadwinj', 'Wow this has truly been a great day for science', 'Education','Betsy DeVos','cancer','aids', 000, 0);
  
  DROP TABLE Comments;
  CREATE TABLE Comments(
