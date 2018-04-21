@@ -81,7 +81,6 @@ server.route({
     method: 'POST',
     path: '/login',
     handler: function (request, reply) {
-        //reply(request.payload);
         var username = request.payload.username;
         var password = request.payload.password;
         var sql = "SELECT username, thePassword FROM Users WHERE username = '" + username+ "'";
@@ -94,11 +93,11 @@ server.route({
                     reply(200);
                 }
                 else {
-                    reply("Not correct password");
+                    reply(500); //incorrect password
                 }
             }
             else {
-                reply("Username is not contained");
+                reply(500); //username not contained
             }
         });
     }
@@ -344,7 +343,7 @@ server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
-        connection.query('SELECT * FROM Users WHERE username= ' + encodeURIComponent(request.params.firstname) + "'", function (error, results, fields) {
+        connection.query("SELECT * FROM Users WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
             if (error)
                 throw error;
             reply(results);
@@ -353,6 +352,44 @@ server.route({
 });
 
 
+
+
+
+
+
+//LOGIN
+server.route({
+    method: 'POST',
+    path: '/authentication',
+    handler: function (request, reply) {
+        var username = request.payload.username;
+        var password = request.payload.password;
+        var sql = "SELECT * FROM Users WHERE username = '" + username+ "'AND thepassword='" + password + "'" ;
+        connection.query(sql, function (err, result) {
+            if (err) {
+                throw err;
+            }
+            if (username== result[0].username) {
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                    "token": 'fake-jwt-token'
+                }
+                reply(obj);
+            }
+            else {
+                reply(500);
+            }
+        });
+    }
+});
 
 
 
@@ -391,6 +428,7 @@ server.route({
         });
     }
 });
+
 
 
 //KYLE STUFF
