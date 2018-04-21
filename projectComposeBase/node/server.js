@@ -102,6 +102,8 @@ server.route({
         });
     }
 });
+
+
 ///////////////////////////////////////////////////
 //UPDATES
 ////////////////////////////////////////////////////
@@ -357,7 +359,7 @@ server.route({
 
 
 
-//LOGIN
+//AUTHENTICATION
 server.route({
     method: 'POST',
     path: '/authentication',

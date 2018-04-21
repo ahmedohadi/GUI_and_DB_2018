@@ -1,5 +1,5 @@
 use cse3330;
--- DROP TABLE Users;
+ DROP TABLE Users;
 CREATE TABLE Users(
  firstName VARCHAR(25),
  lastName VARCHAR(25), 
@@ -13,28 +13,29 @@ CREATE TABLE Users(
  description VARCHAR(255)
  );
  
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Darla', 'Silvermann', 'dsilvermann0@tmall.com', 'dsilvermann0', 'paradigm', '408-621-7884', '84534', democrat, President, 'Polarised');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mitzi', 'Coviello', 'mcoviello1@myspace.com', 'mcoviello1', 'middleware', '303-420-4637', '98418', republican, Congressman, 'Expanded');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kandace', 'Sayle', 'ksayle2@biblegateway.com', 'ksayle2', 'bottom-line', '906-139-3750', '62816', independent, Senator, 'Virtual');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Annissa', 'Bain', 'abain3@newsvine.com', 'abain3', 'Balanced', '252-926-3365', '36076', democrat, Senator, 'full-range');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gregorio', 'Rudham', 'grudham4@loc.gov', 'grudham4', 'info-mediaries', '995-496-1886', '28002', independent, Senator, 'encoding');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Billie', 'Bromfield', 'bbromfield5@hatena.ne.jp', 'bbromfield5', 'Graphic Interface', '124-277-8755', '12007', independent, Senator, 'support');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Morty', 'Maliffe', 'mmaliffe6@oakley.com', 'mmaliffe6', 'productivity', '407-946-4871', '03496', democrat, Senator, 'budgetary management');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Verla', 'Daddow', 'vdaddow7@google.es', 'vdaddow7', 'parallelism', '721-132-4621', '11129', democrat, President, 'mission-critical');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kimbra', 'Hrynczyk', 'khrynczyk8@java.com', 'khrynczyk8', 'Team-oriented', '355-933-5984', '00568', democrat, Congressman, 'encompassing');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Bartolomeo', 'Gibby', 'bgibby9@yahoo.co.jp', 'bgibby9', 'projection', '968-171-0877', '13568', democrat, Congressman, 'model');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Barby', 'Lynes', 'blynesa@mit.edu', 'blynesa', '6th generation', '823-826-6954', '80764', republican, Congressman, 'capacity');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Happy', 'Le Barre', 'hlebarreb@github.com', 'hlebarreb', 'Ameliorated', '875-153-3737', '66995', republican, President, 'moratorium');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Nicky', 'Goldsby', 'ngoldsbyc@theguardian.com', 'ngoldsbyc', 'executive', '547-908-2142', '02363', republican, Congressman, 'firmware');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mahmud', 'Clabburn', 'mclabburnd@xing.com', 'mclabburnd', 'high-level', '143-446-2293', '85681', republican, Congressman, 'Devolved');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gianna', 'Lyptrade', 'glyptradee@ocn.ne.jp', 'glyptradee', 'Multi-tiered', '795-250-1713', '38347', republican, Congressman, 'array');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Urban', 'Mattacks', 'umattacksf@sourceforge.net', 'umattacksf', 'strategy','977-546-0820', '71179', democrat, Congressman, 'Up-sized');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Torrence', 'Skahill', 'tskahillg@statcounter.com', 'tskahillg', '5th generation', '749-391-0224', '78802', democrat, Congressman, 'customer loyalty');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Sianna', 'Owers', 'sowersh@ucoz.ru', 'sowersh', 'Persevering', '712-356-2681', '47407', democrat, Congressman, 'needs-based');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Courtnay', 'Maffione', 'cmaffionei@alexa.com', 'cmaffionei', 'strategy', '411-760-6934', '79775', democrat, Congressman, 'Persevering');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Luelle', 'Readwin', 'lreadwinj@sbwire.com', 'lreadwinj', '6th generation', '182-405-7127', '52076', independent, Congressman, 'attitude-oriented');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Darla', 'Silvermann', 'dsilvermann0@tmall.com', 'dsilvermann0', 'paradigm', '408-621-7884', '84534', 'democrat', 'President', 'Polarised');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mitzi', 'Coviello', 'mcoviello1@myspace.com', 'mcoviello1', 'middleware', '303-420-4637', '98418', 'republican', 'Congressman', 'Expanded');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kandace', 'Sayle', 'ksayle2@biblegateway.com', 'ksayle2', 'bottom-line', '906-139-3750', '62816', 'independent', 'Senator', 'Virtual');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Annissa', 'Bain', 'abain3@newsvine.com', 'abain3', 'Balanced', '252-926-3365', '36076', 'democrat', 'Senator', 'full-range');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gregorio', 'Rudham', 'grudham4@loc.gov', 'grudham4', 'info-mediaries', '995-496-1886', '28002', 'independent', 'Senator', 'encoding');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Billie', 'Bromfield', 'bbromfield5@hatena.ne.jp', 'bbromfield5', 'Graphic Interface', '124-277-8755', '12007', 'independent', 'Senator', 'support');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Morty', 'Maliffe', 'mmaliffe6@oakley.com', 'mmaliffe6', 'productivity', '407-946-4871', '03496', 'democrat', 'Senator', 'budgetary management');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Verla', 'Daddow', 'vdaddow7@google.es', 'vdaddow7', 'parallelism', '721-132-4621', '11129', 'democrat', 'President', 'mission-critical');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kimbra', 'Hrynczyk', 'khrynczyk8@java.com', 'khrynczyk8', 'Team-oriented', '355-933-5984', '00568', 'democrat', 'Congressman', 'encompassing');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Bartolomeo', 'Gibby', 'bgibby9@yahoo.co.jp', 'bgibby9', 'projection', '968-171-0877', '13568', 'democrat', 'Congressman', 'model');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Barby', 'Lynes', 'blynesa@mit.edu', 'blynesa', '6th generation', '823-826-6954', '80764', 'republican', 'Congressman', 'capacity');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Happy', 'Le Barre', 'hlebarreb@github.com', 'hlebarreb', 'Ameliorated', '875-153-3737', '66995', 'republican', 'President', 'moratorium');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Nicky', 'Goldsby', 'ngoldsbyc@theguardian.com', 'ngoldsbyc', 'executive', '547-908-2142', '02363', 'republican', 'Congressman', 'firmware');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mahmud', 'Clabburn', 'mclabburnd@xing.com', 'mclabburnd', 'high-level', '143-446-2293', '85681', 'republican', 'Congressman', 'Devolved');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gianna', 'Lyptrade', 'glyptradee@ocn.ne.jp', 'glyptradee', 'Multi-tiered', '795-250-1713', '38347', 'republican', 'Congressman', 'array');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Urban', 'Mattacks', 'umattacksf@sourceforge.net', 'umattacksf', 'strategy','977-546-0820', '71179', 'democrat', 'Congressman', 'Up-sized');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Torrence', 'Skahill', 'tskahillg@statcounter.com', 'tskahillg', '5th generation', '749-391-0224', '78802', 'democrat', 'Congressman', 'customer loyalty');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Sianna', 'Owers', 'sowersh@ucoz.ru', 'sowersh', 'Persevering', '712-356-2681', '47407', 'democrat', 'Congressman', 'needs-based');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Courtnay', 'Maffione', 'cmaffionei@alexa.com', 'cmaffionei', 'strategy', '411-760-6934', '79775', 'democrat', 'Congressman', 'Persevering');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Luelle', 'Readwin', 'lreadwinj@sbwire.com', 'lreadwinj', '6th generation', '182-405-7127', '52076', 'independent', 'Congressman', 'attitude-oriented');
 
  
+ DROP TABLE Issues;
  CREATE TABLE Issues(
  userName VARCHAR(25),
  econJobs TINYINT, 
@@ -67,7 +68,7 @@ insert into Issues (username, econJobs, immigration, healthCare, globalWarming, 
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('lreadwinj', '1', '0', '1', '1', '1', '1');
 
  
-
+DROP TABLE Posts;
 CREATE TABLE Posts(
  userName VARCHAR(31),
  body VARCHAR(1000),
@@ -99,10 +100,11 @@ INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('s
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('cmaffionei', 'alpha', 'energy','Rick Perry','oil','gas', 000, 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('lreadwinj', 'bravo', 'Education','Betsy DeVos','cancer','aids', 000, 0);
  
+ DROP TABLE Comments;
  CREATE TABLE Comments(
  id INT,
  userName VARCHAR(31),
- body VARCHAR(31)
+ body VARCHAR(250)
  );
  
 INSERT INTO Comments (id, userName, body) VALUES (1, 'dsilvermann0', 'DPRK BEST KOREA');
@@ -131,14 +133,15 @@ INSERT INTO Comments (id, userName, body) VALUES (9, 'khrynczyk8', 'I love my co
 
 
 
--- DROP TABLE Locations;
+ DROP TABLE Locations;
 CREATE TABLE Locations(
 id INT,
 locationName VARCHAR(40),
-hours VARCHAR(15),
+hours VARCHAR(40),
 address VARCHAR(30),
 zipcode VARCHAR(5),
-info VARCHAR(200)
+info VARCHAR(200),
+picture VARCHAR(30)
 );
 
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (1, 'Ward, Howell and Morissette', '9:25 AM - 09:00PM', '23586 Oak Drive', '08342', null, 'COsKVo.png');
