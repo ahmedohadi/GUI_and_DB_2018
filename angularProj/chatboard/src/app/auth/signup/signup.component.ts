@@ -40,7 +40,6 @@ users;
     );
     console.log(form);
   }
-  
 
   candidateShowHideList() {
     if (this.showCandidateList === false) {

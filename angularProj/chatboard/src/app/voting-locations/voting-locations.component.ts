@@ -29,7 +29,6 @@ export class VotingLocationsComponent implements OnInit {
     public router: Router,
     ) {
     this.filter = '';
-    
    }
 
   // ngOnInit(): void {

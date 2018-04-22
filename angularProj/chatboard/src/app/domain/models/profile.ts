@@ -9,5 +9,6 @@ export class Profile {
   zipcode?: number;
   candidates?: string;
   party?: string;
-
+  phone?: number;
+  description?: string;
 }

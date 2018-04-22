@@ -2,7 +2,7 @@
 import { Injectable } from '@angular/core';
 // import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
-import { HttpClient, HttpHeaders } from "@angular/common/http";
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 @Injectable()
 export class ServerService {
@@ -14,7 +14,7 @@ export class ServerService {
     })
   };
 
-  //URL of docker address
+  // URL of docker address
   storeUser(users: any) {
     return this.http.post('http://127.0.0.1:3000/signup', users, this.httpOptions);
   }

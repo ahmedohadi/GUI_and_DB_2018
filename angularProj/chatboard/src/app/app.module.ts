@@ -29,6 +29,7 @@ import { LocationDetailsComponent } from './voting-locations/location-details/lo
 import { AuthGuard } from './domain/guards/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './domain/helpers/jwt.interceptor';
+import { ProfileRepository } from './domain/profile-repository.service';
 
 
 
@@ -86,6 +87,7 @@ const appRoutes: Routes = [
     AlertService,
     AuthenticationService,
     UserService,
+    ProfileRepository,
     {
       provide: HTTP_INTERCEPTORS,
       useClass: JwtInterceptor,
