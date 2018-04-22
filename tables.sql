@@ -1,4 +1,5 @@
-use cse3330;
+CREATE DATABASE Chatboard;
+USE CHATBOARD;
  DROP TABLE Users;
 CREATE TABLE Users(
  firstName VARCHAR(25),
