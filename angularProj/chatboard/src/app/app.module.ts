@@ -21,6 +21,7 @@ import { PostService } from './disscussion/post.service';
 import { UpdateIssuesComponent } from './update-issues/update-issues.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { DisscussionComponent } from './disscussion/disscussion.component';
+import { CommentsComponent } from './disscussion/comments/comments.component';
 import { HomeComponent } from './home/home.component';
 import { VotingLocationsComponent } from './voting-locations/voting-locations.component';
 import { SearchLocationPipe } from './domain/search-location.pipe';
@@ -63,6 +64,7 @@ const appRoutes: Routes = [
     UpdateIssuesComponent,
     NavbarComponent,
     DisscussionComponent,
+    CommentsComponent,
     HomeComponent,
     VotingLocationsComponent,
     SearchLocationPipe,
