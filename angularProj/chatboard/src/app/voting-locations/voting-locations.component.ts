@@ -1,6 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { NgForm, NgModel } from '@angular/forms';
 import { VotingLocation } from './../domain/models/votingLocation';
 import { ActivatedRoute, Router } from '@angular/router';
 import {VotingLocationRepostitory } from './../domain/votingLocation-repository.service';
@@ -11,36 +11,34 @@ import {VotingLocationRepostitory } from './../domain/votingLocation-repository.
   templateUrl: './voting-locations.component.html',
   styleUrls: ['./voting-locations.component.css'],
 })
+
+
 export class VotingLocationsComponent implements OnInit {
-
+  @Input()
+  public query: string;
   public filter: string;
-  public locations: object;
-  public currentLocation: object;
+  locations: object;
+  currentLocation: object;
 
-  showLocation(item) {
-    this.filter = item.name;
-    item.highlight = !item.highlight;
-    this.currentLocation = item;
-  }
 
   constructor(
     private http: HttpClient,
     public votingLocationRepostitory: VotingLocationRepostitory,
     public router: Router,
-    ) {
+   ) {
     this.filter = '';
-   }
+  }
 
-  // ngOnInit(): void {
-  //   this.http.get<Object>('../assets/data.json').subscribe( data => {
-  //     this.locations = data;
-  //   });
-  // }
-
-    ngOnInit() {
-
+  ngOnInit() {
     this.votingLocationRepostitory.get().subscribe(locations => {
     this.locations = locations;
    });
  }
+
+ showLocation(item) {
+  this.filter = item.name;
+  item.highlight = !item.highlight;
+  this.currentLocation = item;
+}
+
 }

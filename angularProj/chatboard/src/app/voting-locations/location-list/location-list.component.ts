@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { VotingLocation } from '../../domain/models/votingLocation';
 import { ActivatedRoute } from '@angular/router';
+import { NgForm, NgModel } from '@angular/forms';
 
 
 @Component({

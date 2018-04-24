@@ -2,7 +2,7 @@ export class VotingLocation {
 
   locationId?: string;
   locationName?: string;
-  pictureUrl?: string;
+  picture?: string;
   hours?: string;
   address?: string;
   zipcode?: string;

@@ -1,15 +1,47 @@
 <!-- implimentation based on learnangualr5 custome pipe search -->
 <div class="container mt-3">
-  <div class="row justify-content-center">
+  <div class="row justify-content-center" >
     <div class="col-sm-4 col-lg-3">
-      <img class="img-fluid rounded" src="" alt="{{location.locationName}} photo">
+      <img class="img-fluid rounded" src="" alt="{{location.locationName}}">
     </div>
     <div class="col-sm-8 col-lg-4">
       <h2 class="mt-3 mt-sm-0 mb-0">{{location.locationName}}</h2>
-      <h4 class="mt-0">{{location.info}}</h4>
+      <p class="mt-0">{{location.info}}</p>
       <p>{{location.hours}}</p>
       <p> {{ location.address }}</p>
       <p> {{ location.zipcode }}</p>
+      <!-- <button type="button" class="btn btn-secondary" >Go Back</button> -->
     </div>
   </div>
 </div>
+
+
+<!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLongTitle">{{location.locationName}}</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+            <div class="row justify-content-center">
+                <div class="col-sm-4 col-lg-3">
+                  <img class="img-fluid rounded" src="" alt="{{location.locationName}}">
+                </div>
+                <div class="col-sm-8 col-lg-4">
+                  <h2 class="mt-3 mt-sm-0 mb-0">{{location.locationName}}</h2>
+                  <h4 class="mt-0">{{location.info}}</h4>
+                  <p>{{location.hours}}</p>
+                  <p> {{ location.address }}</p>
+                  <p> {{ location.zipcode }}</p>
+                </div>
+              </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div> -->

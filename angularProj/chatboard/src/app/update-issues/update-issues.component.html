@@ -1,63 +1,35 @@
 <div class="container">
-    <form #issuesForm="ngForm" class="text-center mb-3">
-  <div class="card  border-0">
-  <div class="card-body">
-    <h5 class="card-header bg-light text-center">Tell us some of the issues that you care about?</h5>
-     <div class="row">
-    <div class="col">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox1" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">The Economy and Jobs</label>
+    <form #issuesForm="ngForm" class="mb-3">
+      <div class="card border-0">
+        <div class="card-body">
+          <h5 class="card-header bg-light text-center">Tell us some of the issues
+            that you care about?</h5>
+          <div>
+
+              <div class="app flex-row align-items-center">
+                  <div class="row">
+                      <div class=" col-md-4" *ngFor="let n of issues"  >
+                        <div class="">
+              <input type="checkbox"  name="checkboxes" [(ngModel)]="n.selected" (change)="checkIfAllSelected();"> {{n.issue}}</div>
+            </div>
+          </div>
+        </div>
+
+            <div class="text-center"> <input type="checkbox" name="selectAll"[(ngModel)]="selectedAll" (change)="selectAll();" />Select All</div>
+          </div>
+
+
+      <div class="row">
+          <div class="col">
+            <div class="text-center">
+              <button type="submit" class="btn mt-3  btn-success"  (click) ="update();">Save</button>
+              <button type="submit" class="btn mt-3 ml-4 btn-danger" (click)="unselectAll();">  Cancel</button>
+
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox2" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Health Care</label>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox3" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2"> Federal deficit and budget</label>
-      </div>
-    </div>
+
+    </form>
   </div>
-
-    <div class="row">
-    <div class="col">
-       <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox4" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">Immigration</label>
-      </div>
-    </div>
-    <div class="col">
-      <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox5" value="option2">
-        <label class="form-check-label" for="inlineCheckbox2">Environment and Global Warming</label>
-      </div>
-    </div>
-    <div class="col">
-     <div class="form-check form-check-inline">
-        <input class="form-check-input" type="checkbox" id="inlineCheckbox6" value="option1">
-        <label class="form-check-label" for="inlineCheckbox1">Abortion</label>
-      </div>
-    </div>
-  </div>
-    <div class="row">
-    <div class="col">
-      <div class="text-center">
-          
-        <button type="submit" class="btn mt-3  btn-success" (click) ="update();" >Save</button>
-        <button type="submit" class="btn mt-3 ml-4 btn-danger" (click)="issueForm.reset();">  Cancel</button>
-      </div>
-    </div>
-  </div>
-
-  </div>
-</div>
-</form>
-</div>
-
-
-

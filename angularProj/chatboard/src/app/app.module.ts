@@ -30,6 +30,7 @@ import { AuthGuard } from './domain/guards/auth.guard';
 import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { JwtInterceptor } from './domain/helpers/jwt.interceptor';
 import { ProfileRepository } from './domain/profile-repository.service';
+import { AlertComponent } from './alert/alert.component';
 
 
 
@@ -37,7 +38,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard],
+  { path: 'home', component: HomeComponent, // canActivate: [AuthGuard],
       children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'update', component: UpdateprofileComponent },
@@ -66,8 +67,9 @@ const appRoutes: Routes = [
     VotingLocationsComponent,
     SearchLocationPipe,
     LocationListComponent,
-    // AlertComponent,
-    LocationDetailsComponent
+    AlertComponent,
+    LocationDetailsComponent,
+    AlertComponent,
   ],
   imports: [
     BrowserModule,

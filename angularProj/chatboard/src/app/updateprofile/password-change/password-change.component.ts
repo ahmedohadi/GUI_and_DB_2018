@@ -25,14 +25,18 @@ export class PasswordChangeComponent implements OnInit {
   }
 
   update() {
-    if (this.firstPassword !== this.secondPassword) {
-      this.alertService.error('Error passwords did not match');
+   if (this.firstPassword !== this.secondPassword) {
+      this.alertService.error('Error new passwords did not match');
       console.log(this.firstPassword + this.oldPassword + this.secondPassword);
+
+    } else {
+      this.alertService.success('You have sucessfuly updated your password');
     }
 
     this.firstPassword = '';
     this.oldPassword = '';
     this.secondPassword = '';
+
   }
 
 }
