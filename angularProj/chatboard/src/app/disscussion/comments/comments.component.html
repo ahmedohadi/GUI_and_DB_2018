@@ -1,0 +1,61 @@
+<form (onSubmit)="onEnter(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
+  <!-- <div class="form-group">
+
+    <button
+    class="btn btn-primary mt-2 mb-2"
+    type="submit"
+    id="submit"
+    (click)="storePosts()"
+    [disabled]="!f.valid"
+    >Add Post
+  </button>
+
+  <textarea
+    rows="4"
+    class="form-control mb-2"
+    name="newPost"
+    placeholder="Write your post here"
+    required
+    ngModel
+    >
+  </textarea>
+
+  <div class="from-group border border-success mb-3" *ngFor="let post of postsArr">
+
+  <ul class="list-group">
+    <li class="list-group-item">{{ post.userPosts }}</li> -->
+
+    <div class="input-group input-group-sm" id="commentsContainer">
+      <div class="input-group-prepend">
+        <span class="input-group-text" id="inputGroup-sizing-sm">Add Comments</span>
+      </div>
+
+      <input
+      type="text"
+      name="newComments"
+      class="form-control"
+      aria-label="Small"
+      aria-describedby="inputGroup-sizing-sm"
+      ngModel
+      (keyup.enter)="onEnter(f)"
+      >
+
+      <!-- <button
+      class="btn btn-primary"
+      type="submit" id="submit"
+      (click)="addComment(f)"
+
+
+      >sumbit
+    </button> -->
+  </div>
+
+  <ul class="list-group">
+    <li class="list-group-item " *ngFor="let comment of commentArr">{{ comment.userComments }}
+      <div class="input-group-prepend float-right">
+        <span class="input-group-text" id="inputGroup-sizing-sm">username</span>
+      </div>
+    </li>
+  </ul>
+
+</form>

@@ -11,29 +11,22 @@ import { PostService } from './post.service';
 })
 export class DisscussionComponent implements OnInit {
 @ViewChild('f') postForm: NgForm;
+// @ViewChild('m') commentsForm: NgForm;
 
-showList = false;
+showCommentFields = false;
 
 postsArr = [];
+commentArr = [];
 
-// likes: 'false',
-//   comments: ''
+constructor(private postService: PostService) { }
 
+ngOnInit() {}
 
-  constructor(private postService: PostService) { }
-
-  ngOnInit() {
-  }
-
-
-  storePosts(form: NgForm) {
-    // this.postsArr.splice(0, 1);
-    // this.showList = true;
-    this.postsArr.push({
-      userPosts: this.postForm.value.newPost,
-    });
-    console.log(form);
-
+storePosts(form: NgForm) {
+  this.postsArr.push({
+    userPosts: this.postForm.value.newPost,
+  });
+    // console.log(form);
     this.postService.storePosts(this.postsArr)
     .subscribe(
       (response) => console.log(response),
@@ -41,4 +34,6 @@ postsArr = [];
     );
     this.postForm.reset();
   }
+
+
 }

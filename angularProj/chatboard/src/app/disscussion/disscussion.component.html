@@ -3,47 +3,120 @@
     <div class="col">
 
       <form (onSubmit)="storePosts(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
-        <div class="from-group">
+        <div class="form-group">
 
           <button
           class="btn btn-primary mt-2 mb-2"
           type="submit"
           id="submit"
-          (click)="storePosts(); postsArr.userPosts = '' "
+          (click)="storePosts()"
           [disabled]="!f.valid"
+          >Add Post
+        </button>
 
-          >Add Post</button>
-
-          <textarea
+        <textarea
+          rows="4"
           class="form-control mb-2"
           name="newPost"
           placeholder="Write your post here"
           required
           ngModel
+          >
+        </textarea>
 
+        <div class="from-group border border-success mb-3" *ngFor="let post of postsArr">
 
+        <ul class="list-group">
+          <li class="list-group-item">{{ post.userPosts }}</li>
 
-          ></textarea>
+          <app-comments></app-comments>
+<!--
+          <div class="input-group input-group-sm border border-primary" id="commentsContainer">
+            <div class="input-group-prepend">
+              <span class="input-group-text" id="inputGroup-sizing-sm">Add Comments</span>
+            </div>
 
+            <input
+            type="text"
+            name="newComments"
+            class="form-control"
+            aria-label="Small"
+            aria-describedby="inputGroup-sizing-sm"
+            ngModel>
 
-          <div class="from-group " *ngFor="let post of postsArr">
-              <ul class="list-group">
-                <li class="list-group-item">{{ post.userPosts }}</li>
-              </ul>
-
-              <div class="from-group">
-                <a href="#" class="">Add Comment</a>
-              </div>
-          </div>
-
+            <button
+            class="btn btn-primary"
+            type="submit" id="submit"
+            (click)="addComment(f)">sumbit
+          </button>
 
         </div>
-      </form>
+
+        <ul class="list-group">
+          <li class="list-group-item" *ngFor="let comment of commentArr">{{ comment.userComments }}</li>
+        </ul> -->
+
+      </ul>
+    </div>
+  </div>
+</form>
+
+
+  <!-- <div class="dropdown show">
+    <a dropdown-toggle href="#" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+      Dropdown link
+    </a>
+
+    <ul class="dropdown-menu">
+      <li class="dropdown-item" >Action</li>
+      <li class="dropdown-item" >Another action</li>
+      <li class="dropdown-item" >Something else here</li>
+    </ul>
+  </div>
+ -->
 
 
 
 
 
-    </div><!--col-->
-  </div> <!--row-->
+
+
+
+
+
+
+
+<!-- Example single danger button -->
+<!-- <div class="btn-group">
+  <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+    Action
+  </button>
+  <div class="dropdown-menu">
+    <a class="dropdown-item" href="#">Action</a>
+    <a class="dropdown-item" href="#">Another action</a>
+    <a class="dropdown-item" href="#">Something else here</a>
+    <div class="dropdown-divider"></div>
+    <a class="dropdown-item" href="#">Separated link</a>
+  </div>
+</div>
+ -->
+
+
+
+
+
+
+<!--
+
+  <form (onSubmit)="addComment(m)" #m="ngForm">
+
+  </form>
+
+-->
+
+
+
+
+</div><!--col-->
+</div> <!--row-->
 </div> <!--container-->
