@@ -160,16 +160,119 @@ server.route({
     }
 });
 
+// server.route({
+//     method: 'PUT',
+//     path: '/updateIssues/{username}',
+//     handler: function (request, reply) {
+//         var econJobs = request.payload.issue1Econ;
+//         var immigration = request.payload.issue2Immi;
+//         var healthCare = request.payload.issue3HealthCare;
+//         var budget = request.payload.issue4Budget;
+//         var environment = request.payload.issue5Envir;
+//         var abortion = request.payload.issue6Abortion;
+//         var sql = "UPDATE Issues SET econJobs = '" + econJobs + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+//         connection.query(sql, function (err, result) {
+//             if (err) {
+//                 throw err;
+//             }
+//         });
+
+//         sql = "UPDATE Issues SET immigration = '" + immigration + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+//         connection.query(sql, function (err, result) {
+//             if (err) {
+//                 throw err;
+//             }
+//         });
+
+//         sql = "UPDATE Issues SET healthCare = '" + healthCare + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+//         connection.query(sql, function (err, result) {
+//             if (err) {
+//                 throw err;
+//             }
+//         });
+
+//         sql = "UPDATE Issues SET globalWarming = '" + environment + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+//         connection.query(sql, function (err, result) {
+//             if (err) {
+//                 throw err;
+//             }
+//         });
+
+//         sql = "UPDATE Issues SET abortion = '" + abortion + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+//         connection.query(sql, function (err, result) {
+//             if (err) {
+//                 throw err;
+//             }
+//         });
+
+//         reply(200);
+//     }
+// });
+
+
 server.route({
     method: 'PUT',
     path: '/updateIssues/{username}',
     handler: function (request, reply) {
-        var econJobs = request.payload.issue1Econ;
-        var immigration = request.payload.issue2Immi;
-        var healthCare = request.payload.issue3HealthCare;
-        var budget = request.payload.issue4Budget;
-        var environment = request.payload.issue5Envir;
-        var abortion = request.payload.issue6Abortion;
+        var econJobs = request.payload[0].selected;
+        var immigration = request.payload[1].selected;
+        var healthCare = request.payload[2].selected;
+        var budget = request.payload[3].selected;
+        var environment = request.payload[4].selected;
+        var abortion = request.payload[5].selected;
+        if(econJobs == null){
+            econJobs = 0;
+        }
+        else{
+            econJobs = 1;
+        }
+
+        if(immigration == null){
+            immigration = 0;
+        }
+        else{
+            immigration = 1;
+        }
+
+        if(healthCare == null){
+            healthCare = 0;
+        }
+        else{
+            healthCare = 1;
+        }
+
+        if(budget == null){
+            budget = 0;
+        }
+        else{
+            budget = 1;
+        }
+
+        if(environment == null){
+            environment = 0;
+        }
+        else{
+            environment = 1;
+        }
+        if(abortion == null){
+            abortion = 0;
+        }
+        else{
+            abortion = 1;
+        }
+        console.log("econJObs" + econJobs);
+        console.log("immigration" + immigration);
+        console.log("healthCare" + healthCare);
+        console.log("budget" + budget);
+        console.log("environment" + environment);
+        console.log("abortion" + abortion);
+
+        // var econJobs = request.payload.issue1Econ;
+        // var immigration = request.payload.issue2Immi;
+        // var healthCare = request.payload.issue3HealthCare;
+        // var budget = request.payload.issue4Budget;
+        // var environment = request.payload.issue5Envir;
+        // var abortion = request.payload.issue6Abortion;
         var sql = "UPDATE Issues SET econJobs = '" + econJobs + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql, function (err, result) {
             if (err) {
@@ -192,6 +295,13 @@ server.route({
         });
 
         sql = "UPDATE Issues SET globalWarming = '" + environment + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+        connection.query(sql, function (err, result) {
+            if (err) {
+                throw err;
+            }
+        });
+
+        sql = "UPDATE Issues SET budget = '" + budget + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql, function (err, result) {
             if (err) {
                 throw err;
