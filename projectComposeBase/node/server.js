@@ -215,9 +215,9 @@ server.route({
     path: '/updateIssues/{username}',
     handler: function (request, reply) {
         var econJobs = request.payload[0].selected;
+        var healthCare = request.payload[1].selected;
+        var budget = request.payload[2].selected;
         var immigration = request.payload[1].selected;
-        var healthCare = request.payload[2].selected;
-        var budget = request.payload[3].selected;
         var environment = request.payload[4].selected;
         var abortion = request.payload[5].selected;
         if(econJobs == null){
