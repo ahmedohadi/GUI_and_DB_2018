@@ -27,34 +27,14 @@
         <div class="from-group border border-success mb-3" *ngFor="let post of postsArr">
 
         <ul class="list-group">
-          <li class="list-group-item">{{ post.userPosts }}</li>
+            <div class="input-group-prepend ">
+                <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">username</span>
+              </div>
+          <li class="list-group-item" id="postField">{{ post.userPosts }}</li>
+
 
           <app-comments></app-comments>
-<!--
-          <div class="input-group input-group-sm border border-primary" id="commentsContainer">
-            <div class="input-group-prepend">
-              <span class="input-group-text" id="inputGroup-sizing-sm">Add Comments</span>
-            </div>
 
-            <input
-            type="text"
-            name="newComments"
-            class="form-control"
-            aria-label="Small"
-            aria-describedby="inputGroup-sizing-sm"
-            ngModel>
-
-            <button
-            class="btn btn-primary"
-            type="submit" id="submit"
-            (click)="addComment(f)">sumbit
-          </button>
-
-        </div>
-
-        <ul class="list-group">
-          <li class="list-group-item" *ngFor="let comment of commentArr">{{ comment.userComments }}</li>
-        </ul> -->
 
       </ul>
     </div>
