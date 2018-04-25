@@ -352,7 +352,7 @@ server.route({
         }
 
         var email = request.payload.email;
-        if (last != null) {
+        if (email != null) {
             sql = "UPDATE Users SET email = '" + email + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
             connection.query(sql, function (error, results, fields) {
                 if (error)
@@ -365,7 +365,7 @@ server.route({
         }
 
         var phone = request.payload.phone;
-        if (last != null) {
+        if (phone != null) {
             sql = "UPDATE Users SET phone = '" + phone + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
             connection.query(sql, function (error, results, fields) {
                 if (error)
@@ -378,7 +378,7 @@ server.route({
         }
 
         var description = request.payload.description;
-        if (last != null) {
+        if (description != null) {
             sql = "UPDATE Users SET description = '" + description + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
             connection.query(sql, function (error, results, fields) {
                 if (error)
