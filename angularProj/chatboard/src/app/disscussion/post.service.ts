@@ -15,12 +15,16 @@ export class PostService {
     })
   };
 
-  storePosts(posts: any[]) {
+  storePosts(posts: any) {
     return this.http.post('http://127.0.0.1:3000/addpost', posts, this.httpOptions);
   }
 
 
   addComment(comments: any[]) {
     return this.http.post('http://127.0.0.1:3000/comment/addcomment', comments, this.httpOptions);
+  }
+
+  getPosts() {
+    return this.http.get('http://127.0.0.1:3000/allposts', this.httpOptions);
   }
 }
