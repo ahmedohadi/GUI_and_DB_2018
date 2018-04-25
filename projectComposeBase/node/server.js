@@ -617,14 +617,12 @@ server.route({
         var tag2 = request.payload.tag2;
         var tag3 = request.payload.tag3;
         var tag4 = request.payload.tag4;
-        var id = request.payload.id;
         var likes = request.payload.likes;
-        var sql = "INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) VALUES (" + "'" + userName + "'" + ", " + "'" + body + "'" + ", " + "'" + tag1 + "'" + ", " + "'" + tag2 + "'" + ", " + "'" + tag3 + "'" + ", " + "'" + tag4 + "'" + ", " + "'" + id + "'" + ", " + "'" + likes + "'" + ")";
-        console.log(sql);
+        var sql = "INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) VALUES (" + "'" + userName + "'" + ", " + "'" + body + "'" + ", " + "'" + tag1 + "'" + ", " + "'" + tag2 + "'" + ", " + "'" + tag3 + "'" + ", " + "'" + tag4 + "'" + ", " + "'" + '000' + "'" + ", " + "'" + likes + "'" + ")";
         connection.query(sql, function (error, results, fields) {
             if (error)
                 throw error;
-            reply("Post added to table");
+            reply(200);
         });
     }
 });
