@@ -15,17 +15,16 @@ export class DisscussionComponent implements OnInit {
 
 showCommentFields = false;
 
-postsArr = [];
-commentArr = [];
+postsArr;
 
 constructor(private postService: PostService) { }
 
 ngOnInit() {}
 
 storePosts(form: NgForm) {
-  this.postsArr.push({
+  this.postsArr = {
     userPosts: this.postForm.value.newPost,
-  });
+  };
     // console.log(form);
     this.postService.storePosts(this.postsArr)
     .subscribe(

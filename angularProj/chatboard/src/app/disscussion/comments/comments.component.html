@@ -1,34 +1,10 @@
 <form (onSubmit)="onEnter(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
-  <!-- <div class="form-group">
 
-    <button
-    class="btn btn-primary mt-2 mb-2"
-    type="submit"
-    id="submit"
-    (click)="storePosts()"
-    [disabled]="!f.valid"
-    >Add Post
-  </button>
-
-  <textarea
-    rows="4"
-    class="form-control mb-2"
-    name="newPost"
-    placeholder="Write your post here"
-    required
-    ngModel
-    >
-  </textarea>
-
-  <div class="from-group border border-success mb-3" *ngFor="let post of postsArr">
-
-  <ul class="list-group">
-    <li class="list-group-item">{{ post.userPosts }}</li> -->
-
-    <div class="input-group input-group-sm" id="commentsContainer">
+  <div class="input-group input-group-sm">
       <div class="input-group-prepend">
-        <span class="input-group-text" id="inputGroup-sizing-sm">Add Comments</span>
+        <span class="btn btn-primary dropdown-toggle rounded-0" data-toggle="collapse" data-target="#collapseOne">Add Comments</span>
       </div>
+
 
       <input
       type="text"
@@ -37,25 +13,32 @@
       aria-label="Small"
       aria-describedby="inputGroup-sizing-sm"
       ngModel
+      required
       (keyup.enter)="onEnter(f)"
       >
+    </div>
 
-      <!-- <button
-      class="btn btn-primary"
-      type="submit" id="submit"
-      (click)="addComment(f)"
+    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
 
-
-      >sumbit
-    </button> -->
-  </div>
-
-  <ul class="list-group">
-    <li class="list-group-item " *ngFor="let comment of commentArr">{{ comment.userComments }}
-      <div class="input-group-prepend float-right">
-        <span class="input-group-text" id="inputGroup-sizing-sm">username</span>
-      </div>
-    </li>
-  </ul>
+      <ul class="list-group">
+        <li class="list-group-item"  *ngFor="let comment of commentArr">{{ comment.userComments }}
+          <div class="input-group-prepend float-right">
+            <span class="input-group-text" id="inputGroup-sizing-sm">username</span>
+          </div>
+        </li>
+      </ul>
+    </div>
 
 </form>
+
+
+
+<!-- <div class="dropdown">
+    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu">
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </div> -->

@@ -13,7 +13,7 @@ export class CommentsComponent implements OnInit {
 
   constructor(private postService: PostService) { }
 
-  commentArr = [];
+  commentArr;
 
   ngOnInit() {
   }
@@ -34,9 +34,9 @@ export class CommentsComponent implements OnInit {
 
 
   onEnter(form: NgForm) {
-        this.commentArr.push({
+        this.commentArr = {
           userComments: this.commentForm.value.newComments,
-        });
+        };
         this.postService.addComment(this.commentArr)
         .subscribe(
           (response) => console.log(response),
