@@ -1,5 +1,5 @@
 CREATE DATABASE Chatboard;
-USE CHATBOARD;
+USE Chatboard;
  DROP TABLE Users;
 CREATE TABLE Users(
  firstName VARCHAR(25),
