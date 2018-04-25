@@ -35,10 +35,15 @@ export class VotingLocationsComponent implements OnInit {
    });
  }
 
+
  showLocation(item) {
   this.filter = item.name;
   item.highlight = !item.highlight;
   this.currentLocation = item;
+}
+
+clear() {
+  this.currentLocation = {};
 }
 
 }

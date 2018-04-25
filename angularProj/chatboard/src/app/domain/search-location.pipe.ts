@@ -6,7 +6,7 @@ import { Pipe, PipeTransform } from '@angular/core';
 export class SearchLocationPipe implements PipeTransform {
 
   transform(pipeData, pipeModifier): any {
-    if (pipeModifier) {
+    if (pipeModifier && pipeData) {
     return pipeData.filter(eachItem => {
       return (
         eachItem['locationName'].toLowerCase().includes(pipeModifier.toLowerCase()) ||
@@ -15,6 +15,8 @@ export class SearchLocationPipe implements PipeTransform {
         // || eachItem['info'].toLowerCase().includes(pipeModifier.toLowerCase())
       );
     });
+  } else {
+    return pipeData;
   }
   }
 }

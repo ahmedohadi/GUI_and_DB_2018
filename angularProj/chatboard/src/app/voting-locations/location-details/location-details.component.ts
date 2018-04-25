@@ -22,6 +22,10 @@ public location: VotingLocation;
     private votingLocationRepostitory: VotingLocationRepostitory
   ) { }
 
+  trasfer() {
+    this.router.navigateByUrl( '/home/locations');
+  }
+
   ngOnInit() {
     this.activedRoute.params.subscribe((params: any) => {
         this.location = params;
