@@ -134,15 +134,15 @@ INSERT INTO Comments (id, userName, body) VALUES (9, 'khrynczyk8', 'I love my co
 
 
 
- DROP TABLE Locations;
+DROP TABLE Locations;
 CREATE TABLE Locations(
 id INT,
 locationName VARCHAR(40),
-hours VARCHAR(40),
+hours VARCHAR(30),
 address VARCHAR(30),
 zipcode VARCHAR(5),
 info VARCHAR(200),
-picture VARCHAR(30)
+picture VARCHAR(25)
 );
 
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (1, 'Ward, Howell and Morissette', '9:25 AM - 09:00PM', '23586 Oak Drive', '08342', null, 'COsKVo.png');
