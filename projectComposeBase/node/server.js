@@ -17,10 +17,15 @@ var mysql = require('mysql');
 var connection = mysql.createConnection({
     //host will be the name of the service from the docker-compose file. 
     host: 'mysql',
-    user: 'mark',
-    password: 'abc123',
-    database: 'cse3330'
+    user: 'root',
+    password: 'go_away!',
+    database: 'Chatboard'
 });
+
+// host: 'mysql',
+// user: 'mark',
+// password: 'abc123',
+// database: 'cse3330'
 
 connection.connect(function (err) {
 });
