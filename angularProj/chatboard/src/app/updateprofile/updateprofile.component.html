@@ -50,7 +50,7 @@
                 <label for="party float-left">Change Candidacy</label>
               <select #candidate class="form-control" id="candidacy" name="candidate" [(ngModel)]="profile.candidates">
                 <option value="" [disabled]="true" [selected]="true"></option>
-                <option *ngFor="let cand of ['President','Senator','Congressman']">{{cand}}</option>
+                <option *ngFor="let cand of ['President','Senator','Congressman', 'Voter']">{{cand}}</option>
               </select>
             </span>
             <span class="col">

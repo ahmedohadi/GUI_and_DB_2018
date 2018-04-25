@@ -22,7 +22,7 @@ export abstract class Repostitory<T> {
     );
   }
 
-  public getById(id: number): Observable<T> {
+  public getById(id: any): Observable<T> {
     return this.httpClient.get(`${this.endPoint}/${id}`, this.httpOptions).pipe(
       catchError(this.handleException)
     );
@@ -34,13 +34,13 @@ export abstract class Repostitory<T> {
     );
   }
 
-  public update(id: number, item: T): Observable<T> {
+  public update(id: any, item: T): Observable<T> {
     return this.httpClient.put(`${this.endPoint}/${id}`, item, this.httpOptions).pipe(
       catchError(this.handleException)
     );
   }
 
-  public delete(id: number): Observable<T> {
+  public delete(id: any): Observable<T> {
     return this.httpClient.delete(`${this.endPoint}/${id}`, this.httpOptions).pipe(
       catchError(this.handleException)
     );

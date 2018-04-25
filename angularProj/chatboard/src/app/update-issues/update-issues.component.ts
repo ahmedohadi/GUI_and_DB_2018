@@ -18,12 +18,12 @@ export class UpdateIssuesComponent implements OnInit {
     constructor(private alertService: AlertService) {
       this.title = 'Select all/Deselect all checkbox - Angular 2';
       this.issues = [
-        { issue: 'The Economy and Jobs', selected: false },
-        { issue: 'Health Care', selected: false },
-        { issue: 'Federal deficit and budget', selected: false },
-        { issue: 'Immigration', selected: false },
-        { issue: 'Environment and Global Warming', selected: false },
-        { issue: 'Abortion', selected: false },
+        { issue: 'The Economy and Jobs' },
+        { issue: 'Health Care'},
+        { issue: 'Federal deficit and budget'},
+        { issue: 'Immigration' },
+        { issue: 'Environment and Global Warming' },
+        { issue: 'Abortion' },
       ];
     }
 
@@ -65,7 +65,7 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     update() {
-      console.log(this.issues[5]);
+      console.log(this.issues);
       if (this.checkIfAtLeastOnSelected() === false) {
         this.alertService.error('Error please select atleast one issue');
       }
