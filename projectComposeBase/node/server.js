@@ -19,7 +19,7 @@ var connection = mysql.createConnection({
     host: 'mysql',
     user: 'mark',
     password: 'abc123',
-    database: 'Chatboard'
+    database: 'cse3330'
 });
 
 connection.connect(function (err) {
