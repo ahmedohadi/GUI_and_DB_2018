@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { AlertService } from '../domain/services/alert.service';
 import { NgForm, NgModel } from '@angular/forms';
 import { Profile } from './../domain/models/profile';
+import { ProfileRepository } from '../domain/profile-repository.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-issues',
@@ -15,7 +17,12 @@ export class UpdateIssuesComponent implements OnInit {
     issues: any;
     selectedAll: any;
     unselectedAll: any;
-    constructor(private alertService: AlertService) {
+    constructor(
+        public router: Router,
+        public profileRepository: ProfileRepository,
+        private alertService: AlertService,
+    ) {
+
       this.title = 'Select all/Deselect all checkbox - Angular 2';
       this.issues = [
         { issue: 'The Economy and Jobs' },
@@ -65,10 +72,15 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     update() {
+        this.alertService.error('Please enter atleast one thing to update');
       console.log(this.issues);
       if (this.checkIfAtLeastOnSelected() === false) {
         this.alertService.error('Error please select atleast one issue');
       }
+
+      this.profileRepository.update('mcoviello1', this.issues).subscribe(x => {
+      this.alertService.success('you have sucessfully updated your profile');
+      });
       this.alertService.success('your profile has been updated');
       this.unselectAll() ;
     }

@@ -34,7 +34,7 @@ export class UpdateprofileComponent implements OnInit {
     this.alertService.error('Please enter atleast one thing to update');
     console.log(this.profile);
     this.profile = {};
-    // this.navigatebyUrl('/profile');
+    // this.navigatebyUrl('/home/profile');
   }
 
 }

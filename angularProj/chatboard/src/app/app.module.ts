@@ -39,7 +39,7 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'home', component: HomeComponent, canActivate: [AuthGuard],
+  { path: 'home', component: HomeComponent, // canActivate: [AuthGuard],
       children: [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'update', component: UpdateprofileComponent },
