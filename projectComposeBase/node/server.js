@@ -134,6 +134,7 @@ server.route({
     handler: function (request, reply) {
         var oldPassword = request.payload.oldpassword;
         var newPassword = request.payload.newpassword;
+        console.log(encodeURIComponent(request.params.username));
         console.log(request.payload);
         var sql1 = "SELECT thepassword FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql1, function (err, result) {
