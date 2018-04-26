@@ -132,8 +132,8 @@ server.route({
     method: 'PUT',
     path: '/updatePassword/{username}',
     handler: function (request, reply) {
-        var oldPassword = request.payload.oldpassword;
-        var newPassword = request.payload.newpassword;
+        var oldPassword = request.payload.oldPassword;
+        var newPassword = request.payload.newPassword;
         console.log(encodeURIComponent(request.params.username));
         console.log(request.payload);
         var sql1 = "SELECT thepassword FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
