@@ -134,6 +134,7 @@ server.route({
     handler: function (request, reply) {
         var oldPassword = request.payload.oldpassword;
         var newPassword = request.payload.newpassword;
+        console.log(request.payload);
         var sql1 = "SELECT thepassword FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql1, function (err, result) {
             if (err) {
@@ -335,7 +336,7 @@ server.route({
             });
         }
         else {
-            console.log("okay we gucci");
+            //console.log("okay we gucci");
         }
 
         var last = request.payload.lastname;
@@ -348,7 +349,7 @@ server.route({
             });
         }
         else {
-            console.log("okay we gucci");
+            //console.log("okay we gucci");
         }
 
         var email = request.payload.email;
@@ -361,7 +362,7 @@ server.route({
             });
         }
         else {
-            console.log("okay we gucci");
+            //console.log("okay we gucci");
         }
 
         var phone = request.payload.phone;
@@ -374,7 +375,7 @@ server.route({
             });
         }
         else {
-            console.log("okay we gucci");
+            //console.log("okay we gucci");
         }
 
         var description = request.payload.description;
@@ -387,7 +388,7 @@ server.route({
             });
         }
         else {
-            console.log("okay we gucci");
+            //console.log("okay we gucci");
         }
         reply(200);
     }
@@ -504,7 +505,7 @@ server.route({
                 reply(obj);
             }
             else {
-                reply(500);
+                //reply(500);
             }
         });
     }
