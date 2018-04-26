@@ -27,7 +27,8 @@ export class UpdateprofileComponent implements OnInit {
 
   update() {
 
-    this.profileRepository.update('mcoviello1', this.profile).subscribe(x => {
+    this.profileRepository.update('updateAccount/mcoviello1', this.profile).subscribe(x => {
+    this.alertService.clear();
     this.alertService.success('your profile has been updated');
     });
 

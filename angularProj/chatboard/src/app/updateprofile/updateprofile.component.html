@@ -90,7 +90,7 @@
         </div>
       </div>
       <div class="text-center" >
-      <button type="submit" class="btn mt-3  btn-success" (click)="update();">Update Account</button>
+      <button type="submit" class="btn mt-3  btn-success" [disabled]="!updateform.valid" (click)="update();">Update Account</button>
       <button type="submit" class="btn mt-3 ml-4 btn-danger" (click)="updateform.reset();">  Cancel</button>
       </div>
     </form>

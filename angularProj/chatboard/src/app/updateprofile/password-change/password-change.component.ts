@@ -2,6 +2,7 @@ import { Component, OnInit, Input } from '@angular/core';
 import { NgForm, NgModel } from '@angular/forms';
 import { Profile } from './../../domain/models/profile';
 import { AlertService } from '../../domain/services/alert.service';
+import { ProfileRepository } from '../../domain/profile-repository.service';
 
 @Component({
   selector: 'app-password-change',
@@ -14,10 +15,14 @@ export class PasswordChangeComponent implements OnInit {
   public profile: Profile;
 
   public oldPassword: string;
-  public firstPassword: string;
+  public newPassword: string;
   public secondPassword: string;
+  public password = {} as any;
 
-  constructor(private alertService: AlertService) {
+  constructor(
+    private alertService: AlertService,
+    public profileRepository: ProfileRepository,
+  ) {
     this.profile = {};
   }
 
@@ -25,18 +30,22 @@ export class PasswordChangeComponent implements OnInit {
   }
 
   update() {
-   if (this.firstPassword !== this.secondPassword) {
-      this.alertService.error('Error new passwords did not match');
-      console.log(this.firstPassword + this.oldPassword + this.secondPassword);
+    this.password.oldPassword = this.oldPassword;
+    this.password.newPassword = this.newPassword;
+    if (this.newPassword !== this.secondPassword) {
+       this.alertService.clear();
+       this.alertService.error('Error new passwords did not match');
+       // console.log(this.firstPassword + this.oldPassword + this.secondPassword);
+     } else {
+       this.profileRepository.update('updatePassword/mcoviello1', this.password).subscribe(x => {
+         console.log(this.password);
+         this.alertService.clear();
+         this.alertService.success('You have sucessfuly updated your password');
+         });
+     }
+     this.newPassword = '';
+     this.oldPassword = '';
+     this.secondPassword = '';
+   }
 
-    } else {
-      this.alertService.success('You have sucessfuly updated your password');
-    }
-
-    this.firstPassword = '';
-    this.oldPassword = '';
-    this.secondPassword = '';
-
-  }
-
-}
+ }

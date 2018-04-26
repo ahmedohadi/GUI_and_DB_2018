@@ -72,16 +72,16 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     update() {
-        this.alertService.error('Please enter atleast one thing to update');
       console.log(this.issues);
       if (this.checkIfAtLeastOnSelected() === false) {
+        this.alertService.clear();
         this.alertService.error('Error please select atleast one issue');
+      } else {
+        this.profileRepository.update('updateIssues/hlebarreb', this.issues).subscribe(x => {
+          this.alertService.clear();
+          this.alertService.success('Sucess! thanks for telling us about the issues that matter to you');
+          });
       }
-
-      this.profileRepository.update('mcoviello1', this.issues).subscribe(x => {
-      this.alertService.success('you have sucessfully updated your profile');
-      });
-      this.alertService.success('your profile has been updated');
       this.unselectAll() ;
     }
   }
