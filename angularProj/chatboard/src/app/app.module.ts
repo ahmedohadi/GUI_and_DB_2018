@@ -28,10 +28,11 @@ import { SearchLocationPipe } from './domain/search-location.pipe';
 import { LocationListComponent } from './voting-locations/location-list/location-list.component';
 import { LocationDetailsComponent } from './voting-locations/location-details/location-details.component';
 import { AuthGuard } from './domain/guards/auth.guard';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { HttpClientModule, HTTP_INTERCEPTORS, HttpHeaders } from '@angular/common/http';
 import { JwtInterceptor } from './domain/helpers/jwt.interceptor';
 import { ProfileRepository } from './domain/profile-repository.service';
 import { AlertComponent } from './alert/alert.component';
+
 
 
 
@@ -78,7 +79,7 @@ const appRoutes: Routes = [
     FormsModule,
     RouterModule.forRoot(appRoutes),
     HttpModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [
     RouterModule
