@@ -410,6 +410,7 @@ server.route({
     handler: function (request, reply) {
         var sql = "SELECT * FROM Users WHERE zipCode ='" + request.query.search + "' AND office != 'Voter'";
         connection.query(sql, function (error, result) {
+            console.log(result);
             var tempArr =[];
             for(var c = 0 ; c < result.length; c++){
                 var obj = {
@@ -805,8 +806,8 @@ server.route({
     method: 'GET',
     path: '/getcomment/{id}',
     handler: function (request, reply) {
-        var sql = 'SELECT * FROM Comments WHERE id = ' + request.params.id; //select all comments where comment id = incoming id
-        console.log(sql);
+        console.log(request.params.id );
+        var sql = "SELECT * FROM Comments WHERE id = '" + encodeURIComponent(request.params.id) + "'"; //select all comments where comment id = incoming id
         connection.query(sql, function (error, results, fields) {
             if (error)
                 throw error;
