@@ -436,6 +436,7 @@ server.route({
                     "party": result[c].party,
                     "candidates": result[c].office,
                     "description": result[c].description,
+                    "picture": result[c].picture,
                 }
                 tempArr.push(obj);
             }
@@ -470,6 +471,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -493,6 +495,7 @@ server.route({
                     "party": result[c].party,
                     "candidates": result[c].office,
                     "description": result[c].description,
+                    "picture": result[c].picture,
                 }
                 tempArr.push(obj);
             }
@@ -516,6 +519,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -539,6 +543,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -562,6 +567,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -585,6 +591,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -608,6 +615,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -631,6 +639,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -663,6 +672,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
@@ -684,6 +694,7 @@ server.route({
                         "party": result[c].party,
                         "candidates": result[c].office,
                         "description": result[c].description,
+                        "picture": result[c].picture,
                     }
                     tempArr.push(obj);
                 }
