@@ -762,6 +762,7 @@ server.route({
                     "party": result[0].party,
                     "candidates": result[0].office,
                     "description": result[0].description,
+                    "picture": result[0].picture,
                     "token": 'fake-jwt-token'
                 }
                 reply(obj);
