@@ -433,14 +433,25 @@ server.route({
 });
 
 //DONE JOSH
+//%20
 server.route({
     method: 'GET',
-    path: '/searchbyname/{firstname}/{lastname}',
+    path: '/candidate',
     handler: function (request, reply) {
-        var sql = "SELECT * FROM Users WHERE firstName ='" + encodeURIComponent(request.params.firstname) + "'AND lastName = '" + encodeURIComponent(request.params.lastname) + "'";
-        connection.query(sql, function (error, results) {
-            reply(results);
-        });
+        if(request.query.name.includes(" ")){
+            var res = request.query.name.split(" ");
+
+            var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "'";
+            connection.query(sql, function (error, results) {
+                reply(results);
+            });
+        }
+        else{
+            var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.name + "'OR lastName = '" + request.query.name + "'";
+            connection.query(sql, function (error, results) {
+                reply(results);
+            });
+        }
     }
 });
 
