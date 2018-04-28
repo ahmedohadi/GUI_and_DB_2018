@@ -419,19 +419,76 @@ server.route({
 //DONE JOSH
 server.route({
     method: 'GET',
-    path: '/searchbyissues/{issue}',
+    path: '/issues',
     handler: function (request, reply) {
-        if(request.query.search == ""){
+        var str = request.query.search;
+        str = str.toLowerCase();
 
+        if(str == "economy"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        } else if(str == "jobs"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        } else if(str == "healthcare"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE healthCare = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        } else if(str == "deficit"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        }  else if(str == "budget"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        }   else if(str == "immigration"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE immigration = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        }  else if(str == "environment"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE globalWarming = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
+        } else if(str == "abortion" || str == "dead babies"){
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1";
+            connection.query(sql, function (error, results1) {
+                if (error) {
+                    throw error;
+                }
+                reply(results1);
+            });
         }
-        var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE " +  + "= 1";
-        connection.query(sql, function (error, results1) {
-            if (error) {
-                throw error;
-            }
-            reply(results1);
-        });
-
     }
 });
 
