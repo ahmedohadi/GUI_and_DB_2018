@@ -409,7 +409,7 @@ server.route({
     path: '/zipcode',
     handler: function (request, reply) {
         console.log(request.query.search);
-        var sql = "SELECT * FROM Users WHERE zipCode ='" + encodeURIComponent(request.query.search) + "'";
+        var sql = "SELECT * FROM Users WHERE zipCode ='" + request.query.search + "' AND office != 'Voter'";
         connection.query(sql, function (error, results) {
             reply(results);
         });
@@ -425,7 +425,7 @@ server.route({
         str = str.toLowerCase();
 
         if(str == "economy"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -433,7 +433,7 @@ server.route({
                 reply(results1);
             });
         } else if(str == "jobs"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -441,7 +441,7 @@ server.route({
                 reply(results1);
             });
         } else if(str == "healthcare"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE healthCare = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE healthCare = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -449,7 +449,7 @@ server.route({
                 reply(results1);
             });
         } else if(str == "deficit"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -457,7 +457,7 @@ server.route({
                 reply(results1);
             });
         }  else if(str == "budget"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -465,7 +465,7 @@ server.route({
                 reply(results1);
             });
         }   else if(str == "immigration"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE immigration = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE immigration = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -473,15 +473,15 @@ server.route({
                 reply(results1);
             });
         }  else if(str == "environment"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE globalWarming = 1";
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE globalWarming = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
                 }
                 reply(results1);
             });
-        } else if(str == "abortion" || str == "dead babies"){
-            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1";
+        } else if(str == "abortion" || str == "dead babies"){ //easter egg
+            var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1 AND office != 'Voter'";
             connection.query(sql, function (error, results1) {
                 if (error) {
                     throw error;
@@ -501,13 +501,13 @@ server.route({
         if(request.query.search.includes(" ")){
             var res = request.query.search.split(" ");
 
-            var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "'";
+            var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "' AND office != 'Voter'";
             connection.query(sql, function (error, results) {
                 reply(results);
             });
         }
         else{
-            var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.search + "'OR lastName = '" + request.query.search + "'";
+            var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.search + "'OR lastName = '" + request.query.search + "' AND office != 'Voter'";
             connection.query(sql, function (error, results) {
                 reply(results);
             });
@@ -656,7 +656,7 @@ server.route({
     method: 'GET',
     path: '/allposts',
     handler: function (request, reply) {
-        connection.query('SELECT * FROM Posts', function (error, results, fields) {
+        connection.query('SELECT * FROM Posts ORDER BY postdate DESC', function (error, results, fields) {
             if (error) {
                 throw error;
             }

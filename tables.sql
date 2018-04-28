@@ -14,12 +14,12 @@ CREATE TABLE Users(
  description VARCHAR(255)
  );
  
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Darla', 'Silvermann', 'dsilvermann0@tmall.com', 'dsilvermann0', 'paradigm', '408-621-7884', '84534', 'democrat', 'President', 'Polarised');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Mitzi', 'Coviello', 'mcoviello1@myspace.com', 'mcoviello1', 'middleware', '303-420-4637', '98418', 'republican', 'Congressman', 'Expanded');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kandace', 'Sayle', 'ksayle2@biblegateway.com', 'ksayle2', 'bottom-line', '906-139-3750', '62816', 'independent', 'Senator', 'Virtual');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Annissa', 'Bain', 'abain3@newsvine.com', 'abain3', 'Balanced', '252-926-3365', '36076', 'democrat', 'Senator', 'full-range');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Joshua', 'Sylvester', 'joshuasylvester777@gmail.com', 'sillyvester', 'pass', '918-352-0221', '74030', 'democrat', 'Voter', 'I am fiscally conservative and socially liberal. I wish Hillary had won :(');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Redneck', 'Joe', 'drinkmorebeer@gmail.com', 'drinkmorebeer', '1234', '918-420-4200', '74030', 'republican', 'Congressman', 'I love my country and I love guns. I only drink Coors.');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Muaz', 'Abrar', 'muaz@biblegateway.com', 'muazmuaz', 'ilovedogs', '214-690-6969', '72575', 'independent', 'Senator', 'I am hoping to one day run for president. I enjoy long walks on the beach. I love dogs (thats totally not my password)');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Traian', 'Pop', 'traian@gmail.com', 'dopeman', 'password', '214-522-3242', '75275', 'democrat', 'Voter', 'Only got this profile to promote my online business. Check out the silkroad.com NOW!!');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Gregorio', 'Rudham', 'grudham4@loc.gov', 'grudham4', 'info-mediaries', '995-496-1886', '28002', 'independent', 'Senator', 'encoding');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Billie', 'Bromfield', 'bbromfield5@hatena.ne.jp', 'bbromfield5', 'Graphic Interface', '124-277-8755', '12007', 'independent', 'Senator', 'support');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Billie', 'Idol', 'billie@hotmail.com', 'billieidolbaby', 'irock', '124-277-8755', '44996', 'independent', 'Senator', 'Yes I am the real Billie Idol. Please dont call me');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Morty', 'Maliffe', 'mmaliffe6@oakley.com', 'mmaliffe6', 'productivity', '407-946-4871', '03496', 'democrat', 'Senator', 'budgetary management');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Verla', 'Daddow', 'vdaddow7@google.es', 'vdaddow7', 'parallelism', '721-132-4621', '11129', 'democrat', 'President', 'mission-critical');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description) values ('Kimbra', 'Hrynczyk', 'khrynczyk8@java.com', 'khrynczyk8', 'Team-oriented', '355-933-5984', '00568', 'democrat', 'Congressman', 'encompassing');
@@ -47,10 +47,10 @@ insert into Users (firstName, lastName, email, username, thepassword, phone, zip
  abortion TINYINT
 );
 
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('dsilvermann0', '0', '0', '0', '1', '1', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mcoviello1', '1', '1', '1', '1', '0', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('ksayle2', '0', '0', '0', '1', '1', '0');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('abain3', '1', '1', '1', '0', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('sillyvester', '0', '0', '0', '1', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('drinkmorebeer', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('muazmuaz', '0', '0', '0', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('dopeman', '1', '1', '1', '0', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('grudham4', '0', '0', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bbromfield5', '1', '1', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mmaliffe6', '1', '1', '0', '0', '0', '0');
@@ -71,35 +71,36 @@ insert into Issues (username, econJobs, immigration, healthCare, globalWarming, 
  
 DROP TABLE Posts;
 CREATE TABLE Posts(
- userName VARCHAR(31),
- body VARCHAR(1000),
- tag1 VARCHAR(31),
- tag2 VARCHAR(31), 
- tag3 VARCHAR(31),
- tag4 VARCHAR(31),
- id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
- likes INT
+userName VARCHAR(31),
+body VARCHAR(1000),
+tag1 VARCHAR(31),
+tag2 VARCHAR(31), 
+tag3 VARCHAR(31),
+tag4 VARCHAR(31),
+id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
+postdate DATETIME DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
+likes INT
 );
 
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('dsilvermann0', 'Theyre trying to take our rights away!!!', 'guns','drugs','budget','abortion', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mcoviello1', 'I just want to farm and drink my beer', 'politics','political','farming','economics', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ksayle2', 'Today was great', 'trade','foreign relations','public policy','job growth', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('abain3', 'TEACHERS DESERVE MORE PAY', 'political awareness','civil liberties','teachers','domestic', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('grudham4', 'LOL we are rich and want your oil', 'defense','budget','spending','military', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('bbromfield5', 'Wow I cant believe he won that election', 'president','trump','donald','the', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mmaliffe6', 'Who all is going to the march on sunday?', 'guns','violence','rights','control', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('vdaddow7', 'Sign my petition to legalize marijuana', 'abortion','women','rights','babies', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('khrynczyk8', 'My body my choice', 'choice','life','pro','abortion', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('blynesa', '@Russia stop screwing with our elections', 'hacking','Russia','election','unfair', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('hlebarreb', 'Free the NK people', 'North Korea','South Korea','war','peace', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('ngoldsbyc', 'Well america has the strongest military, what about education system?', 'tanks','planes','military','nukes', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('mclabburnd', 'haha crazy rocket man', 'nukes','North Korea','peace','talks', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('glyptradee', 'Putin has overstepped this time. I hope the UN intervenes', 'Russia','sanctions','Crimea','Putin', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('umattacksf', 'Why cant Putin stay in his lane', 'Vladimir','Putin','Russia','Vladimir Putin', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('tskahillg', 'my name is tskahill', 'Xi','Xi Jinping','China','Xi Jinping', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('sowersh', 'Make America Great Again', 'The','Donald','Trump','USA', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('cmaffionei', 'I just want to steal oil from other countries ', 'energy','Rick Perry','oil','gas', 000, 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, likes) values ('lreadwinj', 'Wow this has truly been a great day for science', 'Education','Betsy DeVos','cancer','aids', 000, 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('drinkmorebeer', 'Theyre trying to take our rights away!!!', 'guns','drugs','budget','abortion', 000, '1971-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('drinkmorebeer', 'I just want to farm and drink my beer', 'politics','political','farming','economics', 000, '1972-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('sillyvester', 'Today was great', 'trade','foreign relations','public policy','job growth', 000, '1973-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('dopeman', 'TEACHERS DESERVE MORE PAY', 'political awareness','civil liberties','teachers','domestic', 000, '1974-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('grudham4', 'LOL we are rich and want your oil', 'defense','budget','spending','military', 000, '1975-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('bbromfield5', 'Wow I cant believe he won that election', 'president','trump','donald','the', 000,'1976-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('mmaliffe6', 'Who all is going to the march on sunday?', 'guns','violence','rights','control', 000, '1977-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('vdaddow7', 'Sign my petition to legalize marijuana', 'abortion','women','rights','babies', 000, '1978-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('khrynczyk8', 'My body my choice', 'choice','life','pro','abortion', 000,'1979-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('blynesa', '@Russia stop screwing with our elections', 'hacking','Russia','election','unfair', 000,'1980-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('hlebarreb', 'Free the NK people', 'North Korea','South Korea','war','peace', 000,'1981-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('ngoldsbyc', 'Well america has the strongest military, what about education system?', 'tanks','planes','military','nukes', 000, '1982-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('mclabburnd', 'haha crazy rocket man', 'nukes','North Korea','peace','talks', 000, '1983-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('glyptradee', 'Putin has overstepped this time. I hope the UN intervenes', 'Russia','sanctions','Crimea','Putin', 000, '1984-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('umattacksf', 'Why cant Putin stay in his lane', 'Vladimir','Putin','Russia','Vladimir Putin', 000, '1985-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('tskahillg', 'my name is tskahill', 'Xi','Xi Jinping','China','Xi Jinping', 000, '1985-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('sowersh', 'Make America Great Again', 'The','Donald','Trump','USA', 000, '1986-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('cmaffionei', 'I just want to steal oil from other countries ', 'energy','Rick Perry','oil','gas', 000,'1987-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('lreadwinj', 'Wow this has truly been a great day for science', 'Education','Betsy DeVos','cancer','aids', 000,'1988-01-01 00:00:01', 0);
  
  DROP TABLE Comments;
  CREATE TABLE Comments(
