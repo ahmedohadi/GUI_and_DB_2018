@@ -46,26 +46,28 @@
     <thead>
       <th>Photo</th>
       <th>Name</th>
-      <th>Candaicy</th>
+      <th>Candidacy</th>
       <th>Party</th>
+      <th>Zipcode</th>
       <th class="text-right">Description</th>
     </thead>
     <tbody>
-      <tr *ngFor="let index of profiles">
+      <tr class='clickable-row' [routerLink]="'accounts/' + index.username"
+      *ngFor="let index of profiles">
         <td>
-          {{index.picture}}
+        <img class="img-fluid" src="assets/placeholder.png" alt="" style="width: 50px; height: 50px;">
         </td>
         <td>
-          <a href [routerLink]="'accounts/' + index.username">
-            {{ index.firstname }} ,{{index.lastname}}
-          </a>
+            {{ index.firstname }} {{index.lastname}}
           <td>
             {{index.candidates}}
           </td>
           <td>
             {{index.party}}
           </td>
-
+          <td>
+              {{index.zipcode}}
+            </td>
           <td class="text-right">
             {{index.description}}
           </td>

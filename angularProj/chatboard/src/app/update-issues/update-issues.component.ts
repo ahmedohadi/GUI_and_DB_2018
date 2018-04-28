@@ -12,7 +12,7 @@ import { Router } from '@angular/router';
 })
 
 export class UpdateIssuesComponent implements OnInit {
-
+    public currentUser: Profile;
     title: String;
     issues: any;
     selectedAll: any;
@@ -21,8 +21,9 @@ export class UpdateIssuesComponent implements OnInit {
         public router: Router,
         public profileRepository: ProfileRepository,
         private alertService: AlertService,
-    ) {
 
+    ) {
+      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
       this.title = 'Select all/Deselect all checkbox - Angular 2';
       this.issues = [
         { issue: 'The Economy and Jobs' },
@@ -72,12 +73,12 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     update() {
-      console.log(this.issues);
+      console.log(this.currentUser);
       if (this.checkIfAtLeastOnSelected() === false) {
         this.alertService.clear();
         this.alertService.error('Error please select atleast one issue');
       } else {
-        this.profileRepository.update('updateIssues/hlebarreb', this.issues).subscribe(x => {
+        this.profileRepository.update(`updateIssues/${this.currentUser.username}`, this.issues).subscribe(x => {
           this.alertService.clear();
           this.alertService.success('Sucess! thanks for telling us about the issues that matter to you');
           });

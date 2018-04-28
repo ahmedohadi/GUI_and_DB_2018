@@ -13,7 +13,7 @@ export class PasswordChangeComponent implements OnInit {
 
   @Input()
   public profile: Profile;
-
+  public currentUser: Profile;
   public oldPassword: string;
   public newPassword: string;
   public secondPassword: string;
@@ -24,6 +24,7 @@ export class PasswordChangeComponent implements OnInit {
     public profileRepository: ProfileRepository,
   ) {
     this.profile = {};
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
@@ -37,7 +38,7 @@ export class PasswordChangeComponent implements OnInit {
        this.alertService.error('Error new passwords did not match');
        // console.log(this.firstPassword + this.oldPassword + this.secondPassword);
      } else {
-       this.profileRepository.update('updatePassword/muaz', this.password).subscribe(x => {
+       this.profileRepository.update(`updatePassword/${this.currentUser.username}`, this.password).subscribe(x => {
          console.log(this.password);
          this.alertService.clear();
          this.alertService.success('You have sucessfuly updated your password');

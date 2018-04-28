@@ -1,4 +1,5 @@
-.jumbotron {
-  background-color: #96d177;
 
+
+.clickable-row:hover {
+  background-color: lightblue;
 }

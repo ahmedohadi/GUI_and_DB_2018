@@ -14,12 +14,15 @@ export class UpdateprofileComponent implements OnInit {
 
   @Input()
   public profile: Profile;
+  public currentUser: Profile;
 
   constructor(
     private alertService: AlertService,
     public router: Router,
     public profileRepository: ProfileRepository,
-  ) { }
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+   }
 
   ngOnInit() {
     this.profile = {};
@@ -42,7 +45,7 @@ export class UpdateprofileComponent implements OnInit {
       this.alertService.clear();
       this.alertService.error('Please enter atleast one thing to update');
     } else {
-    this.profileRepository.update('updateAccount/muaz', this.profile).subscribe(x => {
+    this.profileRepository.update(`updateAccount/${this.currentUser.username}`, this.profile).subscribe(x => {
     this.alertService.clear();
     this.alertService.success('your profile has been updated');
     });
