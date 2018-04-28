@@ -366,6 +366,19 @@ server.route({
             //console.log("okay we gucci");
         }
 
+        var zipcode = request.payload.zipcode;
+        if (zipcode != null) {
+            sql = "UPDATE Users SET email = '" + zipcode + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+            connection.query(sql, function (error, results, fields) {
+                if (error)
+                    throw error;
+                //reply('It worked');
+            });
+        }
+        else {
+            //console.log("okay we gucci");
+        }
+
         var phone = request.payload.phone;
         if (phone != null) {
             sql = "UPDATE Users SET phone = '" + phone + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
