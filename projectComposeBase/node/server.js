@@ -421,7 +421,10 @@ server.route({
     method: 'GET',
     path: '/searchbyissues/{issue}',
     handler: function (request, reply) {
-        var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE " + encodeURIComponent(request.params.issue) + "= 1";
+        if(request.query.search == ""){
+
+        }
+        var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE " +  + "= 1";
         connection.query(sql, function (error, results1) {
             if (error) {
                 throw error;
@@ -438,8 +441,8 @@ server.route({
     method: 'GET',
     path: '/candidate',
     handler: function (request, reply) {
-        if(request.query.name.includes(" ")){
-            var res = request.query.name.split(" ");
+        if(request.query.search.includes(" ")){
+            var res = request.query.search.split(" ");
 
             var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "'";
             connection.query(sql, function (error, results) {
@@ -447,7 +450,7 @@ server.route({
             });
         }
         else{
-            var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.name + "'OR lastName = '" + request.query.name + "'";
+            var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.search + "'OR lastName = '" + request.query.search + "'";
             connection.query(sql, function (error, results) {
                 reply(results);
             });
