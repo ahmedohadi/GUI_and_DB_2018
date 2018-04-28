@@ -8,24 +8,20 @@ import { Profile } from './models/profile';
 
 @Injectable()
 export class SearchRepostitory {
-
   protected endPoint = 'http://127.0.0.1:3000/';
   protected queryUrl = '?search=';
-  
   protected httpOptions  = {
-    headers: new HttpHeaders({
-      'Content-Type' : 'application/json',
+  headers: new HttpHeaders({
+  'Content-Type' : 'application/json',
     })
   };
 
   constructor(
     protected httpClient: HttpClient
   ) {
-    
   }
-
   public search(type: string, query: string): Observable<Profile[]> {
-    return this.httpClient.get(`${this.endPoint}+${type}+${this.queryUrl}+${query}`, this.httpOptions).pipe(
+    return this.httpClient.get(`${this.endPoint}${type}${this.queryUrl}${query}`, this.httpOptions).pipe(
       catchError(this.handleException)
     );
   }

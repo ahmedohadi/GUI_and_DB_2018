@@ -26,7 +26,7 @@ export class UpdateIssuesComponent implements OnInit {
       this.title = 'Select all/Deselect all checkbox - Angular 2';
       this.issues = [
         { issue: 'The Economy and Jobs' },
-        { issue: 'Health Care'},
+        { issue: 'Healthcare'},
         { issue: 'Federal deficit and budget'},
         { issue: 'Immigration' },
         { issue: 'Environment and Global Warming' },
