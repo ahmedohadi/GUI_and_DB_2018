@@ -410,18 +410,22 @@ server.route({
     handler: function (request, reply) {
         var sql = "SELECT * FROM Users WHERE zipCode ='" + request.query.search + "' AND office != 'Voter'";
         connection.query(sql, function (error, result) {
-            var obj = {
-                "username": result[0].username,
-                "firstname": result[0].firstName,
-                "lastname": result[0].lastName,
-                "email": result[0].email,
-                "phone": result[0].phone,
-                "zipCode": result[0].zipCode,
-                "party": result[0].party,
-                "candidates": result[0].office,
-                "description": result[0].description,
+            var tempArr =[];
+            for(var c = 0 ; c < result.length; c++){
+                var obj = {
+                    "username": result[c].username,
+                    "firstname": result[c].firstName,
+                    "lastname": result[c].lastName,
+                    "email": result[c].email,
+                    "phone": result[c].phone,
+                    "zipCode": result[c].zipCode,
+                    "party": result[c].party,
+                    "candidates": result[c].office,
+                    "description": result[c].description,
+                }
+                tempArr.push(obj);
             }
-            reply(obj);
+            reply(tempArr);
         });
     }
 });
@@ -440,18 +444,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         } else if(str == "jobs"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1 AND office != 'Voter'";
@@ -459,18 +467,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
+                var tempArr =[];
+            for(var c = 0 ; c < result.length; c++){
                 var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                    "username": result[c].username,
+                    "firstname": result[c].firstName,
+                    "lastname": result[c].lastName,
+                    "email": result[c].email,
+                    "phone": result[c].phone,
+                    "zipCode": result[c].zipCode,
+                    "party": result[c].party,
+                    "candidates": result[c].office,
+                    "description": result[c].description,
                 }
-                reply(obj);
+                tempArr.push(obj);
+            }
+            reply(tempArr);
             });
         } else if(str == "healthcare"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE healthCare = 1 AND office != 'Voter'";
@@ -478,18 +490,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         } else if(str == "deficit"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
@@ -497,18 +513,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }  else if(str == "budget"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
@@ -516,18 +536,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }   else if(str == "immigration"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE immigration = 1 AND office != 'Voter'";
@@ -535,18 +559,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }  else if(str == "environment"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE globalWarming = 1 AND office != 'Voter'";
@@ -554,18 +582,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         } else if(str == "abortion" || str == "dead babies"){ //easter egg
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1 AND office != 'Voter'";
@@ -573,18 +605,22 @@ server.route({
                 if (error) {
                     throw error;
                 }
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }
     }
@@ -601,35 +637,43 @@ server.route({
 
             var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "' AND office != 'Voter'";
             connection.query(sql, function (error, result) {
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }
         else{
             var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.search + "'OR lastName = '" + request.query.search + "' AND office != 'Voter'";
             connection.query(sql, function (error, result) {
-                var obj = {
-                    "username": result[0].username,
-                    "firstname": result[0].firstName,
-                    "lastname": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
+                var tempArr =[];
+                for(var c = 0 ; c < result.length; c++){
+                    var obj = {
+                        "username": result[c].username,
+                        "firstname": result[c].firstName,
+                        "lastname": result[c].lastName,
+                        "email": result[c].email,
+                        "phone": result[c].phone,
+                        "zipCode": result[c].zipCode,
+                        "party": result[c].party,
+                        "candidates": result[c].office,
+                        "description": result[c].description,
+                    }
+                    tempArr.push(obj);
                 }
-                reply(obj);
+                reply(tempArr);
             });
         }
     }
