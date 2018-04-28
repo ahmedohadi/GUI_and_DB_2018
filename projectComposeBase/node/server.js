@@ -406,9 +406,10 @@ server.route({
 //DONE JOSH
 server.route({
     method: 'GET',
-    path: '/searchbyzip/{zipcode}',
+    path: '/zipcode',
     handler: function (request, reply) {
-        var sql = "SELECT * FROM Users WHERE zipCode ='" + encodeURIComponent(request.params.zipcode) + "'";
+        console.log(request.query.search);
+        var sql = "SELECT * FROM Users WHERE zipCode ='" + encodeURIComponent(request.query.search) + "'";
         connection.query(sql, function (error, results) {
             reply(results);
         });
