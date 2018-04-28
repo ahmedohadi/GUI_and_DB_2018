@@ -408,10 +408,20 @@ server.route({
     method: 'GET',
     path: '/zipcode',
     handler: function (request, reply) {
-        console.log(request.query.search);
         var sql = "SELECT * FROM Users WHERE zipCode ='" + request.query.search + "' AND office != 'Voter'";
-        connection.query(sql, function (error, results) {
-            reply(results);
+        connection.query(sql, function (error, result) {
+            var obj = {
+                "username": result[0].username,
+                "firstname": result[0].firstName,
+                "lastname": result[0].lastName,
+                "email": result[0].email,
+                "phone": result[0].phone,
+                "zipCode": result[0].zipCode,
+                "party": result[0].party,
+                "candidates": result[0].office,
+                "description": result[0].description,
+            }
+            reply(obj);
         });
     }
 });
@@ -426,67 +436,155 @@ server.route({
 
         if(str == "economy"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         } else if(str == "jobs"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE econJobs = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         } else if(str == "healthcare"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE healthCare = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         } else if(str == "deficit"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }  else if(str == "budget"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE budget = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }   else if(str == "immigration"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE immigration = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }  else if(str == "environment"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE globalWarming = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         } else if(str == "abortion" || str == "dead babies"){ //easter egg
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1 AND office != 'Voter'";
-            connection.query(sql, function (error, results1) {
+            connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
-                reply(results1);
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }
     }
@@ -502,14 +600,36 @@ server.route({
             var res = request.query.search.split(" ");
 
             var sql = "SELECT * FROM Users WHERE firstName ='" + res[0] + "'OR lastName = '" + res[1] + "' AND office != 'Voter'";
-            connection.query(sql, function (error, results) {
-                reply(results);
+            connection.query(sql, function (error, result) {
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }
         else{
             var sql = "SELECT * FROM Users WHERE firstName ='" + request.query.search + "'OR lastName = '" + request.query.search + "' AND office != 'Voter'";
-            connection.query(sql, function (error, results) {
-                reply(results);
+            connection.query(sql, function (error, result) {
+                var obj = {
+                    "username": result[0].username,
+                    "firstname": result[0].firstName,
+                    "lastname": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                }
+                reply(obj);
             });
         }
     }
