@@ -368,7 +368,7 @@ server.route({
 
         var zipcode = request.payload.zipcode;
         if (zipcode != null) {
-            sql = "UPDATE Users SET email = '" + zipcode + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+            sql = "UPDATE Users SET zipCode = '" + zipcode + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
