@@ -11,4 +11,5 @@ export class Profile {
   party?: string;
   phone?: number;
   description?: string;
+  picture?: string;
 }

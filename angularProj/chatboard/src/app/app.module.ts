@@ -32,6 +32,7 @@ import { HttpClientModule, HTTP_INTERCEPTORS, HttpHeaders } from '@angular/commo
 import { JwtInterceptor } from './domain/helpers/jwt.interceptor';
 import { ProfileRepository } from './domain/profile-repository.service';
 import { AlertComponent } from './alert/alert.component';
+import { SearchRepostitory } from './domain/search-repository.service';
 
 
 
@@ -92,6 +93,7 @@ const appRoutes: Routes = [
     AlertService,
     AuthenticationService,
     UserService,
+    SearchRepostitory,
     ProfileRepository,
     {
       provide: HTTP_INTERCEPTORS,

@@ -1,33 +1,82 @@
 
-<div class="search container">
-  <div class="form-row mt-4">
-    <span class="col">
-      <input #search class="form-control" type="text" id="search" name="search" placeholder="Tell us what you are looking for"
-        required>
-    </span>
-
-    <div class="text-center">
-      <button type="submit" class="btn btn-secondary" [disabled]="!registrationForm.form.valid">Search</button>
+<div class="">
+    <form #searchform="ngForm">
+    <div class="form-row mt-4">
+      <span class="col">
+        <input #search class="form-control" type="text" id="search" name="search" [(ngModel)]="query" placeholder="Tell us what you are looking for"
+          required>
+      </span>
+  
+      <div class="text-center">
+        <button type="submit" class="btn btn-success" [disabled]="!searchform.form.valid" (click)="submit()">Search</button>
+      </div>
+  
     </div>
-
+  
+    <div class="mt-3">
+      <h6 class="text-secondary">Search by...</h6>
+      <div class="radio form-check-inline" *ngFor="let idx of criteria">
+        <label>
+          <input type="radio" name="searchType" [value]="idx" (change)="onSelectionChange(idx)" required> {{idx}}
+        </label>
+      </div>
+      
+      <div class="border p-2" *ngIf="type =='Issues' && !results?.length">
+          <p class="text-center">Hint, Here are some of the issues people on our site care about</p>
+          
+          <div class="app flex-row align-items-center">
+              <div class="row">
+                  <div class=" col-md-4" *ngFor="let n of issues"  >
+                    <div class=""> {{n.issue}}</div>
+        </div>
+      </div>
+    </div>
+  
+        </div>
+      </div>
+    </form>
   </div>
-
-  <div class="mt-3">
-    <h6 class="text-secondary">Search by...</h6>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio1" value="option1">
-      <label class="form-check-label" for="inlineRadio1">By zipcode</label>
+  
+  <div *ngIf="profiles">
+      <h2 class="float-left">
+        Search Results({{profiles?.length?(profiles.length):0}})
+      </h2>
+    
+      <table class="table table-striped">
+        <thead>
+          <th>Photo</th>
+          <th>Name</th>
+          <th>Candaicy</th>
+          <th>Party</th>
+          <th class="text-right">Location</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let index of profiles">
+            <td>
+              {{index.picture}}
+            </td>
+            <td>
+              <a href [routerLink]="'accounts/' + index.username">
+              {{ index.firstname }},{{index.lastname}}
+            </a>
+            <td>
+              {{ index.candaicy}}
+            </td>
+            <td>
+               {{ index.party}}
+            </td>
+            
+            <td class="text-right">
+              {{ index.location}}
+            </td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="alert alert-secondary alert-block" id="alert" role="alert" *ngIf="!profiles?.length">
+      No search results to diplay!
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-      <label class="form-check-label" for="inlineRadio2">By Issues</label>
+    
     </div>
-    <div class="form-check form-check-inline">
-      <input class="form-check-input" type="radio" name="inlineRadioOptions" id="inlineRadio2" value="option2">
-      <label class="form-check-label" for="inlineRadio3">By Candidate Name</label>
-    </div>
-
-  </div>
-
-
-</div>
+    <div *ngIf="!currentUser?.issues" >
+        <app-update-issues></app-update-issues>
+        </div>
