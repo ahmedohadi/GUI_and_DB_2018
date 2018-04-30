@@ -117,7 +117,7 @@ server.route({
     handler: function (request, reply) {
         var office = request.payload.position;
         var party = request.payload.party;
-        var sql1 = "UPDATE Users SET office = '" + office + "', party = '" + party + "' WHERE username = '" + encodeURIComponent(request.params.username + "'");
+        var sql1 = "UPDATE Users SET office = '" + office + "', party = '" + party + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql1, function (err, result) {
             if (err) {
                 throw err;
@@ -878,6 +878,20 @@ server.route({
                 throw error;
             }
             reply(results);
+        });
+    }
+});
+
+//delete Post
+server.route({
+    method: 'GET',
+    path: '/deletePost/{id}',
+    handler: function (request, reply) {
+        connection.query("DELETE FROM Posts WHERE id='" + encodeURIComponent(request.params.id) + "'", function (error, results, fields) {
+            if (error) {
+                throw error;
+            }
+            reply(200);
         });
     }
 });
