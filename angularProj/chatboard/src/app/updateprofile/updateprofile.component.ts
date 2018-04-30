@@ -54,7 +54,6 @@ export class UpdateprofileComponent implements OnInit {
   }
     console.log(this.profile);
     this.profile = {};
-    // this.navigatebyUrl('/home/profile');
   }
 
 }
