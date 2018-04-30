@@ -7,7 +7,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { UpdateprofileComponent } from './updateprofile/updateprofile.component';
 import { FormsModule } from '@angular/forms';
 import { PasswordChangeComponent } from './updateprofile/password-change/password-change.component';
-import { ProfilepageComponent } from './profilepage/profilepage.component';
+import { ProfilePageComponent } from './profilepage/profilepage.component';
 import { SearchComponent } from './search/search.component';
 import { Routes, RouterModule } from '@angular/router';
 // import { AuthService } from './domain/services';
@@ -46,7 +46,7 @@ const appRoutes: Routes = [
       { path: '', redirectTo: 'chat', pathMatch: 'full' },
       { path: 'update', component: UpdateprofileComponent },
       { path: 'search', component: SearchComponent },
-      { path: 'profile', component: ProfilepageComponent },
+      { path: 'profile/:username', component: ProfilePageComponent },
       { path: 'chat', component: DisscussionComponent },
       { path: 'locations', component: VotingLocationsComponent },
     ]
@@ -61,7 +61,7 @@ const appRoutes: Routes = [
     LoginComponent,
     UpdateprofileComponent,
     PasswordChangeComponent,
-    ProfilepageComponent,
+    ProfilePageComponent,
     SearchComponent,
     UpdateIssuesComponent,
     NavbarComponent,

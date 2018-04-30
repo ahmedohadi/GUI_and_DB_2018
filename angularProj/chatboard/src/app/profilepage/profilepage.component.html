@@ -1,11 +1,11 @@
-<div class="profile-page">
+<div class="profile-page" *ngIf="userShow">
 
   <div class="container center">
 
     <div class="panel panel-default">
 
       <div class="panel-heading">
-        <h4 >User Profile: {{currentUser.username}}</h4>
+        <h4 >User Profile: {{userShow.username}}</h4>
       </div>
 
       <div class="box box-info">
@@ -15,8 +15,8 @@
           <div class="col-md-6">
             <div class="col">
               <div  align="center">
-                <img alt="User Pic" src="./assets/profile/{{currentUser.picture}}" class="img-circle img-responsive img-fluid">
-                <button type="submit" class="btn mt-3" routerLink="/home/update">Update Account</button>
+                <img alt="User Pic" src="./assets/profile/{{userShow.picture}}" class="img-circle img-responsive img-fluid">
+                <!-- <button type="submit" class="btn mt-3" routerLink="/home/update">Update Account</button> -->
               </div>
               <br>
             </div>
@@ -24,22 +24,22 @@
 
           <div class="col-md-3 clearfix">
               <h5 class="pull-left">First Name:</h5>
-              <h6 class="pull-right">{{currentUser.firstName}}</h6>
+              <h6 class="pull-right">{{userShow.firstName}}</h6>
               <h5 class="pull-left">Last Name:</h5>
-              <h6 class="pull-right">{{currentUser.lastName}}</h6>
+              <h6 class="pull-right">{{userShow.lastName}}</h6>
               <h5 class="pull-left">Email:</h5>
-              <h6 class="pull-right">{{currentUser.email}}</h6>
+              <h6 class="pull-right">{{userShow.email}}</h6>
               <h5 class="pull-left">Zipcode:</h5>
-              <h6 class="pull-right">{{currentUser.zipCode}}</h6>
+              <h6 class="pull-right">{{userShow.zipCode}}</h6>
           </div>
 
           <div class="col-md-3 clearfix">
               <h5 class="pull-left">Phone Number:</h5>
-              <h6 class="pull-right">{{currentUser.phone}}</h6>
+              <h6 class="pull-right">{{userShow.phone}}</h6>
               <h5 class="pull-left">Position running:</h5>
-              <h6 class="pull-right">{{currentUser.candidates}}</h6>
+              <h6 class="pull-right">{{userShow.candidates}}</h6>
               <h5 class="pull-left">Party Affiliation:</h5>
-              <h6 class="pull-right">{{currentUser.party}}</h6>
+              <h6 class="pull-right">{{userShow.party}}</h6>
               <!--
               <h5 class="pull-left">Verified:</h5>
               <h6 class="pull-right">{{item.isVerified}}</h6>

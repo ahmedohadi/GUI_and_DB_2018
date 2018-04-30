@@ -4,7 +4,7 @@
     <div class="form-row mt-4">
       <div class="col">
         <input #search="ngModel" class="form-control" type="text" id="search"
-          name="search" [(ngModel)]="query" placeholder="Tell us what you are looking for" required>
+          name="search" [(ngModel)]="query" placeholder="Tell us what you are looking for." required>
       </div>
 
       <div class="text-center">
@@ -23,7 +23,7 @@
       </div>
 
       <div class="border p-2" *ngIf="type === 'issues'">
-        <p class="text-center">Hint, Here are some of the issues people on our site care about</p>
+        <p class="text-center">Hint, Here are some of the issues people on our site care about.</p>
         <div class="app flex-row align-items-center">
             <div class="row">
                 <div class="col-md-4" *ngFor="let n of issues"  >
@@ -52,10 +52,8 @@
       <th class="text-right">Description</th>
     </thead>
     <tbody>
-      <tr class='clickable-row' [routerLink]="'accounts/' + index.username"
-      *ngFor="let index of profiles">
+      <tr class='clickable-row' *ngFor="let index of profiles"  (click)="link(index.username)">
         <td>
-
         <img class="img-fluid" src="./assets/profile/{{index.picture}}" alt="{{index.picture}}" style="width: 50px; height: 50px;">
         </td>
         <td>
