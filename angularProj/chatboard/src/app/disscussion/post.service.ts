@@ -30,6 +30,6 @@ export class PostService {
   }
 
   getComments(id: number) {
-    return this.http.get('http://127.0.0.1:3000/getcomment/'+id, this.httpOptions);
+    return this.http.get('http://127.0.0.1:3000/getcomment/' + id, this.httpOptions);
   }
 }

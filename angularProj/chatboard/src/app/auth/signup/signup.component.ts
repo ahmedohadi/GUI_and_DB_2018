@@ -33,16 +33,20 @@ users;
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
     };
-    if (this.signupForm.value.personalData.password !== this.signupForm.value.personalData.ConfirmPassword) {
-      return alert('Passwrod not match!');
-    }
+
+    if (this.signupForm.value.personalData.password === this.signupForm.value.personalData.ConfirmPassword) {
+
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => console.log(response),
       (error) => console.log(error)
     );
-    console.log(form);
+  } else {
+    alert('Passwrod not match!');
   }
+    // console.log(form);
+  }
+
 
   // candidateShowHideList() {
   //   if (this.showCandidateList === false) {

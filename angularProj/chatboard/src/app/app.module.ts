@@ -51,7 +51,7 @@ const appRoutes: Routes = [
       { path: 'locations', component: VotingLocationsComponent },
     ]
   },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: 'signup' }
   ];
 
 @NgModule({

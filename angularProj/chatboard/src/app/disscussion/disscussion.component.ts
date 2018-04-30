@@ -2,8 +2,8 @@ import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
 import { NgModel, NgForm, FormsModule, FormControl } from '@angular/forms';
 import { PostService } from './post.service';
-import { Profile } from '../domain/models/profile'
-import { Post } from '../domain/models/post'
+import { Profile } from '../domain/models/profile';
+import { Post } from '../domain/models/post';
 
 
 @Component({
@@ -20,13 +20,13 @@ showCommentFields = false;
 post;
 postsArr: Post;
 
-constructor(private postService: PostService) { 
+constructor(private postService: PostService) {
   this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 }
 
 ngOnInit() {
   this.postService.getPosts().subscribe(posts => {
-    this.postsArr = posts
+    this.postsArr = posts;
   });
 }
 
@@ -41,7 +41,7 @@ storePosts(form: NgForm) {
       likes: 0
     };
 
-    //console.log(form);
+    // console.log(form);
     this.postService.storePosts(this.post)
     .subscribe(
       (response) => console.log(response),
