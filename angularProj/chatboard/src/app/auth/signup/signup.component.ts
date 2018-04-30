@@ -33,6 +33,9 @@ users;
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
     };
+    if (this.signupForm.value.personalData.password !== this.signupForm.value.personalData.ConfirmPassword) {
+      return alert('Passwrod not match!');
+    }
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => console.log(response),
@@ -41,21 +44,21 @@ users;
     console.log(form);
   }
 
-  candidateShowHideList() {
-    if (this.showCandidateList === false) {
-      this.showCandidateList = true;
-    } else if (this.showCandidateList === true) {
-      this.showCandidateList = false;
-    }
-  }
+  // candidateShowHideList() {
+  //   if (this.showCandidateList === false) {
+  //     this.showCandidateList = true;
+  //   } else if (this.showCandidateList === true) {
+  //     this.showCandidateList = false;
+  //   }
+  // }
 
-  partyShowHideList() {
-    if (this.showPartyList === false) {
-      this.showPartyList = true;
-    } else if (this.showPartyList === true) {
-      this.showPartyList = false;
-    }
-  }
+  // partyShowHideList() {
+  //   if (this.showPartyList === false) {
+  //     this.showPartyList = true;
+  //   } else if (this.showPartyList === true) {
+  //     this.showPartyList = false;
+  //   }
+  // }
   ngOnInit() {
   }
 
