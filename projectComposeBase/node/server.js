@@ -728,7 +728,19 @@ server.route({
         connection.query("SELECT * FROM Users WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
             if (error)
                 throw error;
-            reply(results);
+                var obj = {
+                    "username": result[0].username,
+                    "firstName": result[0].firstName,
+                    "lastName": result[0].lastName,
+                    "email": result[0].email,
+                    "phone": result[0].phone,
+                    "zipCode": result[0].zipCode,
+                    "party": result[0].party,
+                    "candidates": result[0].office,
+                    "description": result[0].description,
+                    "picture": result[0].picture,
+                }
+            reply(obj);
         });
     }
 });

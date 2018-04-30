@@ -57,7 +57,7 @@ insert into Issues (username, econJobs, immigration, healthCare, globalWarming, 
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('asdf', '1', '1', '0', '0', '0', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('stormybaby', '1', '1', '1', '1', '0', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('theRealDonald', '0', '1', '0', '0', '1', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bgibby9', '0', '1', '1', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('hacker', '0', '1', '1', '1', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('blynesa', '0', '0', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('hlebarreb', '0', '0', '0', '1', '1', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('ngoldsbyc', '1', '0', '0', '0', '0', '1');
