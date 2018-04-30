@@ -2,7 +2,7 @@ import { NgForm, NgModel, FormsModule, FormControl } from '@angular/forms';
 import { ServerService } from './../server.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { AlertService } from '../../domain/services/alert.service'
+import { AlertService } from '../../domain/services/alert.service';
 import { AuthenticationService } from '../../domain/services/authentication.service';
 
 @Component({
@@ -16,7 +16,7 @@ export class LoginComponent implements OnInit {
   model: any = {};
   loading = false;
   returnUrl: string;
-  //returnUrl: 'http://localhost:4200'
+  // returnUrl: 'http://localhost:4200'
   user;
 
   constructor(
@@ -49,7 +49,7 @@ export class LoginComponent implements OnInit {
                   this.loading = false;
                   }
       );
-      //console.log(this.returnUrl);
+      // console.log(this.returnUrl);
   }
 
   ngOnInit() {
@@ -58,7 +58,7 @@ export class LoginComponent implements OnInit {
 
         // get return url from route parameters or default to '/'
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
-        //this.returnUrl = '/';
+        // this.returnUrl = '/';
     }
 
 }

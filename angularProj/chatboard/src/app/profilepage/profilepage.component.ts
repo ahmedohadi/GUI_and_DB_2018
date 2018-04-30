@@ -13,14 +13,14 @@ export class ProfilepageComponent implements OnInit {
   testUser: any;
   currentUser: Profile;
 
-  constructor(private profileService: ProfileRepository) { 
+  constructor(private profileService: ProfileRepository) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-  	this.profileService.getAccount(this.currentUser.username).subscribe(user => {
-    	this.currentUser = user
-  	});
+  this.profileService.getAccount(this.currentUser.username).subscribe(user => {
+    this.currentUser = user;
+  });
   }
 
 

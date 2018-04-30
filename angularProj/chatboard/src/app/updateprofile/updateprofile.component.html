@@ -80,14 +80,13 @@
 
         <div class="col mt-3">
           <div class="card h-80" style="width: 18rem;">
-            <img class="card-img-top" src="./assets/profile/{{currentUser.picture}}" alt="{{currentUser.picture}}">
+            <img class="card-img-top" src="./assets/profile/{{currentUser.picture}}" alt="picture of {{currentUser.firstname}}">
             <div class="card-body">
-              <h5 class="card-title">Upload Profile Picture</h5>
+              <h5 class="card-title text-center">Profile Picture</h5>
             </div>
             <div class="fileinput fileinput-new" data-provides="fileinput">
               <span class="btn btn-default btn-file">
-                <span></span>
-                <input type="file" />
+                <div class="text-center">Current User: {{currentUser.firstname}} {{currentUser.lastname}}</div>
               </span>
             </div>
           </div>
