@@ -15,6 +15,12 @@ export class ProfileRepository extends Repostitory<Profile> {
     super(httpClient);
   }
 
+  public getAccount(id: any): Observable<Profile> {
+    return this.httpClient.get(`${this.endPoint}/profilePage/${id}`, this.httpOptions).pipe(
+      catchError(this.handleException)
+    );
+  }
+
 }
 
 

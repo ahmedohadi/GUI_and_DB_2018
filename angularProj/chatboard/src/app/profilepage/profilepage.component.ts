@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
+import { ProfileRepository } from '../domain/profile-repository.service';
 import { Profile } from '../domain/models/profile';
 
 @Component({
@@ -10,21 +10,18 @@ import { Profile } from '../domain/models/profile';
 
 export class ProfilepageComponent implements OnInit {
 
-  item: Profile = {
-    username: "sith_lord",
-    firstname: "The",
-    lastname: "Senate",
-    email: "galactic_empire@aol.rar",
-    password: "have_you_heard_the_tragedy_of_darth_plagueis_the_wise",
-    isVerified: true,
-    zipcode: 66,
-    candidates: "Emperor",
-    party: "Empire",
-  };
+  testUser: any;
+  currentUser: Profile;
 
-  constructor() { }
+  constructor(private profileService: ProfileRepository) { 
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+  }
 
   ngOnInit() {
+  	this.profileService.getAccount(this.currentUser.username).subscribe(user => {
+    	this.currentUser = user
+  	});
   }
+
 
 }

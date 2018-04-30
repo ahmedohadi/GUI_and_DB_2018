@@ -43,11 +43,11 @@ export class UpdateprofileComponent implements OnInit {
     )
     ) {
       this.alertService.clear();
-      this.alertService.error('Please enter atleast one thing to update');
+      this.alertService.error('Please enter at least one thing to update.');
     } else {
     this.profileRepository.update(`updateAccount/${this.currentUser.username}`, this.profile).subscribe(x => {
     this.alertService.clear();
-    this.alertService.success('your profile has been updated');
+    this.alertService.success('Your Profile has been Updated!');
     });
 
   }

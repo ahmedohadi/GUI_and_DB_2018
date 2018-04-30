@@ -5,7 +5,7 @@
     <div class="panel panel-default">
 
       <div class="panel-heading">  
-        <h4 >User Profile: {{item.username}}</h4>
+        <h4 >User Profile: {{currentUser.username}}</h4>
       </div>
 
       <div class="box box-info">
@@ -15,8 +15,8 @@
           <div class="col-md-6">
             <div class="col">
               <div  align="center"> 
-                <img alt="User Pic" src="https://scatteredquotes.com/wp-content/uploads/2018/01/StarWars-RevengeoftheSith-6.jpg" id="profile-image1" class="img-circle img-responsive img-fluid"> 
-                <button type="submit" class="btn mt-3">Update Account</button>
+                <img alt="User Pic" src="./assets/profile/{{currentUser.picture}}" class="img-circle img-responsive img-fluid"> 
+                <button type="submit" class="btn mt-3" routerLink="/home/update">Update Account</button>
               </div>
               <br>
             </div>
@@ -24,24 +24,26 @@
 
           <div class="col-md-3 clearfix">
               <h5 class="pull-left">First Name:</h5>
-              <h6 class="pull-right">{{item.firstname}}</h6>
+              <h6 class="pull-right">{{currentUser.firstName}}</h6>
               <h5 class="pull-left">Last Name:</h5>
-              <h6 class="pull-right">{{item.lastname}}</h6>
+              <h6 class="pull-right">{{currentUser.lastName}}</h6>
               <h5 class="pull-left">Email:</h5>
-              <h6 class="pull-right">{{item.email}}</h6>
+              <h6 class="pull-right">{{currentUser.email}}</h6>
               <h5 class="pull-left">Zipcode:</h5>
-              <h6 class="pull-right">{{item.zipcode}}</h6>
+              <h6 class="pull-right">{{currentUser.zipCode}}</h6>
           </div>
 
           <div class="col-md-3 clearfix">
               <h5 class="pull-left">Phone Number:</h5>
-              <h6 class="pull-right">67337-66</h6>
+              <h6 class="pull-right">{{currentUser.phone}}</h6>
               <h5 class="pull-left">Position running:</h5>
-              <h6 class="pull-right">{{item.candidates}}</h6>
+              <h6 class="pull-right">{{currentUser.candidates}}</h6>
               <h5 class="pull-left">Party Affiliation:</h5>
-              <h6 class="pull-right">{{item.party}}</h6>
+              <h6 class="pull-right">{{currentUser.party}}</h6>
+              <!--
               <h5 class="pull-left">Verified:</h5>
               <h6 class="pull-right">{{item.isVerified}}</h6>
+              -->
           </div>
         </div>
       </div>
