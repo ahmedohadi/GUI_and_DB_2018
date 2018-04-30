@@ -60,7 +60,7 @@ server.route({
                 throw err;
             }
             if (result.length == 0) {
-                var sql = "INSERT INTO Users (firstName, lastName, email, username, thepassword, phone, zipCode, party, office) VALUES (" + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + "'" + email + "'" + ", " + "'" + username + "'" + ", " + "'" + password + "'" + ", " + "'" + phone + "'" + ", '" + zipCode + "'" + "," + "'" + party + "'" + ", " + "'" + office + "'" + ")";
+                var sql = "INSERT INTO Users (firstName, lastName, email, username, thepassword, phone, zipCode, party, office, picture) VALUES (" + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + "'" + email + "'" + ", " + "'" + username + "'" + ", " + "'" + password + "'" + ", " + "'" + phone + "'" + ", '" + zipCode + "'" + "," + "'" + party + "'" + ", " + "'" + office + "'" + ", " + "'placeholder.png')";
                 connection.query(sql, function (err, result) {
                     if (err) {
                         throw err;
@@ -884,7 +884,7 @@ server.route({
 
 //delete Post
 server.route({
-    method: 'GET',
+    method: 'DELETE',
     path: '/deletePost/{id}',
     handler: function (request, reply) {
         connection.query("DELETE FROM Posts WHERE id='" + encodeURIComponent(request.params.id) + "'", function (error, results, fields) {
