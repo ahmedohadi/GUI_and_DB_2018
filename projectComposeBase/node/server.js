@@ -729,16 +729,16 @@ server.route({
             if (error)
                 throw error;
                 var obj = {
-                    "username": result[0].username,
-                    "firstName": result[0].firstName,
-                    "lastName": result[0].lastName,
-                    "email": result[0].email,
-                    "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
-                    "party": result[0].party,
-                    "candidates": result[0].office,
-                    "description": result[0].description,
-                    "picture": result[0].picture,
+                    "username": results[0].username,
+                    "firstName": results[0].firstName,
+                    "lastName": results[0].lastName,
+                    "email": results[0].email,
+                    "phone": results[0].phone,
+                    "zipCode": results[0].zipCode,
+                    "party": results[0].party,
+                    "candidates": results[0].office,
+                    "description": results[0].description,
+                    "picture": results[0].picture,
                 }
             reply(obj);
         });
