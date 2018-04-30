@@ -2,7 +2,7 @@
 
   <div class="input-group input-group-sm">
       <div class="input-group-prepend">
-        <span class="btn btn-primary dropdown-toggle rounded-0" data-toggle="collapse" data-target="#collapseOne">Add Comments</span>
+        <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()"  data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
       </div>
 
 
@@ -16,18 +16,17 @@
       required
       (keyup.enter)="onEnter(f)"
       >
-    </div>
+  </div>
 
-    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
-
-      <ul class="list-group">
-        <li class="list-group-item"  *ngFor="let comment of commentArr">{{ comment.userComments }}
-          <div class="input-group-prepend float-right">
-            <span class="input-group-text" id="inputGroup-sizing-sm">username</span>
-          </div>
-        </li>
-      </ul>
-    </div>
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+    <ul class="list-group">
+      <li class="list-group-item" *ngFor="let comment of commentArr">{{ comment.body }}
+        <div class="input-group-prepend float-right">
+          <span class="input-group-text" id="inputGroup-sizing-sm">{{ comment.userName }}</span>
+        </div>
+      </li>
+    </ul>
+  </div>
 
 </form>
 

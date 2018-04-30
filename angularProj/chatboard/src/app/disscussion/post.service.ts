@@ -5,6 +5,7 @@ import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
 
+
 @Injectable()
 export class PostService {
   constructor(private http: HttpClient) {}
@@ -20,11 +21,15 @@ export class PostService {
   }
 
 
-  addComment(comments: any[]) {
+  addComment(comments: any) {
     return this.http.post('http://127.0.0.1:3000/comment/addcomment', comments, this.httpOptions);
   }
 
   getPosts() {
     return this.http.get('http://127.0.0.1:3000/allposts', this.httpOptions);
+  }
+
+  getComments(id: number) {
+    return this.http.get('http://127.0.0.1:3000/getcomment/'+id, this.httpOptions);
   }
 }

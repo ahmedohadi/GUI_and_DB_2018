@@ -1,7 +1,10 @@
 import { NgForm, NgModel, FormsModule, FormControl } from '@angular/forms';
-import { Component, OnInit, ViewChild } from '@angular/core';
+import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { PostService } from '../post.service';
-
+import { Profile } from '../../domain/models/profile';
+import { Comments } from '../../domain/models/comments';
+import { Post } from '../../domain/models/post';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-comments',
@@ -10,34 +13,37 @@ import { PostService } from '../post.service';
 })
 export class CommentsComponent implements OnInit {
   @ViewChild('f') commentForm: NgForm;
+  
+  @Input() postId: number;
+  currentUser: Profile;
 
-  constructor(private postService: PostService) { }
-
-  commentArr;
-
-  ngOnInit() {
+  constructor(private postService: PostService,
+              private activatedRoute: ActivatedRoute
+     ) { 
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
+  comment;
+  commentArr: any;
 
-  //   addComment(form: NgForm) {
-  //   this.commentArr.push({
-  //     userComments: this.commentForm.value.newComments,
-  //   });
+  ngOnInit() {
 
-  //   this.postService.addComment(this.commentArr)
-  //   .subscribe(
-  //     (response) => console.log(response),
-  //     (error) => console.log(error)
-  //   );
-  //   this.commentForm.reset();
-  // }
+  }
 
+  showComments() {
+    console.log(this.postId)
+     this.postService.getComments(this.postId).subscribe(comments => {
+       this.commentArr = comments
+     });
+  }
 
   onEnter(form: NgForm) {
-        this.commentArr = {
-          userComments: this.commentForm.value.newComments,
+        this.comment = {
+          userName: this.currentUser.username,
+          body: this.commentForm.value.newComments,
+          id: this.postId
         };
-        this.postService.addComment(this.commentArr)
+        this.postService.addComment(this.comment)
         .subscribe(
           (response) => console.log(response),
           (error) => console.log(error)

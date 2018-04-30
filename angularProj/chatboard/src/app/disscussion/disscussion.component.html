@@ -25,19 +25,14 @@
         </textarea>
         
         <div class="from-group border border-success mb-3" *ngFor="let post of postsArr"> 
-        
-        <ul class="list-group">
+          <ul class="list-group">
             <div class="input-group-prepend ">
-                <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">username</span>
+                <span class="input-group-text rounded-0" id="inputGroup-sizing-sm">{{ post.userName }}</span>
               </div>
-          <li class="list-group-item" id="postField">{{ post.body }}</li>
-
-
-          <app-comments></app-comments> 
-
-
-      </ul>
-    </div> 
+            <li class="list-group-item" id="postField">{{ post.body }}</li>
+            <app-comments [postId]="post.id"></app-comments> 
+          </ul>
+        </div> 
   </div>
 </form>
 

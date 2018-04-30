@@ -7,6 +7,7 @@ export class Post {
   tag3?: string;
   tag4?: boolean;
   id?: number;
+  postdate?: string;
   likes?: number;
 
 }
