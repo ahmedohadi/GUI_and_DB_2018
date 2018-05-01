@@ -1,12 +1,10 @@
 <form (onSubmit)="onEnter(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
-
   <div class="input-group input-group-sm">
-      <div class="input-group-prepend">
-        <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()"  data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
-      </div>
+    <div class="input-group-prepend">
+      <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()"  data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
+    </div>
 
-
-      <input
+    <input
       type="text"
       name="newComments"
       class="form-control"
@@ -29,15 +27,3 @@
   </div>
 
 </form>
-
-
-
-<!-- <div class="dropdown">
-    <button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
-    <span class="caret"></span></button>
-    <ul class="dropdown-menu">
-      <li><a href="#">HTML</a></li>
-      <li><a href="#">CSS</a></li>
-      <li><a href="#">JavaScript</a></li>
-    </ul>
-  </div> -->

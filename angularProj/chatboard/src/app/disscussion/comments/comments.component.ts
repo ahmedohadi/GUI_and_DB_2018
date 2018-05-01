@@ -1,5 +1,5 @@
 import { NgForm, NgModel, FormsModule, FormControl } from '@angular/forms';
-import { Component, OnInit, ViewChild, Input } from '@angular/core';
+import { Component, OnInit, ViewChild, Input, OnDestroy } from '@angular/core';
 import { PostService } from '../post.service';
 import { Profile } from '../../domain/models/profile';
 import { Comments } from '../../domain/models/comments';
@@ -11,29 +11,30 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.css']
 })
-export class CommentsComponent implements OnInit {
+export class CommentsComponent implements OnInit, OnDestroy {
   @ViewChild('f') commentForm: NgForm;
-  
+
   @Input() postId: number;
   currentUser: Profile;
 
   constructor(private postService: PostService,
               private activatedRoute: ActivatedRoute
-     ) { 
+     ) {
     this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   comment;
   commentArr: any;
 
-  ngOnInit() {
+  ngOnInit() {}
 
-  }
+  ngOnDestroy() {}
+
 
   showComments() {
-    console.log(this.postId)
+    console.log(this.postId);
      this.postService.getComments(this.postId).subscribe(comments => {
-       this.commentArr = comments
+       this.commentArr = comments;
      });
   }
 
