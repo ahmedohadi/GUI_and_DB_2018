@@ -621,13 +621,14 @@ server.route({
                 }
                 reply(tempArr);
             });
-        } else if(str == "abortion" || str == "dead babies"){ //easter egg
+        } else if(str == "abortion"){ //easter egg
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1 AND office != 'Voter'";
             connection.query(sql, function (error, result) {
                 if (error) {
                     throw error;
                 }
                 var tempArr =[];
+                console.log(result);
                 for(var c = 0 ; c < result.length; c++){
                     var obj = {
                         "username": result[c].username,

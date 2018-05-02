@@ -1,5 +1,5 @@
-CREATE DATABASE Chatboard;
-USE Chatboard;
+-- CREATE DATABASE Chatboard;
+ USE Chatboard;
  DROP TABLE Users;
 CREATE TABLE Users(
  firstName VARCHAR(25),
@@ -17,15 +17,15 @@ CREATE TABLE Users(
  
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Joshua', 'Sylvester', 'joshuasylvester777@gmail.com', 'sillyvester', 'pass', '918-352-0221', '74030', 'democrat', 'Voter', 'I am fiscally conservative and socially liberal. I wish Hillary had won :(', 'josh.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Redneck', 'Joe', 'drinkmorebeer@gmail.com', 'drinkmorebeer', '1234', '918-420-4200', '74030', 'republican', 'Congressman', 'I love my country and I love guns. I only drink Coors.', 'redneck.png');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Muaz', 'Abrar', 'muaz@biblegateway.com', 'muaz', 'muaz', '214-690-6969', '72575', 'independent', 'Senator', 'I am hoping to one day run for president. I enjoy long walks on the beach. I love dogs (thats totally not my password)', 'muaz.png');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Muaz', 'Abrar', 'muaz@biblegateway.com', 'muazmuaz', 'ilovedogs', '214-690-6969', '72575', 'independent', 'Senator', 'I am hoping to one day run for president. I enjoy long walks on the beach. I love dogs (thats totally not my password)', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Traian', 'Pop', 'traian@gmail.com', 'dopeman', 'password', '214-522-3242', '75275', 'democrat', 'Voter', 'Only got this profile to promote my online business. Check out the silkroad.com NOW!!', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Sabrina', 'Peng', 'sabrina@loc.gov', 'sabrinapeng', 'passme', '995-496-1886', '75275', 'independent', 'Senator', 'I am a Lyle Senator', 'sabrina.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Billie', 'Idol', 'billie@hotmail.com', 'billieidolbaby', 'irock', '124-277-8755', '44996', 'independent', 'Senator', 'Yes I am the real Billie Idol. Please dont call me', 'billieidol.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Morty', 'Maliffe', 'mmaliffe6@oakley.com', 'asdf', 'asdf', '407-946-4871', '03496', 'democrat', 'Senator', 'budgetary management', 'placeholder.png');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Oisin', 'Coveney', 'vdaddow7@google.es', 'oisinistheman', 'ilikecats', '721-132-4621', '94016', 'democrat', 'President', 'I am amazing.', 'oisin.png');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Verla', 'Daddow', 'vdaddow7@google.es', 'vdaddow7', 'parallelism', '721-132-4621', '11129', 'democrat', 'President', 'mission-critical', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Stormy', 'Daniels', 'stormy@brazzers.com', 'stormybaby', 'ilovetrump', '355-933-5984', '75275', 'republican', 'Voter', 'I shouldnt have signed that NDA', 'stormydaniels.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Donald', 'Trump', 'biggly@trump.com', 'theRealDonald', 'password', '968-171-0877', '20500', 'republican', 'President', 'I hear this is the new twitter so I thought I should give it a shot. Rosie Odonnell is a nasty woman', 'donaldtrump.png');
-insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Chi', 'Tran', 'blynesa@mit.edu', 'hacker', 'ihackyou', '823-826-6954', '80764', 'republican', 'Congressman', 'i believe is hacking', 'chi.png');
+insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Barby', 'Lynes', 'blynesa@mit.edu', 'blynesa', '6th generation', '823-826-6954', '80764', 'republican', 'Congressman', 'capacity', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Happy', 'Le Barre', 'hlebarreb@github.com', 'hlebarreb', 'Ameliorated', '875-153-3737', '66995', 'republican', 'President', 'moratorium', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Nicky', 'Goldsby', 'ngoldsbyc@theguardian.com', 'ngoldsbyc', 'executive', '547-908-2142', '02363', 'republican', 'Congressman', 'firmware', 'placeholder.png');
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Mahmud', 'Clabburn', 'mclabburnd@xing.com', 'mclabburnd', 'high-level', '143-446-2293', '85681', 'republican', 'Congressman', 'Devolved', 'placeholder.png');
@@ -39,7 +39,7 @@ insert into Users (firstName, lastName, email, username, thepassword, phone, zip
  
  DROP TABLE Issues;
  CREATE TABLE Issues(
- userName VARCHAR(25),
+ username VARCHAR(25),
  econJobs TINYINT, 
  immigration TINYINT,
  healthCare TINYINT,
@@ -52,12 +52,12 @@ insert into Issues (username, econJobs, immigration, healthCare, globalWarming, 
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('drinkmorebeer', '1', '1', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('muazmuaz', '0', '0', '0', '1', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('dopeman', '1', '1', '1', '0', '1', '0');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('sabrinapeng', '0', '0', '1', '1', '0', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('billieidolbaby', '1', '1', '1', '1', '0', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('asdf', '1', '1', '0', '0', '0', '0');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('stormybaby', '1', '1', '1', '1', '0', '0');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('theRealDonald', '0', '1', '0', '0', '1', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('hacker', '0', '1', '1', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('grudham4', '0', '0', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bbromfield5', '1', '1', '1', '1', '0', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('mmaliffe6', '1', '1', '0', '0', '0', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('vdaddow7', '1', '1', '1', '1', '0', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('khrynczyk8', '0', '1', '0', '0', '1', '1');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('bgibby9', '0', '1', '1', '1', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('blynesa', '0', '0', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('hlebarreb', '0', '0', '0', '1', '1', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('ngoldsbyc', '1', '0', '0', '0', '0', '1');
@@ -103,7 +103,7 @@ INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) 
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('cmaffionei', 'I just want to steal oil from other countries ', 'energy','Rick Perry','oil','gas', 000,'1987-01-01 00:00:01', 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('lreadwinj', 'Wow this has truly been a great day for science', 'Education','Betsy DeVos','cancer','aids', 000,'1988-01-01 00:00:01', 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('theRealDonald', 'Employment is up, Taxes are DOWN. Enjoy', 'energy','Rick Perry','oil','gas', 000,'1987-01-01 00:00:01', 0);
-INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('stormybaby', 'The correct spelling is skank', 'donald','trump','ndas','respectme', 000,'1988-01-01 00:00:01', 0);
+INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('stormybaby', 'I just wanted to be on apprentice', 'donald','trump','ndas','respectme', 000,'1988-01-01 00:00:01', 0);
  
  DROP TABLE Comments;
  CREATE TABLE Comments(
@@ -164,4 +164,64 @@ insert into Locations (id, locationName, hours, address, zipcode, info, picture)
 
 
 
-
+--  DROP TABLE History;
+-- CREATE TABLE History (userName VARCHAR(40), vote1 VARCHAR(100), vote2 VARCHAR(100), vote3 VARCHAR(100), vote4 VARCHAR(100), vote5 VARCHAR(100),vote6 VARCHAR(100), vote7 VARCHAR(100), vote8 VARCHAR(100), vote9 VARCHAR(100), vote10 VARCHAR(100));
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('dsilvermann0', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('mcoviello1', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('ksayle2', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('abain3', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('grudham4', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594', 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('bbromfield5', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123',
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('mmaliffe6', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('vdaddow7', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('khrynczyk8', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('bgibby9', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('blynesa', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('hlebarreb', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('ngoldsbyc', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('mclabburnd', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('glyptradee', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('umattacksf', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('tskahillg', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('sowersh', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('cmaffionei', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10)
+-- VALUES ('lreadwinj', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594',
+-- 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+-- 
+-- DELETE FROM Posts WHERE id= 2;
+-- SELECT * FROM Users;
