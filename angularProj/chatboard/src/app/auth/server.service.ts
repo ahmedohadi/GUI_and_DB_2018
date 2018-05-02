@@ -1,6 +1,5 @@
-// import { HttpClient } from 'selenium-webdriver/http';
+// Code adapted from https://embed.plnkr.co/plunk/UvIxFe
 import { Injectable } from '@angular/core';
-// import { HttpClient } from '@angular/common/http';
 import { Http } from '@angular/http';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 

@@ -1,3 +1,4 @@
+// Code adapted from https://embed.plnkr.co/plunk/UvIxFe
 import { ServerService } from './../server.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
