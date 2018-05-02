@@ -14,6 +14,7 @@ export class ProfilePageComponent implements OnInit {
 
   testUser: any;
   userShow: Profile;
+  issues: any[];
 
   constructor(
     private profileService: ProfileRepository,
@@ -22,14 +23,11 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
-    // this.profileService.getAccount(this.currentUser.username).subscribe(user => {
-    //  this.currentUser = user;
-    // });
-    // this.getProfile();
     this.activatedRoute.params.subscribe((params: any) => {
       this.profileService.getAccount(params.username).subscribe(user => {
         this.userShow = user;
-        // console.log(user);
+        this.issues = this.userShow.issues;
+        //console.log(this.issues);
       });
     });
   }

@@ -12,4 +12,5 @@ export class Profile {
   phone?: number;
   description?: string;
   picture?: string;
+  issues?: string[];
 }
