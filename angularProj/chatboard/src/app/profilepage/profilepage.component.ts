@@ -11,7 +11,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 
 export class ProfilePageComponent implements OnInit {
-
+  public currentUser: Profile;
   testUser: any;
   userShow: Profile;
   issues: any[];
@@ -24,6 +24,7 @@ export class ProfilePageComponent implements OnInit {
   }
 
   ngOnInit() {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
     this.activatedRoute.params.subscribe((params: any) => {
       this.profileService.getAccount(params.username).subscribe(user => {
         this.userShow = user;
@@ -36,7 +37,7 @@ export class ProfilePageComponent implements OnInit {
 
   public getProfile(): void {
     const id = +this.activatedRoute.snapshot.paramMap.get('userName');
-    //console.log(id);
+    // console.log(id);
     this.profileService.getAccount(id)
       .subscribe(profile => this.userShow = profile);
   }

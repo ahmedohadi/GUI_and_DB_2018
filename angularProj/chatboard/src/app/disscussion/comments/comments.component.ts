@@ -15,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CommentsComponent implements OnInit, OnDestroy {
   @ViewChild('f') commentForm: NgForm;
 
-  public @Input() postId: number;
+  @Input() postId: number;
   currentUser: Profile;
 
   constructor(private postService: PostService,
@@ -38,7 +38,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
      this.postService.getComments(this.postId).subscribe(comments => {
        this.commentArr = comments;
      });
-     //console.log(this.postId);
+     // console.log(this.postId);
   }
 
   onEnter(form: NgForm) {
