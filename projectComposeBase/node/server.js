@@ -75,7 +75,7 @@ server.route({
                 });
             }
             else {
-                reply("This Username already exists. Please choose a different one.");
+                reply(600);
             }
         });
     }
