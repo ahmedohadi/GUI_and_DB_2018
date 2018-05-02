@@ -17,21 +17,15 @@ export class DisscussionComponent implements OnInit, OnDestroy {
 currentUser: Profile;
 showCommentFields = false;
 
-
 post;
 postsArr: Post;
-
-// postWrapper = this.postForm.value.userPostsArr;
-
 
 constructor(private postService: PostService) {
   this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 }
 
 ngOnInit() {
-  this.postService.getPosts().subscribe(posts => {
-    this.postsArr = posts;
-  });
+  this.showPosts();
   this.postService.getTimeDate(this.postId).subscribe(posts => {
     this.postsArr = posts;
   });
@@ -55,10 +49,17 @@ storePosts(form: NgForm) {
       (error) => console.log(error)
     );
     this.postForm.reset();
+    this.showPosts();
   }
 
   ngOnDestroy() {
     console.log('ngOnDestroy');
+  }
+
+  showPosts() {
+      this.postService.getPosts().subscribe(posts => {
+      this.postsArr = posts;
+    });
   }
 
   postDelete(item: any) {

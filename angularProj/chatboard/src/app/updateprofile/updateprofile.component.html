@@ -67,15 +67,6 @@
 
           </div>
 
-          <!-- <div class="form-row mt-3">
-            <span class="col">
-              <label for="party">Change Party</label>
-              <select #party class="form-control" id="party" name="party" [(ngModel)]="profile.party" placeholder="Change Party">
-                <option value="" [disabled]="true" [selected]="true" ></option>
-                <option *ngFor="let party of ['Democrat','Republican','Independent']">{{party}}</option>
-              </select>
-            </span>
-          </div> -->
         </div>
 
         <div class="col mt-3">
@@ -104,32 +95,6 @@
       <div>
         <app-password-change></app-password-change>
       </div>
-
-      <!-- <div class="container">
-        <form #candidate="ngForm">
-          <span class="row pt-4">
-            <span class="col">
-              <select class="form-control" id="candidacy" name="candidate">
-                <option value="" [disabled]="true" [selected]="true">Change Candidacy</option>
-                <option *ngFor="let cand of ['President','Senator','Congressman']">{{cand}}</option>
-              </select>
-            </span>
-            <div class="col">
-              <select #party class="form-control" id="party" name="party">
-                <option value="" [disabled]="true" [selected]="true">Change Party</option>
-                <option *ngFor="let party of ['Democrat','Republican','independent']">{{party}}</option>
-              </select>
-            </div>
-          </span>
-          <div class="row">
-            <div class="col">
-              <div class="text-center">
-                <button type="submit" class="btn mt-3 btn-success" [disabled]="!registrationForm.form.valid">Update Political Stance</button>
-              </div>
-            </div>
-          </div>
-        </form>
-      </div> -->
 
     </div>
 

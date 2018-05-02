@@ -28,7 +28,7 @@ export class UpdateIssuesComponent implements OnInit {
       this.issues = [
         { issue: 'The Economy and Jobs' },
         { issue: 'Healthcare'},
-        { issue: 'Federal deficit and budget'},
+        { issue: 'Federal Deficit and Budget'},
         { issue: 'Immigration' },
         { issue: 'Environment and Global Warming' },
         { issue: 'Abortion' },
@@ -58,13 +58,11 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     checkIfAtLeastOnSelected() {
-      // tslint:disable-next-line:triple-equals
       if (this.selectedAll == true) {
           return true;
         }
 
        for (let i = 0; i < this.issues.length; i++) {
-          // tslint:disable-next-line:triple-equals
           if (this.issues[i].selected == true) {
             return true;
           }
@@ -76,11 +74,11 @@ export class UpdateIssuesComponent implements OnInit {
       console.log(this.currentUser);
       if (this.checkIfAtLeastOnSelected() === false) {
         this.alertService.clear();
-        this.alertService.error('Error please select atleast one issue');
+        this.alertService.error('Error: please select at least one issue!');
       } else {
         this.profileRepository.update(`updateIssues/${this.currentUser.username}`, this.issues).subscribe(x => {
           this.alertService.clear();
-          this.alertService.success('Sucess! thanks for telling us about the issues that matter to you');
+          this.alertService.success('Sucess! Thanks for telling us about the issues that matter to you.');
           });
       }
       this.unselectAll() ;
