@@ -1,3 +1,71 @@
+<div class="" *ngIf="userShow">
+  <div class="card hovercard">
+      <div class="card-background">
+          <img class="card-bkimg" alt="" src="./assets/profile/{{userShow.picture}}">
+      </div>
+      <div class="useravatar">
+          <img alt="" src="./assets/profile/{{userShow.picture}}">
+      </div>
+      <div class="card-info"> <span class="card-title">{{userShow.firstName}} {{userShow.lastName}}</span>
+     </div>
+
+  </div>
+  </div>
+  <div class="card">
+    <div class="card-header">
+      <h4 >User Profile: {{userShow.username}}</h4>
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Description: {{userShow.description}}</h5>
+    </div>
+  </div>
+
+
+  <div class="row">
+      <div class="col">
+          <div class="card" style = "">
+              <p class="pull-left">First Name: <strong>{{userShow.firstName}}</strong></p>
+              <p class="pull-left">Last Name: <strong>{{userShow.lastName}}</strong></p>
+              <p class="pull-left">Email: <strong>{{userShow.email}}</strong></p>
+              <p class="pull-left" *ngIf="userShow.zipCode">Zipcode: <strong>{{userShow.zipCode}}</strong></p>
+            </div>
+      </div>
+      <div class="col">
+          <div class="card" style="">
+              <p class="pull-left">Position running: <strong>{{userShow.candidates}}</strong></p>
+              <p class="pull-left">Party Affiliation: <strong>{{userShow.party}}</strong></p>
+              <p class="pull-left" *ngIf="userShow.phone">Phone Number: <strong>{{userShow.phone}}</strong></p>
+            </div>
+      </div>
+
+    </div>
+    <div class="row">
+      <div class="col">
+          <div class="card" style="">
+              <div class="card-header">
+                  <h4 >Issues</h4>
+                </div>
+              <ul class="list-group list-group-flush"*ngFor="let issue of issues">
+                  <li class="list-group-item">{{issue}}</li>
+              </ul>
+            </div>
+      </div>
+      <div class="col">
+          <div class="card" style="">
+              <div class="card-header">
+                  <h4 >Voting History</h4>
+                </div>
+                <ul class="list-group list-group-flush" *ngFor="let issue of issues">
+                    <li class="list-group-item">{{issue}}</li>
+                </ul>
+            </div>
+      </div>
+    </div>
+
+
+
+
+<!--
 <div class="profile-page" *ngIf="userShow">
 
   <div class="container center">
@@ -29,7 +97,7 @@
               <h5 class="pull-left">Email:</h5>
               <h6 class="pull-right">{{userShow.email}}</h6>
               <h5 class="pull-left">Zipcode:</h5>
-              <h6 class="pull-right">{{userShow.zipCode}}</h6>
+              <h6 class="pull-right">{{userShow.zipcode}}</h6>
           </div>
 
           <div class="col-md-3 clearfix">
@@ -42,12 +110,14 @@
           </div>
         </div>
 
+
         <div class="row box-body">
-          <h5 class="pull-left">Description: {{userShow.description}}</h5>
+          <h5 class="pull-left">Description:</h5>
+          <h5 class="pull-right">{{userShow.description}}</h5>
         </div>
 
       </div>
-      
+
       <h5 class="pull-left">Issues: </h5>
       <div class="row box-info" *ngFor="let issue of issues">
           <ul>
@@ -58,3 +128,6 @@
     </div>
   </div>
 </div>
+
+
+ -->
