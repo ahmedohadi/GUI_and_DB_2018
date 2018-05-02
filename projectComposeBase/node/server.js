@@ -725,6 +725,7 @@ server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
+        console.log(encodeURIComponent(request.params.username));
         connection.query("SELECT * FROM Users NATURAL JOIN Issues WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
             if (error)
                 throw error;
