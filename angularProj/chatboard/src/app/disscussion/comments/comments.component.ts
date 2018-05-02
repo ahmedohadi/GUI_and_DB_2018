@@ -6,6 +6,7 @@ import { Comments } from '../../domain/models/comments';
 import { Post } from '../../domain/models/post';
 import { ActivatedRoute, Router } from '@angular/router';
 
+// or
 @Component({
   selector: 'app-comments',
   templateUrl: './comments.component.html',
@@ -14,7 +15,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class CommentsComponent implements OnInit, OnDestroy {
   @ViewChild('f') commentForm: NgForm;
 
-  @Input() postId: number;
+  public @Input() postId: number;
   currentUser: Profile;
 
   constructor(private postService: PostService,
@@ -27,20 +28,17 @@ export class CommentsComponent implements OnInit, OnDestroy {
   commentArr: Comments;
 
   ngOnInit() {
-     this.postService.getComments(this.postId).subscribe(comments => {
-       this.commentArr = comments;
-     });
+     this.showComments();
   }
 
   ngOnDestroy() {}
 
 
   showComments() {
-     //console.log(this.postId);
      this.postService.getComments(this.postId).subscribe(comments => {
        this.commentArr = comments;
-       //console.log(this.commentArr[0].id)
      });
+     //console.log(this.postId);
   }
 
   onEnter(form: NgForm) {
@@ -57,4 +55,6 @@ export class CommentsComponent implements OnInit, OnDestroy {
         this.commentForm.reset();
     }
   }
+
+
 

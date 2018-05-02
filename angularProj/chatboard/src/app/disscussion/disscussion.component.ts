@@ -12,7 +12,7 @@ import { Post } from '../domain/models/post';
 export class DisscussionComponent implements OnInit, OnDestroy {
 
 @ViewChild('f') postForm: NgForm;
-@Input() postId: number;
+//@Input() postId: number;
 
 currentUser: Profile;
 showCommentFields = false;
@@ -49,7 +49,6 @@ storePosts(form: NgForm) {
       (error) => console.log(error),
     );
     this.postForm.reset();
-    //this.showPosts();
   }
 
   ngOnDestroy() {

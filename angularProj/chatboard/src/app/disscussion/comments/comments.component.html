@@ -1,10 +1,11 @@
-<form (onSubmit)="onEnter(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
+<form (onSubmit)="onEnter(f)" #f="ngForm" *ngIf="postId"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
   <div class="input-group input-group-sm">
-    
-    <div class="input-group-prepend">
-      <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()" data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
-    </div>
 
+    <div class="input-group-prepend">
+      <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()" data-toggle="collapse" 
+      [attr.data-target]="'#'+postId">Show Comments</span>
+    </div>
+    
     <input
       type="text"
       name="newComments"
@@ -17,7 +18,7 @@
       >
   </div>
 
-  <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
+  <div class="collapse" id="{{postId}}">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let comment of commentArr">{{ comment.body }}
         <div class="input-group-prepend float-right">
@@ -26,5 +27,4 @@
       </li>
     </ul>
   </div>
-
 </form>
