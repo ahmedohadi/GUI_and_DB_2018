@@ -27,17 +27,6 @@ export class LoginComponent implements OnInit {
     private serverService: ServerService) { }
 
   login() {
-    /*
-    this.user = {
-      username: this.loginForm.value.loginData.loginName,
-      password: this.loginForm.value.loginData.loginPass
-    };
-    this.serverService.loginUsers(this.user)
-    .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
-    );
-    */
     this.loading = true;
     this.authenticationService.login(this.model.username, this.model.password)
       .subscribe(
@@ -45,11 +34,11 @@ export class LoginComponent implements OnInit {
                   this.router.navigate([this.returnUrl]);
                 },
         error => {
-                  this.alertService.error(error);
+                  this.alertService.clear();
+                  this.alertService.error("Wrong username or password!");
                   this.loading = false;
                   }
       );
-      // console.log(this.returnUrl);
   }
 
   ngOnInit() {
@@ -60,5 +49,7 @@ export class LoginComponent implements OnInit {
         this.returnUrl = this.route.snapshot.queryParams['returnUrl'] || '/';
         // this.returnUrl = '/';
     }
+
+
 
 }

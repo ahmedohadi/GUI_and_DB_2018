@@ -19,7 +19,6 @@ export class NavbarComponent implements OnInit {
   }
 
   link(username){
-    console.log(username);
     this.router.navigateByUrl('home/profile/' + username);
   }
 }
