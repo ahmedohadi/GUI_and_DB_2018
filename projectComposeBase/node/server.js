@@ -404,6 +404,32 @@ server.route({
         else {
             //console.log("okay we gucci");
         }
+
+        var candidates = request.payload.candidates;
+        if (candidates != null) {
+            sql = "UPDATE Users SET office = '" + candidates + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+            connection.query(sql, function (error, results, fields) {
+                if (error)
+                    throw error;
+                //reply('It worked');
+            });
+        }
+        else {
+            //console.log("okay we gucci");
+        }
+
+        var party = request.payload.party;
+        if (party != null) {
+            sql = "UPDATE Users SET party = '" + party + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
+            connection.query(sql, function (error, results, fields) {
+                if (error)
+                    throw error;
+                //reply('It worked');
+            });
+        }
+        else {
+            //console.log("okay we gucci");
+        }
         reply(200);
     }
 });
