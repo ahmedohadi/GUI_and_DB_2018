@@ -52,7 +52,7 @@ export class SearchComponent implements OnInit {
     this.type = this.type.toLowerCase();
   }
 
-  link(username){
+  link(username) {
     console.log(username);
     this.router.navigateByUrl('home/profile/' + username);
   }

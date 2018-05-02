@@ -24,7 +24,10 @@ postsArr: Post;
 // postWrapper = this.postForm.value.userPostsArr;
 
 
-constructor(private postService: PostService) {
+constructor(
+  private postService: PostService,
+  public router: Router,
+) {
   this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
 }
 
@@ -67,8 +70,6 @@ storePosts(form: NgForm) {
   .subscribe(id => {
     // $('#userPostsArr').remove();
   });
-
-
 
 }
 }

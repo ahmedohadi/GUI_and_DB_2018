@@ -9,7 +9,7 @@ import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
   styleUrls: ['./signup.component.css']
 })
 export class SignupComponent implements OnInit {
-  candidates = ['President', 'Senator', 'Congressman'];
+  candidates = ['President', 'Senator', 'Congressman', 'Voter'];
   parties = ['Democrat', 'Republican', 'Independent'];
 @ViewChild('f') signupForm: NgForm;
 
