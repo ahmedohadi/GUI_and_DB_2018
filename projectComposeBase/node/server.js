@@ -757,7 +757,9 @@ server.route({
     path: '/profilePage/{username}',
     handler: function (request, reply) {
         //console.log(encodeURIComponent(request.params.username));
+        // console.log("here" + encodeURIComponent(request.params.username));
         connection.query("SELECT * FROM Users NATURAL JOIN Issues LEFT JOIN History ON (Users.username = History.username) WHERE Users.username ='" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+            // console.log(results);
             if (error)
                 throw error;
                 var issuesArr =[];
@@ -790,9 +792,9 @@ server.route({
                 historyArr.push(results[0].vote8);
                 historyArr.push(results[0].vote9);
                 historyArr.push(results[0].vote10);
-
+                // console.log(results);
                 var obj = {
-                    "username": results[0].username,
+                    "username": encodeURIComponent(request.params.username),
                     "firstName": results[0].firstName,
                     "lastName": results[0].lastName,
                     "email": results[0].email,
