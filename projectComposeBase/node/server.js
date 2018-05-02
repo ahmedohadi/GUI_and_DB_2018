@@ -725,29 +725,29 @@ server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
-        console.log(encodeURIComponent(request.params.username));
-        connection.query("SELECT * FROM Users NATURAL JOIN Issues WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+        //console.log(encodeURIComponent(request.params.username));
+        connection.query("SELECT * FROM Users WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
             if (error)
                 throw error;
                 var issuesArr =[];
-                if(results[0].econJobs){
-                    issuesArr.push("The Economy and Jobs");
-                }
-                if(results[0].immigration){
-                    issuesArr.push("Immigration");
-                }
-                if(results[0].healthCare){
-                    issuesArr.push("Healthcare");
-                }
-                if(results[0].globalWarming){
-                    issuesArr.push("Environment and Global Warming");
-                }
-                if(results[0].budget){
-                    issuesArr.push("Federal deficit and budget");
-                }
-                if(results[0].abortion){
-                    issuesArr.push("Abortion");
-                }
+                // if(results[0].econJobs){
+                //     issuesArr.push("The Economy and Jobs");
+                // }
+                // if(results[0].immigration){
+                //     issuesArr.push("Immigration");
+                // }
+                // if(results[0].healthCare){
+                //     issuesArr.push("Healthcare");
+                // }
+                // if(results[0].globalWarming){
+                //     issuesArr.push("Environment and Global Warming");
+                // }
+                // if(results[0].budget){
+                //     issuesArr.push("Federal deficit and budget");
+                // }
+                // if(results[0].abortion){
+                //     issuesArr.push("Abortion");
+                // }
 
                 var obj = {
                     "username": results[0].username,
@@ -760,7 +760,7 @@ server.route({
                     "candidates": results[0].office,
                     "description": results[0].description,
                     "picture": results[0].picture,
-                    "issues":issuesArr
+                    //"issues":issuesArr
                 }
             reply(obj);
         });
