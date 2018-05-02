@@ -13,8 +13,6 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
     </div>
   </div>
 
-
-
   <form name="form" class="mt-2" (ngSubmit)="f.form.valid && login()" #f="ngForm" novalidate>
     <div class="imgcontainer">
       <img src="./assets/profile/placeholder.png" alt="Avatar" class="avatar">
@@ -49,7 +47,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
       <button class="btn btn-block btn-success" type="submit" id="submit" [disabled]="loading">Login</button>
       <alert></alert>
 
-      <h5 class="heading mt-5 mb-4">or</h5>
+      <h5 class="heading mt-2 mb-4">or</h5>
 
 
       <button class="btn btn-info btn-block" type="register" routerLink = "/signup" >Sign Up</button>

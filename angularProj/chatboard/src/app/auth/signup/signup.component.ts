@@ -39,7 +39,6 @@ users;
     };
 
     if (this.signupForm.value.personalData.password === this.signupForm.value.personalData.ConfirmPassword) {
-
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => console.log(response),
@@ -52,40 +51,7 @@ users;
     // console.log(form);
   }
 
-
-  // candidateShowHideList() {
-  //   if (this.showCandidateList === false) {
-  //     this.showCandidateList = true;
-  //   } else if (this.showCandidateList === true) {
-  //     this.showCandidateList = false;
-  //   }
-  // }
-
-  // partyShowHideList() {
-  //   if (this.showPartyList === false) {
-  //     this.showPartyList = true;
-  //   } else if (this.showPartyList === true) {
-  //     this.showPartyList = false;
-  //   }
-  // }
   ngOnInit() {
   }
-
-  // onSignup(form: NgForm) {
-  //   const username = form.value.username;
-  //   const password = form.value.password;
-  //   this.authService.signupUser(username, password);
-  // }
-
-  // onSubmit(form: NgForm) {
-  //   console.log(form);
-  // }
-
-
-
-  // alternavitly
-  // onSubmit() {
-  //   console.log(this.signupForm);
-  // }
 
 }

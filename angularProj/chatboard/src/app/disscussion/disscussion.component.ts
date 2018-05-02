@@ -45,11 +45,11 @@ storePosts(form: NgForm) {
 
     this.postService.storePosts(this.post)
     .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
+      (response) => this.showPosts(),
+      (error) => console.log(error),
     );
     this.postForm.reset();
-    this.showPosts();
+    //this.showPosts();
   }
 
   ngOnDestroy() {
