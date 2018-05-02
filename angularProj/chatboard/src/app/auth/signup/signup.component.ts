@@ -2,6 +2,7 @@ import { ServerService } from './../server.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
 // import { AuthService } from '../auth.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-signup',
@@ -18,7 +19,10 @@ users;
  showCandidateList: Boolean;
  showPartyList: Boolean;
 
-  constructor(private serverService: ServerService) { // private authService: AuthService  - passed to the construct
+  constructor(
+    private serverService: ServerService,
+    public router: Router,
+  ) { // private authService: AuthService  - passed to the construct
     this.showCandidateList = false;
     this.showPartyList = false;
   }
@@ -41,6 +45,7 @@ users;
       (response) => console.log(response),
       (error) => console.log(error)
     );
+    this.router.navigateByUrl('/login');
   } else {
     alert('Passwrod not match!');
   }
