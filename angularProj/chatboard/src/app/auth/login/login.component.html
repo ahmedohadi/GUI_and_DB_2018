@@ -5,7 +5,7 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
 
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<body class="container" style="width: 40%; height: 40%;">
+<body class="container" style="width: 35%; height: 35%;">
 
   <div class="row pt-3 pb-3" style="background-color: #94d273">
     <div class="col text-center">
@@ -34,21 +34,28 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
               <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
             </div>
             <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-              <label for="password">
+              <label for="">
                 <b>Password</b>
               </label>
               <input type="password" class="form-control mb-2" name="password" placeholder="Enter Password" [(ngModel)]="model.password" #password="ngModel"
                 required />
               <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-          </div>
-          <div class="form-group">
-              <button class="btn btn-primary mb-3" type="submit" id="submit" [disabled]="loading" class="btn btn-primary">Login</button>
-              <a [routerLink]="['/register']" class="btn btn-link">Sign-up</a> 
-          </div>
+            </div>
+            <div class="form-group">
+              <!-- <button class="btn btn-primary mb-3" type="submit" id="submit" [disabled]="loading" class="btn btn-primary">Login</button> -->
+              <!-- <a [routerLink]="['/register']" class="btn btn-link">Register</a> -->
+            </div>
+
         </div>
       </div>
+
+      <button class="btn btn-block btn-success" type="submit" id="submit" [disabled]="loading">Login</button>
+
+      <h5 class="heading mt-5 mb-4">or</h5>
+
+
+      <button class="btn btn-info btn-block" type="register" routerLink = "/signup" >Sign Up</button>
     </div>
   </form>
-
 
 </body>

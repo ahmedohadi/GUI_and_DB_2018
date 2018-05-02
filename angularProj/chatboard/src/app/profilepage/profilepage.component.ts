@@ -18,18 +18,18 @@ export class ProfilePageComponent implements OnInit {
   constructor(
     private profileService: ProfileRepository,
     private activatedRoute: ActivatedRoute) {
-    //this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    // this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
   ngOnInit() {
-    //this.profileService.getAccount(this.currentUser.username).subscribe(user => {
+    // this.profileService.getAccount(this.currentUser.username).subscribe(user => {
     //  this.currentUser = user;
-    //});
-    //this.getProfile();
+    // });
+    // this.getProfile();
     this.activatedRoute.params.subscribe((params: any) => {
       this.profileService.getAccount(params.username).subscribe(user => {
         this.userShow = user;
-        //console.log(user);
+        // console.log(user);
       });
     });
   }
