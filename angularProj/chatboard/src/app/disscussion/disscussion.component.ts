@@ -30,9 +30,6 @@ constructor(
 
 ngOnInit() {
   this.showPosts();
-  this.postService.getTimeDate(this.postId).subscribe(posts => {
-    this.postsArr = posts;
-  });
 }
 
 storePosts(form: NgForm) {
@@ -46,7 +43,6 @@ storePosts(form: NgForm) {
       likes: 0
     };
 
-    // console.log(form);
     this.postService.storePosts(this.post)
     .subscribe(
       (response) => console.log(response),

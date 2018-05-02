@@ -21,74 +21,7 @@
             <input class="form-control mb-2" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" required ngModel>
           </div>
 
-          <!-- <p *ngIf="!userData.valid && userData.touched" ></p> -->
-
-          <!-- <div class="col"> for nesting
-            <div class="row">
-              <div class="col d-flex">
-
-                <div class="mr-5"> candidates
-                  <label for="candidates">
-                    <input
-                    class="form-check-input mb-2"
-                    type="checkbox"
-                    name="candidatesCheckBox"
-                    id="candidates"
-                    (change)="candidateShowHideList()"
-                    ngModel
-
-                    >Candidates?
-                  </label>
-
-                  <div class="border border-dark p-2" [hidden]="!showCandidateList"> radio container 1
-                    <div class="radio" *ngFor="let candidate of candidates" ngModelGroup="candidatesRadioList">
-                      <label>
-                        <input type="radio" name="candidate" [value]="candidate" ngModel> {{candidate}}
-                      </label>
-                    </div>
-                  </div> radio container 1
-                </div> candidates
-
-                <div class="mr-5"> party
-                  <label for="party">
-                    <input
-                      class="form-check-input mb-2"
-                      type="checkbox"
-                      id="party"
-                      name="partyCheckBox"
-                      (change)="partyShowHideList()"
-                      ngModel
-
-                      >Party?
-                </label>
-
-                <div class="border border-dark p-2" [hidden]="!showPartyList"> radio container 2
-                    <div class="radio" *ngFor="let party of parties" ngModelGroup="partyRadioList">
-                      <label>
-                        <input type="radio" name="party" [value]="party" ngModel> {{party}}
-                      </label>
-                    </div>
-                  </div> radio container 2
-                </div>  party -->
-
-
-                <!-- <div class="row justify-content-center">
-                  <div class="col">
-
-                    <button
-                    class="btn btn-primary mb-2"
-                    type="submit"
-                    id="submit"
-                    [disabled]="!f.valid"
-                    (click)="addUser()"
-                    >Sign Up</button>
-
-                  </div>
-                </div> -->
-
-
-              <!-- </div> closing nested col -->
-<div class="container">
+      <div class="container">
               <div class="row">
                 <div class="col">
                   <h6>Already signed up?
@@ -113,157 +46,60 @@
 
             <!-- </div> row nesting WRAPER -->
           <!-- </div> col nesting WRAPER  -->
-
-
-
-
           <!-- Button trigger modal -->
-<!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
-  Select
-</button> -->
+          <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+            Select
+          </button> -->
 
-<!-- Modal -->
-<div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-  <div class="modal-dialog modal-dialog-centered" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalCenterTitle">Who you are?</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-
-
-        <div class="container mb-3">
-
-          <div class="row d-flex">
-            <div class="col">
-              <h6>Candidates:</h6>
-                  </div>
-
-                    <div class="col">
-
-                 <h6>Party:</h6>
-                 </div>
+          <!-- Modal -->
+          <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalCenterTitle">Who you are?</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
                 </div>
-
-
-
-
-          <div class="row">
-            <div class="col border border-right-0 border-dark">
-
-          <div class="radio" *ngFor="let candidate of candidates" ngModelGroup="candidatesRadioList">
-              <label>
-                <input type="radio" name="candidate" [value]="candidate" ngModel> {{candidate}}
-              </label>
-            </div>
-
-        </div>
-
-        <div class="col border border-dark">
-
-            <div class="radio" *ngFor="let party of parties" ngModelGroup="partyRadioList">
-                <label>
-                  <input type="radio" name="party" [value]="party" ngModel> {{party}}
-                </label>
+                <div class="modal-body">
+                  <div class="container mb-3">
+                    <div class="row d-flex">
+                      <div class="col">
+                        <h6>Candidates:</h6>
+                      </div>
+                      <div class="col">
+                        <h6>Party:</h6>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col border border-right-0 border-dark">
+                        <div class="radio" *ngFor="let candidate of candidates" ngModelGroup="candidatesRadioList">
+                          <label>
+                            <input type="radio" name="candidate" [value]="candidate" ngModel> {{candidate}}
+                          </label>
+                        </div>
+                      </div>
+                      <div class="col border border-dark">
+                        <div class="radio" *ngFor="let party of parties" ngModelGroup="partyRadioList">
+                          <label>
+                            <input type="radio" name="party" [value]="party" ngModel> {{party}}
+                          </label>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <button
+                  class="btn btn-primary mb-2"
+                  type="submit"
+                  id="submit"
+                  [disabled]="!f.valid"
+                  >Sign Up</button>
+                </div>
               </div>
-
             </div>
-
-
-
           </div>
-
-
-
-          </div>
-
-          <button
-          class="btn btn-primary mb-2"
-          type="submit"
-          id="submit"
-          [disabled]="!f.valid"
-          >Sign Up</button>
-
-          <!-- (click)="addUser()" -->
-
-      </div>
-
-
-
-    </div>
-
-
-
-
-    </div>
-  </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         </form>
-
       </div>
-
     </div>
   </div>
 </div> <!-- pageContainer -->
