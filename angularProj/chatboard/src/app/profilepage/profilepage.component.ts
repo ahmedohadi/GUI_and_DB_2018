@@ -15,6 +15,7 @@ export class ProfilePageComponent implements OnInit {
   testUser: any;
   userShow: Profile;
   issues: any[];
+  history: any[];
 
   constructor(
     private profileService: ProfileRepository,
@@ -27,6 +28,7 @@ export class ProfilePageComponent implements OnInit {
       this.profileService.getAccount(params.username).subscribe(user => {
         this.userShow = user;
         this.issues = this.userShow.issues;
+        this.history = this.userShow.historyArr;
         // console.log(this.issues);
       });
     });
@@ -34,7 +36,7 @@ export class ProfilePageComponent implements OnInit {
 
   public getProfile(): void {
     const id = +this.activatedRoute.snapshot.paramMap.get('userName');
-    console.log(id);
+    //console.log(id);
     this.profileService.getAccount(id)
       .subscribe(profile => this.userShow = profile);
   }

@@ -24,17 +24,22 @@ export class CommentsComponent implements OnInit, OnDestroy {
   }
 
   comment;
-  commentArr: any;
+  commentArr: Comments;
 
-  ngOnInit() {}
+  ngOnInit() {
+     this.postService.getComments(this.postId).subscribe(comments => {
+       this.commentArr = comments;
+     });
+  }
 
   ngOnDestroy() {}
 
 
   showComments() {
-    console.log(this.postId);
+     //console.log(this.postId);
      this.postService.getComments(this.postId).subscribe(comments => {
        this.commentArr = comments;
+       //console.log(this.commentArr[0].id)
      });
   }
 

@@ -6,11 +6,12 @@ export class Profile {
   email?: string;
   password?: string;
   isVerified?: boolean;
-  zipcode?: number;
+  zipcode?: string;
   candidates?: string;
   party?: string;
-  phone?: number;
+  phone?: string;
   description?: string;
   picture?: string;
   issues?: string[];
+  historyArr?: string[];
 }

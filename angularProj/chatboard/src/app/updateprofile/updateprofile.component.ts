@@ -46,9 +46,9 @@ export class UpdateprofileComponent implements OnInit {
       this.alertService.error('Please enter at least one thing to update.');
     } else {
     this.profileRepository.update(`updateAccount/${this.currentUser.username}`, this.profile).subscribe(x => {
-    this.alertService.clear();
-    this.alertService.success('Your Profile has been Updated!');
-    this.router.navigateByUrl(`/home/profile/${this.currentUser.username}`);
+      this.alertService.clear();
+      this.alertService.success('Your Profile has been Updated!');
+      this.router.navigateByUrl(`/home/profile/${this.currentUser.username}`);
     });
 
   }

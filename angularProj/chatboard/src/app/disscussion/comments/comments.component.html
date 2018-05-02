@@ -1,7 +1,8 @@
 <form (onSubmit)="onEnter(f)" #f="ngForm"> <!--(onsubmit)="onCreatePost(f)" "#f=ngForm"-->
   <div class="input-group input-group-sm">
+    
     <div class="input-group-prepend">
-      <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()"  data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
+      <span class="btn btn-primary dropdown-toggle rounded-0" (click)="showComments()" data-toggle="collapse" data-target="#collapseOne">Show Comments</span>
     </div>
 
     <input
@@ -16,7 +17,7 @@
       >
   </div>
 
-  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne">
+  <div id="collapseOne" class="collapse" aria-labelledby="headingOne">
     <ul class="list-group">
       <li class="list-group-item" *ngFor="let comment of commentArr">{{ comment.body }}
         <div class="input-group-prepend float-right">

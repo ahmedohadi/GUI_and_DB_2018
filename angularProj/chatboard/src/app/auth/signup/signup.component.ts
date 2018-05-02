@@ -1,7 +1,7 @@
 import { ServerService } from './../server.service';
 import { Component, OnInit, ViewChild, Input } from '@angular/core';
 import { FormsModule, NgForm, NgModel, FormControl } from '@angular/forms';
-// import { AuthService } from '../auth.service';
+import { AlertService } from '../../domain/services/alert.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -14,7 +14,8 @@ export class SignupComponent implements OnInit {
   parties = ['Democrat', 'Republican', 'Independent'];
 @ViewChild('f') signupForm: NgForm;
 
-users;
+ users;
+ loading = false;
 
  showCandidateList: Boolean;
  showPartyList: Boolean;
@@ -22,11 +23,13 @@ users;
   constructor(
     private serverService: ServerService,
     public router: Router,
-  ) { // private authService: AuthService  - passed to the construct
+    private alertService: AlertService
+  ) { 
     this.showCandidateList = false;
     this.showPartyList = false;
   }
   addUser(form: NgForm) {
+    this.loading = true;
     this.users = {
       firstname: this.signupForm.value.personalData.firstname,
       lastname: this.signupForm.value.personalData.lastname,
@@ -41,14 +44,27 @@ users;
     if (this.signupForm.value.personalData.password === this.signupForm.value.personalData.ConfirmPassword) {
     this.serverService.storeUser(this.users)
     .subscribe(
-      (response) => console.log(response),
-      (error) => console.log(error)
+      (response) => {
+        if (response == 600) {
+          this.alertService.clear();
+          this.alertService.error("Invalid username!");
+          this.loading = false;
+        }
+        if (response == 200) {
+          this.router.navigateByUrl('/login');
+        }
+      },
+        (error) => {
+                  this.alertService.clear();
+                  this.alertService.error("Internal server error!");
+                  this.loading = false;
+        }
     );
-    this.router.navigateByUrl('/login');
-  } else {
-    alert('Passwrod not match!');
-  }
-    // console.log(form);
+    } else {
+      this.alertService.clear();
+                  this.alertService.error("Password does not match!");
+                  this.loading = false;
+    }
   }
 
   ngOnInit() {
