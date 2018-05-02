@@ -27,7 +27,7 @@ export class ProfilePageComponent implements OnInit {
       this.profileService.getAccount(params.username).subscribe(user => {
         this.userShow = user;
         this.issues = this.userShow.issues;
-        //console.log(this.issues);
+        // console.log(this.issues);
       });
     });
   }
