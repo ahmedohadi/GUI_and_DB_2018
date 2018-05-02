@@ -63,11 +63,9 @@ storePosts(form: NgForm) {
   }
 
   postDelete(item: any) {
-    console.log(item);
-  this.postService.deletePosts(item)
-  .subscribe(id => {
-    // $('#userPostsArr').remove();
-  });
-
-}
+    this.postService.deletePosts(item)
+    .subscribe(id => {
+      this.showPosts();
+    });
+  }
 }
