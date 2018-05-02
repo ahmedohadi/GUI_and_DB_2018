@@ -792,14 +792,14 @@ server.route({
                 historyArr.push(results[0].vote8);
                 historyArr.push(results[0].vote9);
                 historyArr.push(results[0].vote10);
-                // console.log(results);
+                //console.log(results);
                 var obj = {
                     "username": encodeURIComponent(request.params.username),
-                    "firstName": results[0].firstName,
-                    "lastName": results[0].lastName,
+                    "firstname": results[0].firstName,
+                    "lastname": results[0].lastName,
                     "email": results[0].email,
                     "phone": results[0].phone,
-                    "zipCode": results[0].zipCode,
+                    "zipcode": results[0].zipCode,
                     "party": results[0].party,
                     "candidates": results[0].office,
                     "description": results[0].description,
