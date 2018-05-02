@@ -50,7 +50,7 @@ insert into Users (firstName, lastName, email, username, thepassword, phone, zip
 
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('sillyvester', '0', '0', '0', '1', '1', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('drinkmorebeer', '1', '1', '1', '1', '0', '1');
-insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('muazmuaz', '0', '0', '0', '1', '1', '0');
+insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('muaz', '0', '0', '0', '1', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('dopeman', '1', '1', '1', '0', '1', '0');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('sabrinapeng', '0', '0', '1', '1', '0', '1');
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('billieidolbaby', '1', '1', '1', '1', '0', '1');
@@ -168,7 +168,7 @@ insert into Locations (id, locationName, hours, address, zipcode, info, picture)
 CREATE TABLE History (userName VARCHAR(40), vote1 VARCHAR(100), vote2 VARCHAR(100), vote3 VARCHAR(100), vote4 VARCHAR(100), vote5 VARCHAR(100),vote6 VARCHAR(100), vote7 VARCHAR(100), vote8 VARCHAR(100), vote9 VARCHAR(100), vote10 VARCHAR(100));
 
 INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('drinkmorebeer', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
-INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('muazmuaz', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
+INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('muaz', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
 INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('sabrinapeng', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
 INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('billieidolbaby', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
 INSERT INTO History (userName, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('asdf', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594', 'Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
