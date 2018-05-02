@@ -719,15 +719,19 @@ server.route({
 });
 
 
-///////////////////////////////
-//PROFILE PAGE
-////////////////////////////////
+// ///////////////////////////////
+// //PROFILE PAGE
+// ////////////////////////////////
+
+
+
+
 server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
         //console.log(encodeURIComponent(request.params.username));
-        connection.query("SELECT * FROM Users NATURAL JOIN Issues WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+        connection.query("SELECT * FROM Users NATURAL JOIN Issues LEFT JOIN History ON (Users.username = History.username) WHERE Users.username ='" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
             if (error)
                 throw error;
                 var issuesArr =[];
@@ -749,6 +753,17 @@ server.route({
                 if(results[0].abortion){
                     issuesArr.push("Abortion");
                 }
+                var historyArr = [];
+                historyArr.push(results[0].vote1);
+                historyArr.push(results[0].vote2);
+                historyArr.push(results[0].vote3);
+                historyArr.push(results[0].vote4);
+                historyArr.push(results[0].vote5);
+                historyArr.push(results[0].vote6);
+                historyArr.push(results[0].vote7);
+                historyArr.push(results[0].vote8);
+                historyArr.push(results[0].vote9);
+                historyArr.push(results[0].vote10);
 
                 var obj = {
                     "username": results[0].username,
@@ -761,12 +776,174 @@ server.route({
                     "candidates": results[0].office,
                     "description": results[0].description,
                     "picture": results[0].picture,
-                    "issues":issuesArr
+                    "issues":issuesArr,
+                    "historyArr":historyArr
                 }
             reply(obj);
         });
     }
 });
+// server.route({
+//     method: 'GET',
+//     path: '/profilePage/{username}',
+//     handler: function (request, reply) {
+//         //console.log(encodeURIComponent(request.params.username));
+
+
+
+
+//         connection.query("SELECT * FROM Users NATURAL JOIN Issues NATURAL JOIN History WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+//             if (error)
+//                 throw error;
+//                 var issuesArr =[];
+//                 if(results[0].econJobs){
+//                     issuesArr.push("The Economy and Jobs");
+//                 }
+//                 if(results[0].immigration){
+//                     issuesArr.push("Immigration");
+//                 }
+//                 if(results[0].healthCare){
+//                     issuesArr.push("Healthcare");
+//                 }
+//                 if(results[0].globalWarming){
+//                     issuesArr.push("Environment and Global Warming");
+//                 }
+//                 if(results[0].budget){
+//                     issuesArr.push("Federal deficit and budget");
+//                 }
+//                 if(results[0].abortion){
+//                     issuesArr.push("Abortion");
+//                 }
+
+//                 // var historyArr = []
+//                 // historyArr.push(result[0].vote1);
+//                 // historyArr.push(result[0].vote2);
+//                 // historyArr.push(result[0].vote3);
+//                 // historyArr.push(result[0].vote4);
+//                 // historyArr.push(result[0].vote5);
+//                 // historyArr.push(result[0].vote6);
+//                 // historyArr.push(result[0].vote7);
+//                 // historyArr.push(result[0].vote8);
+//                 // historyArr.push(result[0].vote9);
+//                 // historyArr.push(result[0].vote10);
+
+//                 var obj = {
+//                     "username": results[0].username,
+//                     "firstName": results[0].firstName,
+//                     "lastName": results[0].lastName,
+//                     "email": results[0].email,
+//                     "phone": results[0].phone,
+//                     "zipCode": results[0].zipCode,
+//                     "party": results[0].party,
+//                     "candidates": results[0].office,
+//                     "description": results[0].description,
+//                     "picture": results[0].picture,
+//                     "issues":issuesArr,
+//                     //"historyArr":historyArr
+//                 }
+//             });
+//             reply(obj);
+
+//     //     var bool = true;
+//     //     connections.query("SELECT * FROM Users WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) { 
+//     //         if(results[0].office == 'Voter'){
+//     //             bool = true;
+//     //         }
+//     //     });
+
+//     //     if(bool){
+//     //         connection.query("SELECT * FROM Users NATURAL JOIN Issues NATURAL JOIN History WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+//     //             if (error)
+//     //                 throw error;
+//     //                 var issuesArr =[];
+//     //                 if(results[0].econJobs){
+//     //                     issuesArr.push("The Economy and Jobs");
+//     //                 }
+//     //                 if(results[0].immigration){
+//     //                     issuesArr.push("Immigration");
+//     //                 }
+//     //                 if(results[0].healthCare){
+//     //                     issuesArr.push("Healthcare");
+//     //                 }
+//     //                 if(results[0].globalWarming){
+//     //                     issuesArr.push("Environment and Global Warming");
+//     //                 }
+//     //                 if(results[0].budget){
+//     //                     issuesArr.push("Federal deficit and budget");
+//     //                 }
+//     //                 if(results[0].abortion){
+//     //                     issuesArr.push("Abortion");
+//     //                 }
+    
+//     //                 var historyArr = []
+//     //                 historyArr.push(result[0].vote1);
+//     //                 historyArr.push(result[0].vote2);
+//     //                 historyArr.push(result[0].vote3);
+//     //                 historyArr.push(result[0].vote4);
+//     //                 historyArr.push(result[0].vote5);
+//     //                 historyArr.push(result[0].vote6);
+//     //                 historyArr.push(result[0].vote7);
+//     //                 historyArr.push(result[0].vote8);
+//     //                 historyArr.push(result[0].vote9);
+//     //                 historyArr.push(result[0].vote10);
+    
+//     //                 var obj = {
+//     //                     "username": results[0].username,
+//     //                     "firstName": results[0].firstName,
+//     //                     "lastName": results[0].lastName,
+//     //                     "email": results[0].email,
+//     //                     "phone": results[0].phone,
+//     //                     "zipCode": results[0].zipCode,
+//     //                     "party": results[0].party,
+//     //                     "candidates": results[0].office,
+//     //                     "description": results[0].description,
+//     //                     "picture": results[0].picture,
+//     //                     "issues":issuesArr,
+//     //                     "historyArr":historyArr
+//     //                 }
+//     //             });
+//     //             reply(obj);
+//     //     }else{
+//     //         connection.query("SELECT * FROM Users NATURAL JOIN Issues WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
+//     //             if (error)
+//     //                 throw error;
+//     //                 var issuesArr =[];
+//     //                 if(results[0].econJobs){
+//     //                     issuesArr.push("The Economy and Jobs");
+//     //                 }
+//     //                 if(results[0].immigration){
+//     //                     issuesArr.push("Immigration");
+//     //                 }
+//     //                 if(results[0].healthCare){
+//     //                     issuesArr.push("Healthcare");
+//     //                 }
+//     //                 if(results[0].globalWarming){
+//     //                     issuesArr.push("Environment and Global Warming");
+//     //                 }
+//     //                 if(results[0].budget){
+//     //                     issuesArr.push("Federal deficit and budget");
+//     //                 }
+//     //                 if(results[0].abortion){
+//     //                     issuesArr.push("Abortion");
+//     //                 }
+    
+//     //                 var obj = {
+//     //                     "username": results[0].username,
+//     //                     "firstName": results[0].firstName,
+//     //                     "lastName": results[0].lastName,
+//     //                     "email": results[0].email,
+//     //                     "phone": results[0].phone,
+//     //                     "zipCode": results[0].zipCode,
+//     //                     "party": results[0].party,
+//     //                     "candidates": results[0].office,
+//     //                     "description": results[0].description,
+//     //                     "picture": results[0].picture,
+//     //                     "issues":issuesArr
+//     //                 }
+//     //             });
+//     //     }
+//     // }
+// });
 
 
 
