@@ -7,8 +7,8 @@
       <div class="useravatar">
         <img alt="" src="./assets/profile/{{userShow.picture}}">
       </div>
-      <div class="card-info"> <span class="card-title">{{userShow.firstName}}
-          {{userShow.lastName}}</span>
+      <div class="card-info"> <span class="card-title">{{userShow.firstname}}
+          {{userShow.lastname}}</span>
       </div>
 
     </div>
@@ -37,23 +37,23 @@
   <div class="row">
     <div class="col">
       <div class="card" style="">
-        <p class="pull-left">First Name: <strong>{{userShow.firstName}}</strong></p>
-        <p class="pull-left">Last Name: <strong>{{userShow.lastName}}</strong></p>
+        <p class="pull-left">First Name: <strong>{{userShow.firstname}}</strong></p>
+        <p class="pull-left">Last Name: <strong>{{userShow.lastname}}</strong></p>
         <p class="pull-left">Email: <strong>{{userShow.email}}</strong></p>
-        <p class="pull-left" *ngIf="userShow.zipCode">Zipcode:<strong>{{userShow.zipCode}}</strong></p>
+        <p class="pull-left" *ngIf="userShow.zipcode">Zipcode:<strong>{{userShow?.zipcode}}</strong></p>
       </div>
     </div>
     <div class="col">
       <div class="card" style="">
         <p class="pull-left">Position running: <strong>{{userShow.candidates}}</strong></p>
         <p class="pull-left">Party Affiliation: <strong>{{userShow.party}}</strong></p>
-        <p class="pull-left" *ngIf="userShow.phone">Phone:<strong>{{userShow.phone}}</strong></p>
+        <p class="pull-left" *ngIf="userShow.phone !== 'null'">Phone:<strong>{{userShow.phone}}</strong></p>
       </div>
     </div>
 
   </div>
   <div class="row">
-    <div class="col" *ngIf="userShow.issues">
+    <div class="col" *ngIf="userShow.issues[0] != null">
       <div class="card" style="">
         <div class="card-header">
           <h4>Issues</h4>
@@ -63,12 +63,12 @@
         </ul>
       </div>
     </div>
-    <div class="col" *ngIf="userShow.historyArr">
+    <div class="col">
       <div class="card" style="">
         <div class="card-header">
           <h4>Voting History</h4>
         </div>
-        <div class="list-group-item" *ngIf="userShow.candidates== 'Voter'">Just a
+        <div class="list-group-item" *ngIf="userShow.candidates === 'Voter'">Just a
           voter!</div>
         <div *ngIf="userShow.candidates != 'Voter'">
           <ul class="list-group list-group-flush" *ngFor="let voting of history">

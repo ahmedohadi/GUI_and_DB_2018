@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     private serverService: ServerService,
     public router: Router,
     private alertService: AlertService
-  ) { 
+  ) {
     this.showCandidateList = false;
     this.showPartyList = false;
   }
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
       email: this.signupForm.value.personalData.email,
       username: this.signupForm.value.personalData.username,
       password: this.signupForm.value.personalData.password,
-      zipcode: this.signupForm.value.personalData.firstname,
+      zipcode: this.signupForm.value.personalData.zipcode,
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
     };
