@@ -1,6 +1,6 @@
--- CREATE DATABASE Chatboard;
+ CREATE DATABASE Chatboard;
  USE Chatboard;
- DROP TABLE Users;
+ -- DROP TABLE Users;
 CREATE TABLE Users(
  firstName VARCHAR(25),
  lastName VARCHAR(25), 
@@ -37,7 +37,7 @@ insert into Users (firstName, lastName, email, username, thepassword, phone, zip
 insert into Users (firstName, lastName, email, username, thepassword, phone, zipcode, party, office, description, picture) values ('Luelle', 'Readwin', 'lreadwinj@sbwire.com', 'lreadwinj', '6th generation', '182-405-7127', '52076', 'Independent', 'Congressman', 'attitude-oriented', 'placeholder.png');
 
  
- DROP TABLE Issues;
+ -- DROP TABLE Issues;
  CREATE TABLE Issues(
  username VARCHAR(25),
  econJobs TINYINT, 
@@ -70,7 +70,7 @@ insert into Issues (username, econJobs, immigration, healthCare, globalWarming, 
 insert into Issues (username, econJobs, immigration, healthCare, globalWarming, budget, abortion) values ('lreadwinj', '1', '0', '1', '1', '1', '1');
 
  
-DROP TABLE Posts;
+-- DROP TABLE Posts;
 CREATE TABLE Posts(
 userName VARCHAR(31),
 body VARCHAR(1000),
@@ -105,7 +105,7 @@ INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) 
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('theRealDonald', 'Employment is up, Taxes are DOWN. Enjoy', 'energy','Rick Perry','oil','gas', 000,'1987-01-01 00:00:01', 0);
 INSERT INTO Posts (userName, body, tag1, tag2, tag3, tag4, id, postdate, likes) values ('stormybaby', 'I just wanted to be on the Apprentice', 'donald','trump','ndas','respectme', 000,'1988-01-01 00:00:01', 0);
  
- DROP TABLE Comments;
+ -- DROP TABLE Comments;
  CREATE TABLE Comments(
  id INT,
  userName VARCHAR(31),
@@ -138,7 +138,7 @@ INSERT INTO Comments (id, userName, body) VALUES (9, 'khrynczyk8', 'I love my co
 
 
 
-DROP TABLE Locations;
+-- DROP TABLE Locations;
 CREATE TABLE Locations(
 id INT,
 locationName VARCHAR(40),
@@ -164,7 +164,7 @@ insert into Locations (id, locationName, hours, address, zipcode, info, picture)
 
 
 
- DROP TABLE History;
+-- DROP TABLE History;
 CREATE TABLE History (username VARCHAR(40), vote1 VARCHAR(100), vote2 VARCHAR(100), vote3 VARCHAR(100), vote4 VARCHAR(100), vote5 VARCHAR(100),vote6 VARCHAR(100), vote7 VARCHAR(100), vote8 VARCHAR(100), vote9 VARCHAR(100), vote10 VARCHAR(100));
 
 INSERT INTO History (username, vote1, vote2, vote3, vote4, vote5, vote6, vote7, vote8, vote9, vote10) VALUES ('drinkmorebeer', 'Senate Bill #123', 'House Bill #4', 'House Bill #4123', 'Duck Bill', 'Senate Bill #1232', 'House Bill #594','Senate Bill #7578', 'Platypus Bill', 'Electric Bill', 'House Bill #9934');
