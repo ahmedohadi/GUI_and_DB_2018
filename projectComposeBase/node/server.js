@@ -39,9 +39,14 @@ server.route({
     }
 });
 
+///////////////////////////////////////////////////
+//Sign Up and Log in
+////////////////////////////////////////////////////
 
 //SINGUP
 //Written by Joshua Sylvester
+//The signup route that is called whenever a new user is added on the sign up page.
+//It receives a user's basic information.
 server.route({
     method: 'POST',
     path: '/signup',
@@ -85,6 +90,7 @@ server.route({
 
 //LOGIN
 //Written by Joshua Sylvester
+//Login route that is called whenever the user logs in. It verifies the entered username and password
 server.route({
     method: 'POST',
     path: '/login',
@@ -110,11 +116,13 @@ server.route({
         });
     }
 });
+
 ///////////////////////////////////////////////////
 //UPDATES
 ////////////////////////////////////////////////////
-
 //Written by Joshua Sylvester
+//Update candidacy route that updates a user's office and party. 
+//This method will be called from the update account page.
 server.route({
     method: 'POST',
     path: '/updateCandidacy/{username}',
@@ -133,6 +141,8 @@ server.route({
 
 //Update Password
 //Written by Joshua Sylvester
+//Update password route that updates a user's password. It checks to make sure the user entered the correct
+//old password before updating the password to the new one. 
 server.route({
     method: 'PUT',
     path: '/updatePassword/{username}',
@@ -159,7 +169,7 @@ server.route({
                 });
             }
             else {
-                reply("Incorrect old password" + tablePass + " " + oldPassword);
+                reply("Incorrect old password");
             }
         });
     }
@@ -167,6 +177,8 @@ server.route({
 
 //Update Issues
 //Written by Joshua Sylvester
+//The update issues route which adds a user's issues to the issues tables. 
+//It receives all the issues that were selected and updates the table appropriately. 
 server.route({
     method: 'PUT',
     path: '/updateIssues/{username}',
@@ -267,6 +279,7 @@ server.route({
 
 //update account
 //Written by Joshua Sylvester
+//Update Account route which updates a users account information depending on what information they update.
 server.route({
     method: 'PUT',
     path: '/updateAccount/{username}',
@@ -347,8 +360,13 @@ server.route({
     }
 });
 
+///////////////////////////////////////////////////
+//Searches
+////////////////////////////////////////////////////
 //search by zipcode
-//Written by Joshua Sylvester
+//Written by Joshua Sylvester and Kyle Zhu
+//Search route that searches for candidates by zipcode. Any user labeled voter will not be returned as
+//they are not a candidate. 
 server.route({
     method: 'GET',
     path: '/zipcode',
@@ -377,8 +395,10 @@ server.route({
     }
 });
 
-//Written by Joshua Sylvester
+//Written by Joshua Sylvester and Kyle Zhu
 //Search by issues
+//Search route that searches for users by issues. It returns all candidates with the inputed issue.
+//It does not return users who are voters. 
 server.route({
     method: 'GET',
     path: '/issues',
@@ -584,7 +604,9 @@ server.route({
 });
 
 //Written by Joshua Sylvester
-//Search by candidate
+//Search by candidate by name
+//Search route that searches for candidates names. Either first name, last name, or both.
+//It does not return any users who are categorized as voters. 
 server.route({
     method: 'GET',
     path: '/candidate',
@@ -641,6 +663,7 @@ server.route({
 
 //Written by Joshua Sylvester
 //LOCATION STUFF
+//A routet that returns all of the locations stored in the locations table. 
 server.route({
     method: 'GET',
     path: '/locations',
@@ -655,6 +678,7 @@ server.route({
 
 //Written by Joshua Sylvester
 // //PROFILE PAGE
+//Profile Page route that returns all information about a user so that it can be displayed on a profile page
 server.route({
     method: 'GET',
     path: '/profilePage/{username}',
@@ -714,6 +738,7 @@ server.route({
 
 //Authentication
 //Written by Joshua Sylvester
+//A route for authenctication that will be used to track users throughout they're use of the site. 
 server.route({
     method: 'POST',
     path: '/authentication',
@@ -749,6 +774,8 @@ server.route({
 
 //written by Kyle Zhu
 //add a comment to a post
+//It contains a post ID so the comment knows where it attaches it, the userName of the commenter, and a comment body
+//Comments cannot be liked
 server.route({
     method: 'POST',
     path: '/comment/addcomment',
@@ -768,6 +795,8 @@ server.route({
 
 //written by Kyle Zhu
 //get comments from a post
+//Get the comments of a post associated with a specific post ID
+//It receives the post ID as a paramater and retrieves all the comment fields from that post
 server.route({
     method: 'GET',
     path: '/getcomment/{id}',
@@ -784,6 +813,7 @@ server.route({
 
 //written by Kyle Zhu
 //get posts from the chatboard
+//Returns all fields from the posts table
 server.route({
     method: 'GET',
     path: '/allposts',
@@ -798,7 +828,7 @@ server.route({
 });
 
 //written by Kyle Zhu
-//get posts from the chatboard
+//get all comments from the chatboard
 server.route({
     method: 'GET',
     path: '/allcomments',
@@ -812,8 +842,9 @@ server.route({
     }
 });
 
-//written by Kyle Zhu
 //delete Post
+//written by Joshua Sylvester
+//A route that deletes a post by the post id
 server.route({
     method: 'DELETE',
     path: '/deletePost/{id}',
@@ -827,8 +858,10 @@ server.route({
     }
 });
 
+//Add post route
 //written by Kyle Zhu
-//add a post to the chatboard
+//Add a post to the post table (effectively the chatboard)
+//Posts contain a username, the post body, tags, id, and the number of likes
 server.route({
     method: 'POST',
     path: '/addpost',
@@ -849,7 +882,9 @@ server.route({
     }
 });
 
+//Increment likes
 //written by Kyle Zhu
+//Increments the likes on a post by post id
 server.route({
     method: 'PUT',
     path: '/addlikes/{id}',
