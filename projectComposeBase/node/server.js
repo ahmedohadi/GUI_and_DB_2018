@@ -22,11 +22,6 @@ var connection = mysql.createConnection({
     database: 'Chatboard'
 });
 
-// host: 'mysql',
-// user: 'mark',
-// password: 'abc123',
-// database: 'cse3330'
-
 connection.connect(function (err) {
 });
 
@@ -111,6 +106,8 @@ server.route({
 ///////////////////////////////////////////////////
 //UPDATES
 ////////////////////////////////////////////////////
+
+//Written by Joshua Sylvester
 server.route({
     method: 'POST',
     path: '/updateCandidacy/{username}',
@@ -122,20 +119,18 @@ server.route({
             if (err) {
                 throw err;
             }
-            //reply("Updated candidacy");
             reply(encodeURIComponent(request.params.username));
         });
     }
 });
 
+//Written by Joshua Sylvester
 server.route({
     method: 'PUT',
     path: '/updatePassword/{username}',
     handler: function (request, reply) {
         var oldPassword = request.payload.oldPassword;
         var newPassword = request.payload.newPassword;
-        console.log(encodeURIComponent(request.params.username));
-        console.log(request.payload);
         var sql1 = "SELECT thepassword FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql1, function (err, result) {
             if (err) {
@@ -162,56 +157,8 @@ server.route({
     }
 });
 
-// server.route({
-//     method: 'PUT',
-//     path: '/updateIssues/{username}',
-//     handler: function (request, reply) {
-//         var econJobs = request.payload.issue1Econ;
-//         var immigration = request.payload.issue2Immi;
-//         var healthCare = request.payload.issue3HealthCare;
-//         var budget = request.payload.issue4Budget;
-//         var environment = request.payload.issue5Envir;
-//         var abortion = request.payload.issue6Abortion;
-//         var sql = "UPDATE Issues SET econJobs = '" + econJobs + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-//         connection.query(sql, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//         });
 
-//         sql = "UPDATE Issues SET immigration = '" + immigration + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-//         connection.query(sql, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//         });
-
-//         sql = "UPDATE Issues SET healthCare = '" + healthCare + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-//         connection.query(sql, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//         });
-
-//         sql = "UPDATE Issues SET globalWarming = '" + environment + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-//         connection.query(sql, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//         });
-
-//         sql = "UPDATE Issues SET abortion = '" + abortion + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-//         connection.query(sql, function (err, result) {
-//             if (err) {
-//                 throw err;
-//             }
-//         });
-
-//         reply(200);
-//     }
-// });
-
-
+//Written by Joshua Sylvester
 server.route({
     method: 'PUT',
     path: '/updateIssues/{username}',
@@ -256,25 +203,14 @@ server.route({
         else{
             environment = 1;
         }
+
         if(abortion == null){
             abortion = 0;
         }
         else{
             abortion = 1;
         }
-        console.log("econJObs" + econJobs);
-        console.log("immigration" + immigration);
-        console.log("healthCare" + healthCare);
-        console.log("budget" + budget);
-        console.log("environment" + environment);
-        console.log("abortion" + abortion);
 
-        // var econJobs = request.payload.issue1Econ;
-        // var immigration = request.payload.issue2Immi;
-        // var healthCare = request.payload.issue3HealthCare;
-        // var budget = request.payload.issue4Budget;
-        // var environment = request.payload.issue5Envir;
-        // var abortion = request.payload.issue6Abortion;
         var sql = "UPDATE Issues SET econJobs = '" + econJobs + "' WHERE username = '" + encodeURIComponent(request.params.username) + "'";
         connection.query(sql, function (err, result) {
             if (err) {
@@ -322,6 +258,7 @@ server.route({
 });
 
 //update account
+//Written by Joshua Sylvester
 server.route({
     method: 'PUT',
     path: '/updateAccount/{username}',
@@ -333,11 +270,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply(first + 'It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var last = request.payload.lastname;
@@ -346,11 +279,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var email = request.payload.email;
@@ -359,11 +288,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var zipcode = request.payload.zipcode;
@@ -372,11 +297,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var phone = request.payload.phone;
@@ -385,11 +306,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var description = request.payload.description;
@@ -398,11 +315,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var candidates = request.payload.candidates;
@@ -411,11 +324,7 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
 
         var party = request.payload.party;
@@ -424,25 +333,14 @@ server.route({
             connection.query(sql, function (error, results, fields) {
                 if (error)
                     throw error;
-                //reply('It worked');
             });
-        }
-        else {
-            //console.log("okay we gucci");
         }
         reply(200);
     }
 });
 
-
-
-
-
-///////////////////////////////////////////
-//SEARCH STUFF
-///////////////////////////////////////////
-
-//DONE JOSH
+//search by zipcode
+//Written by Joshua Sylvester
 server.route({
     method: 'GET',
     path: '/zipcode',
@@ -471,7 +369,8 @@ server.route({
     }
 });
 
-//DONE JOSH
+//Written by Joshua Sylvester
+//Search by issues
 server.route({
     method: 'GET',
     path: '/issues',
@@ -647,7 +546,7 @@ server.route({
                 }
                 reply(tempArr);
             });
-        } else if(str == "abortion"){ //easter egg
+        } else if(str == "abortion"){
             var sql = "SELECT * FROM Issues NATURAL JOIN Users WHERE abortion = 1 AND office != 'Voter'";
             connection.query(sql, function (error, result) {
                 if (error) {
@@ -676,8 +575,8 @@ server.route({
     }
 });
 
-//DONE JOSH
-//%20
+//Written by Joshua Sylvester
+//Search by candidate
 server.route({
     method: 'GET',
     path: '/candidate',
@@ -732,6 +631,7 @@ server.route({
 });
 
 
+//Written by Joshua Sylvester
 //LOCATION STUFF
 server.route({
     method: 'GET',
@@ -745,21 +645,13 @@ server.route({
 });
 
 
-// ///////////////////////////////
+//Written by Joshua Sylvester
 // //PROFILE PAGE
-// ////////////////////////////////
-
-
-
-
 server.route({
     method: 'GET',
     path: '/profilePage/{username}',
     handler: function (request, reply) {
-        //console.log(encodeURIComponent(request.params.username));
-        // console.log("here" + encodeURIComponent(request.params.username));
         connection.query("SELECT * FROM Users NATURAL JOIN Issues LEFT JOIN History ON (Users.username = History.username) WHERE Users.username ='" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
-            // console.log(results);
             if (error)
                 throw error;
                 var issuesArr =[];
@@ -792,7 +684,6 @@ server.route({
                 historyArr.push(results[0].vote8);
                 historyArr.push(results[0].vote9);
                 historyArr.push(results[0].vote10);
-                //console.log(results);
                 var obj = {
                     "username": encodeURIComponent(request.params.username),
                     "firstname": results[0].firstName,
@@ -811,172 +702,6 @@ server.route({
         });
     }
 });
-// server.route({
-//     method: 'GET',
-//     path: '/profilePage/{username}',
-//     handler: function (request, reply) {
-//         //console.log(encodeURIComponent(request.params.username));
-
-
-
-
-//         connection.query("SELECT * FROM Users NATURAL JOIN Issues NATURAL JOIN History WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
-//             if (error)
-//                 throw error;
-//                 var issuesArr =[];
-//                 if(results[0].econJobs){
-//                     issuesArr.push("The Economy and Jobs");
-//                 }
-//                 if(results[0].immigration){
-//                     issuesArr.push("Immigration");
-//                 }
-//                 if(results[0].healthCare){
-//                     issuesArr.push("Healthcare");
-//                 }
-//                 if(results[0].globalWarming){
-//                     issuesArr.push("Environment and Global Warming");
-//                 }
-//                 if(results[0].budget){
-//                     issuesArr.push("Federal deficit and budget");
-//                 }
-//                 if(results[0].abortion){
-//                     issuesArr.push("Abortion");
-//                 }
-
-//                 // var historyArr = []
-//                 // historyArr.push(result[0].vote1);
-//                 // historyArr.push(result[0].vote2);
-//                 // historyArr.push(result[0].vote3);
-//                 // historyArr.push(result[0].vote4);
-//                 // historyArr.push(result[0].vote5);
-//                 // historyArr.push(result[0].vote6);
-//                 // historyArr.push(result[0].vote7);
-//                 // historyArr.push(result[0].vote8);
-//                 // historyArr.push(result[0].vote9);
-//                 // historyArr.push(result[0].vote10);
-
-//                 var obj = {
-//                     "username": results[0].username,
-//                     "firstName": results[0].firstName,
-//                     "lastName": results[0].lastName,
-//                     "email": results[0].email,
-//                     "phone": results[0].phone,
-//                     "zipCode": results[0].zipCode,
-//                     "party": results[0].party,
-//                     "candidates": results[0].office,
-//                     "description": results[0].description,
-//                     "picture": results[0].picture,
-//                     "issues":issuesArr,
-//                     //"historyArr":historyArr
-//                 }
-//             });
-//             reply(obj);
-
-//     //     var bool = true;
-//     //     connections.query("SELECT * FROM Users WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) { 
-//     //         if(results[0].office == 'Voter'){
-//     //             bool = true;
-//     //         }
-//     //     });
-
-//     //     if(bool){
-//     //         connection.query("SELECT * FROM Users NATURAL JOIN Issues NATURAL JOIN History WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
-//     //             if (error)
-//     //                 throw error;
-//     //                 var issuesArr =[];
-//     //                 if(results[0].econJobs){
-//     //                     issuesArr.push("The Economy and Jobs");
-//     //                 }
-//     //                 if(results[0].immigration){
-//     //                     issuesArr.push("Immigration");
-//     //                 }
-//     //                 if(results[0].healthCare){
-//     //                     issuesArr.push("Healthcare");
-//     //                 }
-//     //                 if(results[0].globalWarming){
-//     //                     issuesArr.push("Environment and Global Warming");
-//     //                 }
-//     //                 if(results[0].budget){
-//     //                     issuesArr.push("Federal deficit and budget");
-//     //                 }
-//     //                 if(results[0].abortion){
-//     //                     issuesArr.push("Abortion");
-//     //                 }
-    
-//     //                 var historyArr = []
-//     //                 historyArr.push(result[0].vote1);
-//     //                 historyArr.push(result[0].vote2);
-//     //                 historyArr.push(result[0].vote3);
-//     //                 historyArr.push(result[0].vote4);
-//     //                 historyArr.push(result[0].vote5);
-//     //                 historyArr.push(result[0].vote6);
-//     //                 historyArr.push(result[0].vote7);
-//     //                 historyArr.push(result[0].vote8);
-//     //                 historyArr.push(result[0].vote9);
-//     //                 historyArr.push(result[0].vote10);
-    
-//     //                 var obj = {
-//     //                     "username": results[0].username,
-//     //                     "firstName": results[0].firstName,
-//     //                     "lastName": results[0].lastName,
-//     //                     "email": results[0].email,
-//     //                     "phone": results[0].phone,
-//     //                     "zipCode": results[0].zipCode,
-//     //                     "party": results[0].party,
-//     //                     "candidates": results[0].office,
-//     //                     "description": results[0].description,
-//     //                     "picture": results[0].picture,
-//     //                     "issues":issuesArr,
-//     //                     "historyArr":historyArr
-//     //                 }
-//     //             });
-//     //             reply(obj);
-//     //     }else{
-//     //         connection.query("SELECT * FROM Users NATURAL JOIN Issues WHERE username= '" + encodeURIComponent(request.params.username) + "'", function (error, results, fields) {
-//     //             if (error)
-//     //                 throw error;
-//     //                 var issuesArr =[];
-//     //                 if(results[0].econJobs){
-//     //                     issuesArr.push("The Economy and Jobs");
-//     //                 }
-//     //                 if(results[0].immigration){
-//     //                     issuesArr.push("Immigration");
-//     //                 }
-//     //                 if(results[0].healthCare){
-//     //                     issuesArr.push("Healthcare");
-//     //                 }
-//     //                 if(results[0].globalWarming){
-//     //                     issuesArr.push("Environment and Global Warming");
-//     //                 }
-//     //                 if(results[0].budget){
-//     //                     issuesArr.push("Federal deficit and budget");
-//     //                 }
-//     //                 if(results[0].abortion){
-//     //                     issuesArr.push("Abortion");
-//     //                 }
-    
-//     //                 var obj = {
-//     //                     "username": results[0].username,
-//     //                     "firstName": results[0].firstName,
-//     //                     "lastName": results[0].lastName,
-//     //                     "email": results[0].email,
-//     //                     "phone": results[0].phone,
-//     //                     "zipCode": results[0].zipCode,
-//     //                     "party": results[0].party,
-//     //                     "candidates": results[0].office,
-//     //                     "description": results[0].description,
-//     //                     "picture": results[0].picture,
-//     //                     "issues":issuesArr
-//     //                 }
-//     //             });
-//     //     }
-//     // }
-// });
-
-
-
-
-
 
 
 //LOGIN
@@ -998,7 +723,7 @@ server.route({
                     "lastname": result[0].lastName,
                     "email": result[0].email,
                     "phone": result[0].phone,
-                    "zipCode": result[0].zipCode,
+                    "zipcode": result[0].zipCode,
                     "party": result[0].party,
                     "candidates": result[0].office,
                     "description": result[0].description,
@@ -1008,46 +733,12 @@ server.route({
                 reply(obj);
             }
             else {
-                //reply(500);
             }
         });
     }
 });
 
-
-//#6
-server.route({
-    method: 'GET',
-    path: '/candidateContactInfo/{username}',
-    handler: function (request, reply) {
-        var sql = "SELECT email FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-        connection.query(sql, function (err, result) {
-            reply(result);
-        });
-    }
-});
-
-//#7
-//they'll send a zipcode to search for and i return all candidates from that zip
-server.route({
-    method: 'GET',
-    path: '/getNearbyCandidates/{username}',
-    handler: function (request, reply) {
-        var getZip = "SELECT zipCode FROM Users WHERE username = '" + encodeURIComponent(request.params.username) + "'";
-        connection.query(getZip, function (err, result) {
-            //reply(result);
-            var sql = "SELECT firstName, lastName, candidateOffice FROM Users WHERE zipCode = '" + result[0].zipCode + "'";
-            connection.query(sql, function (err, result) {
-                reply(result);
-            });
-        });
-    }
-});
-
-
-
-//KYLE STUFF
-
+//written by Kyle Zhu
 //add a comment to a post
 server.route({
     method: 'POST',
@@ -1066,6 +757,7 @@ server.route({
     }
 });
 
+//written by Kyle Zhu
 //get comments from a post
 server.route({
     method: 'GET',
@@ -1081,6 +773,7 @@ server.route({
     }
 });
 
+//written by Kyle Zhu
 //get posts from the chatboard
 server.route({
     method: 'GET',
@@ -1095,7 +788,7 @@ server.route({
     }
 });
 
-
+//written by Kyle Zhu
 //get posts from the chatboard
 server.route({
     method: 'GET',
@@ -1110,6 +803,7 @@ server.route({
     }
 });
 
+//written by Kyle Zhu
 //delete Post
 server.route({
     method: 'DELETE',
@@ -1124,6 +818,7 @@ server.route({
     }
 });
 
+//written by Kyle Zhu
 //add a post to the chatboard
 server.route({
     method: 'POST',
@@ -1145,7 +840,7 @@ server.route({
     }
 });
 
-
+//written by Kyle Zhu
 server.route({
     method: 'PUT',
     path: '/addlikes/{id}',
@@ -1159,10 +854,6 @@ server.route({
         });
     }
 });
-
-
-
-
 
 server.start((err) => {
 
