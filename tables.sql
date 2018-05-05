@@ -157,7 +157,7 @@ insert into Locations (id, locationName, hours, address, zipcode, info, picture)
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (6, 'Waters, Turner and Collins', '11:58 AM  - 11:00PM', '48519 Park Meadow Circle', '31952', null, 'location.png');
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (7, 'Parisian, Jast and Feeney', '10:14 AM  - 11:00PM', '74 Declaration Terrace', '07795', 'We only accept passport', 'BLpkEi.png');
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (8, 'Krajcik, Stark and Gislason', '2:27 PM  - 11:00PM', '9 Arkansas Drive', '67747', 'No bags allowed on the property', 'location.png');
-insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (9, 'Considine-Stiedemann', '12:18 AM - 10:00PM', '2 Dapin Parkway', '18347', null, null);
+insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (9, 'Considine-Stiedemann', '12:18 AM - 10:00PM', '2 Dapin Parkway', '18347', null, 'location.png');
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (10, 'Langworth-Hermann', '11:01 AM  - 10:00PM', '9 Cottonwood Junction', '23794', null, 'GozexY.png');
 insert into Locations (id, locationName, hours, address, zipcode, info, picture) values (11, 'SMU-Dedman', '11:00 AM - 11:00PM', '6000 Airline Rd', '75205', 'Must have a student ID  to vote', 'smu.png');
 
