@@ -1,3 +1,7 @@
+//Server.js 
+//Written by Joshua Sylvester and Kyle Zhu
+//Chatboad DB Spring 2018
+
 'use strict';
 const Hapi = require('hapi');
 
@@ -25,6 +29,7 @@ var connection = mysql.createConnection({
 connection.connect(function (err) {
 });
 
+//A test method
 server.route({
     method: 'GET',
     path: '/',
@@ -36,6 +41,7 @@ server.route({
 
 
 //SINGUP
+//Written by Joshua Sylvester
 server.route({
     method: 'POST',
     path: '/signup',
@@ -78,6 +84,7 @@ server.route({
 
 
 //LOGIN
+//Written by Joshua Sylvester
 server.route({
     method: 'POST',
     path: '/login',
@@ -124,6 +131,7 @@ server.route({
     }
 });
 
+//Update Password
 //Written by Joshua Sylvester
 server.route({
     method: 'PUT',
@@ -157,7 +165,7 @@ server.route({
     }
 });
 
-
+//Update Issues
 //Written by Joshua Sylvester
 server.route({
     method: 'PUT',
@@ -704,7 +712,8 @@ server.route({
 });
 
 
-//LOGIN
+//Authentication
+//Written by Joshua Sylvester
 server.route({
     method: 'POST',
     path: '/authentication',
@@ -752,7 +761,7 @@ server.route({
         connection.query(sql, function (error, results, fields) {
             if (error)
                 throw error;
-            reply('Comment added');
+            reply(200);
         });
     }
 });
