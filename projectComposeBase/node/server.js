@@ -66,7 +66,7 @@ server.route({
                 throw err;
             }
             if (result.length == 0) {
-                var sql = "INSERT INTO Users (firstName, lastName, email, username, thepassword, phone, zipCode, party, office, picture) VALUES (" + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + "'" + email + "'" + ", " + "'" + username + "'" + ", " + "'" + password + "'" + ", " + "'" + null + "'" + ", '" + zipCode + "'" + "," + "'" + party + "'" + ", " + "'" + office + "'" + ", " + "'placeholder.png')";
+                var sql = "INSERT INTO Users (firstName, lastName, email, username, thepassword, phone, zipCode, party, office, picture) VALUES (" + "'" + firstName + "'" + ", " + "'" + lastName + "'" + ", " + "'" + email + "'" + ", " + "'" + username + "'" + ", " + "'" + password + "'" + ", " + null  + ", '" + zipCode + "'" + "," + "'" + party + "'" + ", " + "'" + office + "'" + ", " + "'placeholder.png')";
                 connection.query(sql, function (err, result) {
                     if (err) {
                         throw err;
