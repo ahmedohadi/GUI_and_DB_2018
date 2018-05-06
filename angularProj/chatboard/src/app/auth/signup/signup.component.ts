@@ -64,8 +64,9 @@ export class SignupComponent implements OnInit {
     );
     } else {
       this.alertService.clear();
-                  this.alertService.error('Password does not match!');
-                  this.loading = false;
+      // alert('Password does not match!');
+      this.alertService.error('Password does not match!');
+      this.loading = false;
     }
   }
 
