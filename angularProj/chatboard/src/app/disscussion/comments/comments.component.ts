@@ -12,7 +12,7 @@ import { ActivatedRoute, Router } from '@angular/router';
   templateUrl: './comments.component.html',
   styleUrls: ['./comments.component.css']
 })
-export class CommentsComponent implements OnInit, OnDestroy {
+export class CommentsComponent implements OnInit { //  OnDestroy {
   @ViewChild('f') commentForm: NgForm;
 
   @Input() postId: number;
@@ -31,7 +31,7 @@ export class CommentsComponent implements OnInit, OnDestroy {
      this.showComments();
   }
 
-  ngOnDestroy() {}
+  // ngOnDestroy() {}
 
 
   showComments() {

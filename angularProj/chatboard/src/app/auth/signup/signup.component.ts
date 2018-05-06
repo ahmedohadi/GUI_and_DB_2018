@@ -45,24 +45,26 @@ export class SignupComponent implements OnInit {
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => {
+        // tslint:disable-next-line:triple-equals
         if (response == 600) {
           this.alertService.clear();
-          this.alertService.error("Invalid username!");
+          this.alertService.error('Invalid username!');
           this.loading = false;
         }
+        // tslint:disable-next-line:triple-equals
         if (response == 200) {
           this.router.navigateByUrl('/login');
         }
       },
         (error) => {
                   this.alertService.clear();
-                  this.alertService.error("Internal server error!");
+                  this.alertService.error('Internal server error!');
                   this.loading = false;
         }
     );
     } else {
       this.alertService.clear();
-                  this.alertService.error("Password does not match!");
+                  this.alertService.error('Password does not match!');
                   this.loading = false;
     }
   }
