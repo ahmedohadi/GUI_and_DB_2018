@@ -32,7 +32,7 @@
                     <h6>Who are you?
 
                         <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Missing Blanks" data-placement="top">
-                  <button data-backdrop="false" [disabled]="!f.valid" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                  <button data-backdrop="true" [disabled]="!f.valid" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                       Select
                     </button>
                     </span>
@@ -84,6 +84,8 @@
                   class="btn btn-primary mb-2"
                   type="submit button"
                   id="submit"
+                  data-dismiss="modal"
+                  (click)="addUser(f)"
                   [disabled]="!f.valid"
                   >Sign Up</button>
                   <alert></alert>

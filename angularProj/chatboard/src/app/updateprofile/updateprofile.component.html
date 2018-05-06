@@ -1,106 +1,108 @@
 <div class="profile-update">
 
-  <div class="container mt-5">
-    <form #updateform="ngForm" name="updateForm" class="mb-3">
+    <div class="container mt-5">
+      <form #updateform="ngForm" name="updateForm" class="mb-3">
 
-      <div class="row">
-        <div class="col-8">
+        <div class="row">
+          <div class="col-8">
 
-          <div class="form-row mt-3">
-            <span class="col">
-              <input #firstName class="form-control" id="first-name" name="firstName" [(ngModel)]="profile.firstname" placeholder="Change First Name">
-            </span>
-          </div>
-          <div class="form-row mt-3">
-            <span class="col">
-              <input #lastName class="form-control" id="last-name" name="lastName" [(ngModel)]="profile.lastname" placeholder="Change Last Name">
-            </span>
-
-          </div>
-          <div class="form-row mt-3">
-            <span class="col">
-
-              <input class="form-control" type="text" name="Email" id="Email" placeholder="Change Email" [(ngModel)]="profile.email"
-                pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #emailAddress="ngModel">
-              <span class="help-block" *ngIf="!emailAddress.valid && emailAddress.touched" ng-disabled="submit">Please enter a valid email adderss!</span>
-
-            </span>
-          </div>
-
-          <div class="form-row mt-3">
-            <span class="col">
-              <input class="form-control" type="zipcode" name="zipcode" [(ngModel)]="profile.zipcode" placeholder="Change Zipcode" maxlength="6"
-                pattern="[0-9]+" #zipcode="ngModel">
-              <span class="help-block" *ngIf="!zipcode.valid && zipcode.touched">Please enter a valid Zipcode!</span>
-            </span>
-          </div>
-
-          <div class="form-row mt-3">
-            <span class="col">
-              <input class="form-control" type="phone" id="phone" name="phone" [(ngModel)]="profile.phone" placeholder="Change Phone" maxlength="10"
-                pattern="[0-9]+" #phone="ngModel">
-              <span class="help-block" *ngIf="!phone.valid && phone.touched">Please enter a valid Phone Number!</span>
-            </span>
-          </div>
-          <div class="form-row mt-3">
-            <span class="col">
-              <div #description class="form-group ">
-                <textarea class="form-control" name="description" rows="3" [(ngModel)]="profile.description" placeholder="Add New Description"></textarea>
-              </div>
-            </span>
-          </div>
-          <div class="form-row ">
-            <span class="col">
-              <label for="party float-left">Change Candidacy</label>
-              <select #candidate class="form-control" id="candidacy" name="candidate" [(ngModel)]="profile.candidates">
-                <option value="" [disabled]="true" [selected]="true"></option>
-                <option *ngFor="let cand of ['President','Senator','Congressman', 'Voter']">{{cand}}</option>
-              </select>
-            </span>
-            <span class="col">
-              <label for="party float-left">Change Party</label>
-              <select #party class="form-control" id="party" name="party" [(ngModel)]="profile.party" placeholder="Change Party">
-                <option value="" [disabled]="true" [selected]="true"></option>
-                <option *ngFor="let party of ['Democrat','Republican','Independent']">{{party}}</option>
-              </select>
-            </span>
-
-          </div>
-
-        </div>
-
-        <div class="col mt-3">
-          <div class="card h-80" style="width: 18rem;">
-            <img class="card-img-top" src="./assets/profile/{{currentUser.picture}}" alt="picture of {{currentUser.firstname}}">
-            <div class="card-body">
-              <h5 class="card-title text-center">Profile Picture</h5>
-            </div>
-            <div class="fileinput fileinput-new" data-provides="fileinput">
-              <span class="btn btn-default btn-file">
-                <div class="text-center">Current User: {{currentUser.username}}</div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update Firstname</label>
+                <input #firstName class="form-control" id="first-name" name="firstName" [(ngModel)]="profile.firstname" placeholder={{currentUser.firstname}}>
               </span>
             </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update Lastname</label>
+                <input #lastName class="form-control" id="last-name" name="lastName" [(ngModel)]="profile.lastname" placeholder={{currentUser.lastname}}>
+              </span>
+
+            </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update Email</label>
+                <input class="form-control" type="text" name="Email" id="Email" placeholder={{currentUser.email}} [(ngModel)]="profile.email"
+                  pattern="^\w+@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$" #emailAddress="ngModel">
+                <span class="help-block" *ngIf="!emailAddress.valid && emailAddress.touched" ng-disabled="submit">Please enter a valid email adderss!</span>
+              </span>
+            </div>
+
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update Zipcode</label>
+                <input class="form-control" type="zipcode"  name="zipcode" [(ngModel)]="profile.zipcode" placeholder="{{currentUser.zipcode ?currentUser?.zipcode:'Enter new zipcode'}}" maxlength="8" pattern="[0-9]+" #zipcode="ngModel">
+                <span class="help-block" *ngIf="!zipcode.valid && zipcode.touched">Please enter a valid Zipcode!</span>
+              </span>
+            </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update Phone</label>
+                <input class="form-control" type="phone" id="phone" name="phone" [(ngModel)]="profile.phone" placeholder="{{currentUser.phone?(currentUser?.phone):'Enter new Phone number'}}" maxlength="10"
+                  pattern="[0-9]+" #phone="ngModel">
+                <span class="help-block" *ngIf="!phone.valid && phone.touched">Please enter a valid Phone Number!</span>
+              </span>
+            </div>
+            <div class="form-row mt-3">
+              <span class="col">
+                  <label for="party float-left">Update description</label>
+                <div #description class="form-group ">
+                  <textarea class="form-control" name="description" rows="3" [(ngModel)]="profile.description" placeholder="{{currentUser.description?(currentUser?.description):'Add New Description'}}"></textarea>
+                </div>
+              </span>
+            </div>
+            <div class="form-row ">
+              <span class="col">
+                <label for="party float-left">Change Candidacy</label>
+                <select #candidate class="form-control" id="candidacy" name="candidate" [(ngModel)]="profile.candidates">
+                  <option value="" [disabled]="true" [selected]="true"></option>
+                  <option *ngFor="let cand of ['President','Senator','Congressman', 'Voter']">{{cand}}</option>
+                </select>
+              </span>
+              <span class="col">
+                <label for="party float-left">Change Party</label>
+                <select #party class="form-control" id="party" name="party" [(ngModel)]="profile.party" placeholder="Change Party">
+                  <option value="" [disabled]="true" [selected]="true"></option>
+                  <option *ngFor="let party of ['Democrat','Republican','Independent']">{{party}}</option>
+                </select>
+              </span>
+
+            </div>
+
+          </div>
+
+          <div class="col mt-3">
+            <div class="card h-80" style="width: 18rem;">
+              <img class="card-img-top" src="./assets/profile/{{currentUser.picture}}" alt="picture of {{currentUser.firstname}}">
+              <div class="card-body">
+                <h5 class="card-title text-center">Profile Picture</h5>
+              </div>
+              <div class="fileinput fileinput-new" data-provides="fileinput">
+                <span class="btn btn-default btn-file">
+                  <div class="text-center">Current User: {{currentUser.username}}</div>
+                </span>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="text-center">
-        <button #submit type="submit" class="btn mt-3  btn-success" id="submit" name="submit" [disabled]="!updateform.valid" (click)="update();">Update Account</button>
-        <button type="submit" class="btn mt-3 ml-4 btn-danger" (click)="updateform.reset();"> Cancel</button>
+        <div class="text-center">
+          <button #submit type="submit" class="btn mt-3  btn-success" id="submit" name="submit" [disabled]="!updateform.valid" (click)="update();">Update Account</button>
+          <button type="submit" class="btn mt-3 ml-4 btn-danger" (click)="updateform.reset();"> Cancel</button>
 
-      </div>
-    </form>
-
-    <div>
+        </div>
+      </form>
 
       <div>
-        <app-password-change></app-password-change>
+
+        <div>
+          <app-password-change></app-password-change>
+        </div>
+
       </div>
 
     </div>
-
   </div>
-</div>
 
-<div>
-  <app-update-issues></app-update-issues>
-</div>
+  <div>
+    <app-update-issues></app-update-issues>
+  </div>

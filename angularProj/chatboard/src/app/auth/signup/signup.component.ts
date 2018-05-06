@@ -24,7 +24,7 @@ export class SignupComponent implements OnInit {
     private serverService: ServerService,
     public router: Router,
     private alertService: AlertService
-  ) { 
+  ) {
     this.showCandidateList = false;
     this.showPartyList = false;
   }
@@ -36,7 +36,7 @@ export class SignupComponent implements OnInit {
       email: this.signupForm.value.personalData.email,
       username: this.signupForm.value.personalData.username,
       password: this.signupForm.value.personalData.password,
-      zipcode: this.signupForm.value.personalData.firstname,
+      zipcode: this.signupForm.value.personalData.zipcode,
       candidates: this.signupForm.value.candidatesRadioList.candidate,
       parties: this.signupForm.value.partyRadioList.party
     };
@@ -45,24 +45,26 @@ export class SignupComponent implements OnInit {
     this.serverService.storeUser(this.users)
     .subscribe(
       (response) => {
+        // tslint:disable-next-line:triple-equals
         if (response == 600) {
           this.alertService.clear();
-          this.alertService.error("Invalid username!");
+          this.alertService.error('Invalid username!');
           this.loading = false;
         }
+        // tslint:disable-next-line:triple-equals
         if (response == 200) {
           this.router.navigateByUrl('/login');
         }
       },
         (error) => {
                   this.alertService.clear();
-                  this.alertService.error("Internal server error!");
+                  this.alertService.error('Internal server error!');
                   this.loading = false;
         }
     );
     } else {
       this.alertService.clear();
-                  this.alertService.error("Password does not match!");
+                  this.alertService.error('Password does not match!');
                   this.loading = false;
     }
   }
