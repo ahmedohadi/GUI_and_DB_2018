@@ -8,11 +8,8 @@ import { Repostitory } from './repository.service';
 
 @Injectable()
 export class VotingLocationRepostitory extends Repostitory<VotingLocation> {
-
   protected endPoint = 'http://127.0.0.1:3000/locations';
-
   constructor(protected httpClient: HttpClient) {
     super(httpClient);
   }
-
 }

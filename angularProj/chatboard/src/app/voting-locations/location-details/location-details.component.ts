@@ -11,16 +11,14 @@ import { ActivatedRoute, Router } from '@angular/router';
 })
 export class LocationDetailsComponent implements OnInit {
 
-
-
 @Input()
 public location: VotingLocation;
 
-  constructor(
+constructor(
     private activedRoute: ActivatedRoute,
     private router: Router,
     private votingLocationRepostitory: VotingLocationRepostitory
-  ) { }
+  ) {}
 
   trasfer() {
     this.router.navigateByUrl( '/home/locations');
@@ -31,5 +29,4 @@ public location: VotingLocation;
         this.location = params;
   });
   }
-
 }

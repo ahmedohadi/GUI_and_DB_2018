@@ -35,8 +35,6 @@ import { AlertComponent } from './alert/alert.component';
 import { SearchRepostitory } from './domain/search-repository.service';
 
 
-
-
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'signup', component: SignupComponent },

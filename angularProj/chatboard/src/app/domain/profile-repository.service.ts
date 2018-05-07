@@ -8,25 +8,13 @@ import { Repostitory } from './repository.service';
 
 @Injectable()
 export class ProfileRepository extends Repostitory<Profile> {
-
   protected endPoint = 'http://127.0.0.1:3000';
-
   constructor(protected httpClient: HttpClient) {
     super(httpClient);
   }
-
   public getAccount(id: any): Observable<Profile> {
     return this.httpClient.get(`${this.endPoint}/profilePage/${id}`, this.httpOptions).pipe(
       catchError(this.handleException)
     );
   }
-
 }
-
-
-// this.activedRoute.params.subscribe((params: any) => {
-//   this.ProfileRepository.getById(+params.username).subscribe(profile => {
-//     this.profile = profile;
-//
-//   });
-//

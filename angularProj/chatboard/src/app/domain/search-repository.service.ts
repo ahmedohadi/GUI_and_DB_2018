@@ -16,21 +16,17 @@ export class SearchRepostitory {
     })
   };
 
-  constructor(
-    protected httpClient: HttpClient
-  ) {
-  }
+  constructor(protected httpClient: HttpClient) {}
+
   public search(type: string, query: string): Observable<Profile[]> {
     return this.httpClient.get(`${this.endPoint}${type}${this.queryUrl}${query}`, this.httpOptions).pipe(
       catchError(this.handleException)
     );
   }
 
-
   protected handleException(exception: any) {
     const message = `${exception.status} : ${exception.statusText}\r\n${exception.message}`;
     alert(message);
     return Observable.throw(exception);
   }
-
 }

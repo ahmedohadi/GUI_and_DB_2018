@@ -3,7 +3,6 @@ import { ProfileRepository } from '../domain/profile-repository.service';
 import { Profile } from '../domain/models/profile';
 import { ActivatedRoute, Router } from '@angular/router';
 
-
 @Component({
   selector: 'app-profilepage',
   templateUrl: './profilepage.component.html',
@@ -41,6 +40,4 @@ export class ProfilePageComponent implements OnInit {
     this.profileService.getAccount(id)
       .subscribe(profile => this.userShow = profile);
   }
-
-
 }

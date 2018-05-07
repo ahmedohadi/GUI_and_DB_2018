@@ -12,19 +12,18 @@ import { Router } from '@angular/router';
 })
 
 export class UpdateIssuesComponent implements OnInit {
-    public currentUser: Profile;
-    title: String;
-    issues: any;
-    selectedAll: any;
-    unselectedAll: any;
-    constructor(
-        public router: Router,
-        public profileRepository: ProfileRepository,
-        private alertService: AlertService,
-
-    ) {
-      this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
-      this.title = 'Select all/Deselect all checkbox - Angular 2';
+  public currentUser: Profile;
+  title: String;
+  issues: any;
+  selectedAll: any;
+  unselectedAll: any;
+  constructor(
+    public router: Router,
+    public profileRepository: ProfileRepository,
+    private alertService: AlertService,
+  ) {
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.title = 'Select all/Deselect all checkbox - Angular 2';
       this.issues = [
         { issue: 'The Economy and Jobs' },
         { issue: 'Healthcare'},
@@ -58,30 +57,29 @@ export class UpdateIssuesComponent implements OnInit {
     }
 
     checkIfAtLeastOnSelected() {
-      if (this.selectedAll == true) {
+      if (this.selectedAll === true) {
           return true;
         }
 
-       for (let i = 0; i < this.issues.length; i++) {
-          if (this.issues[i].selected == true) {
+        for (let i = 0; i < this.issues.length; i++) {
+          if (this.issues[i].selected === true) {
             return true;
           }
         }
         return false;
-    }
-
-    update() {
-      console.log(this.currentUser);
-      if (this.checkIfAtLeastOnSelected() === false) {
-        this.alertService.clear();
-        this.alertService.error('Error: please select at least one issue!');
-      } else {
-        this.profileRepository.update(`updateIssues/${this.currentUser.username}`, this.issues).subscribe(x => {
+      }
+      update() {
+        console.log(this.currentUser);
+        if (this.checkIfAtLeastOnSelected() === false) {
+          this.alertService.clear();
+          this.alertService.error('Error: please select at least one issue!');
+        } else {
+          this.profileRepository.update(`updateIssues/${this.currentUser.username}`, this.issues).subscribe(x => {
           this.alertService.clear();
           this.alertService.success('Sucess! Thanks for telling us about the issues that matter to you.');
           });
+        }
+        this.unselectAll() ;
       }
-      this.unselectAll() ;
     }
-  }
 

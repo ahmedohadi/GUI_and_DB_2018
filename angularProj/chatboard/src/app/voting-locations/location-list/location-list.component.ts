@@ -16,11 +16,8 @@ export class LocationListComponent implements OnInit {
   @Input()
   public location: VotingLocation;
 
+  constructor() {}
 
-  constructor() { }
-
-  ngOnInit() {
-
-  }
+  ngOnInit() {}
 
 }

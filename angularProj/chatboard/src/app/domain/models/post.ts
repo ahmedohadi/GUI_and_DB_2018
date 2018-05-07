@@ -1,5 +1,4 @@
 export class Post {
-
   username?: string;
   body?: string;
   tag1?: string;
@@ -9,6 +8,5 @@ export class Post {
   id?: number;
   postdate?: string;
   likes?: number;
-
 }
 

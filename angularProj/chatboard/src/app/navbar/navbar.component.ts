@@ -11,14 +11,13 @@ import { ActivatedRoute, Router } from '@angular/router';
 export class NavbarComponent implements OnInit {
 
   currentUser: Profile;
-  constructor(private router: Router
-  	) { }
+  constructor(private router: Router) {}
 
   ngOnInit() {
-  	this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
+    this.currentUser = JSON.parse(localStorage.getItem('currentUser'));
   }
 
-  link(username){
+  link(username) {
     this.router.navigateByUrl('home/profile/' + username);
   }
 }

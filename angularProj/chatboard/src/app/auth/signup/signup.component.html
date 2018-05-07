@@ -1,13 +1,14 @@
-  <div class="container border rounded w-50 mt-5"> <!-- pageContainer -->
-    <div class="row pt-3 pb-3" style="background-color: #94d273"> <!-- signUp_header -->
-      <div class="col text-center">
-        <h4>Sign Up</h4>
-      </div>
-    </div> <!-- signUp_header -->
-    <!-- sign up body -->
-    <div class="container mt-3">
-      <div class="row">
-        <div class="col">
+<div class="container border rounded w-50 mt-5"> <!-- pageContainer -->
+  <div class="row pt-3 pb-3" style="background-color: #94d273"> <!-- signUp_header -->
+    <div class="col text-center">
+      <h4>Sign Up</h4>
+    </div>
+  </div> <!-- signUp_header -->
+
+  <!-- sign up body -->
+  <div class="container mt-3">
+    <div class="row">
+      <div class="col">
         <form (ngSubmit)="addUser(f)" #f="ngForm"> <!--#f="ngForm // let me access the form object in js to see the submitted data"-->
           <div class="form-group" ngModelGroup="personalData"> <!-- if wanted to add #userData="ngModelGroup" no need since i'm using red borders for missing data-->
             <input class="form-control mb-2" type="text" name="firstname" id="firstname" placeholder="First Name" required ngModel>
@@ -20,30 +21,28 @@
             <input class="form-control mb-2" type="text" name="zipcode" id="zipcode" placeholder="Zip Code" required ngModel>
           </div>
 
-      <div class="container">
-              <div class="row">
-                <div class="col">
-                  <h6>Already signed up?
+          <div class="container">
+            <div class="row">
+              <div class="col">
+                <h6>Already signed up?
                   <a class="btn btn-primary" routerLink="/login">Login</a>
                 </h6>
-                </div>
+              </div>
 
-                  <div class="col">
-                    <h6>Who are you?
-
-                        <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Missing Blanks" data-placement="top">
-                  <button data-backdrop="true" [disabled]="!f.valid" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+              <div class="col">
+                <h6>Who are you?
+                  <span class="d-inline-block" tabindex="0" data-toggle="tooltip" title="Missing Blanks" data-placement="top">
+                    <button data-backdrop="true" [disabled]="!f.valid" type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
                       Select
                     </button>
-                    </span>
-                  </h6>
-
-                  </div>
-
+                  </span>
+                </h6>
               </div>
             </div>
+          </div>
 
           <!-- Modal -->
+
           <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
               <div class="modal-content">

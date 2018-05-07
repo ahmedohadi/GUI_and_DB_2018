@@ -1,12 +1,9 @@
 <!-- The following template was based on
 https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
 
-
-
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
 <body class="container" style="width: 35%; height: 35%;">
-
   <div class="row pt-3 pb-3" style="background-color: #94d273">
     <div class="col text-center">
       <h2 class="x text-center">Log into Chatboard</h2>
@@ -19,40 +16,52 @@ https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_login_form -->
     </div>
 
     <div class="container">
-
       <div class="row">
         <div class="col">
 
-            <label for="username">
-              <b>Username</b>
+          <label for="username">
+            <b>Username</b>
+          </label>
+
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
+            <input
+            type="text"
+            class="form-control mb-2"
+            name="username"
+            placeholder="Enter Username"
+            [(ngModel)]="model.username"
+            #username="ngModel"
+            required/>
+            <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
+          </div>
+
+          <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
+            <label for="">
+              <b>Password</b>
             </label>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !username.valid }">
-              <input type="text" class="form-control mb-2" name="username" placeholder="Enter Username" [(ngModel)]="model.username" #username="ngModel"
-                required />
-              <div *ngIf="f.submitted && !username.valid" class="help-block">Username is required</div>
-            </div>
-            <div class="form-group" [ngClass]="{ 'has-error': f.submitted && !password.valid }">
-              <label for="">
-                <b>Password</b>
-              </label>
-              <input type="password" class="form-control mb-2" name="password" placeholder="Enter Password" [(ngModel)]="model.password" #password="ngModel"
-                required />
-              <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
-            </div>
-            <div class="form-group">
+
+            <input
+            type="password"
+            class="form-control mb-2"
+            name="password"
+            placeholder="Enter Password"
+            [(ngModel)]="model.password"
+            #password="ngModel"
+            required/>
+            <div *ngIf="f.submitted && !password.valid" class="help-block">Password is required</div>
+
+          </div>
+          <div class="form-group">
           </div>
         </div>
       </div>
 
       <button class="btn btn-block btn-success" type="submit" id="submit" [disabled]="loading">Login</button>
       <div class="mt-2">
-      <alert></alert>
-    </div>
+        <alert></alert>
+      </div>
       <h5 class="heading mt-2 mb-4">or</h5>
-
-
       <button class="btn btn-info btn-block" type="register" routerLink = "/signup" >Sign Up</button>
     </div>
   </form>
-
 </body>

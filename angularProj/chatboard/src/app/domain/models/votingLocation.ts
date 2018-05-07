@@ -1,5 +1,4 @@
 export class VotingLocation {
-
   locationId?: string;
   locationName?: string;
   picture?: string;
@@ -7,5 +6,4 @@ export class VotingLocation {
   address?: string;
   zipcode?: string;
   info?: string;
-
 }
